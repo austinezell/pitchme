@@ -1,5 +1,4 @@
 .env
 public/bower_components/
 node_modules/
-dist/bundle.js
-dist/bundle.map.js
+public/dist/
