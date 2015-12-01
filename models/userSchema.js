@@ -9,14 +9,16 @@ let constants = require('../config/constants');
 let UserSchema = new Mongoose.Schema({
   username: {type: String, lowercase: true, unique: true},
   email: {type: String, required: true, unique: true},
-  hash: String,
-  salt: String,
+  hash: {type: String, required: true},
+  salt: {type: String, required: true},
   score: {type: Number, default: 0},
   isDeveloper: {type: Boolean, required: true},
   associates: [{type: Mongoose.Schema.ObjectId, ref: 'User'}],
   messagesSent: [{type: Mongoose.Schema.ObjectId, ref: 'Message'}],
   messagesReceived: [{type: Mongoose.Schema.ObjectId, ref: 'Message'}],
-  pitchesWorkedOn: [{type: Mongoose.Schema.ObjectId, ref: 'Pitch'}]
+  pitchesWorkedOn: [{type: Mongoose.Schema.ObjectId, ref: 'Pitch'}],
+  aboutMe: {type: String},
+  dateJoined: {type: Date, default: new Date()}
 })
 
 UserSchema.methods.setPassword = function(password){

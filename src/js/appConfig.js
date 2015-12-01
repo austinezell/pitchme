@@ -12,7 +12,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
       controller: 'homeCtrl'
     })
 
-
   .state('users', {
       abstract: true,
       templateUrl: '/html/users/users.html'
@@ -26,6 +25,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
       url: '/register',
       templateUrl: '/html/users/register.html',
       controller: 'usersCtrl'
+    })
+    .state('users.me', {
+      url: '/me',
+      templateUrl: 'html/users/profile.html',
+      controller: 'profileCtrl'
     })
   $urlRouterProvider.otherwise('/');
 });

@@ -2,6 +2,6 @@
 
 import app from '../app.js';
 
-app.controller('homeCtrl', function($scope) {
+app.controller('homeCtrl', ['$scope', function($scope) {
 
-});
+}]);

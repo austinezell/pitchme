@@ -1,9 +1,12 @@
 import app from '../app.js';
 
-app.controller('usersCtrl', function($scope, $state, Auth) {
+app.controller('usersCtrl', ['$scope', 'Auth', function($scope, Auth) {
+  $scope.isChecked = true;
+
   $scope.login = (user) => {
     Auth.login(user);
   }
+
   $scope.register = (user) => {
     if (user.password === $scope.confirm){
       Auth.register(user)
@@ -19,4 +22,4 @@ app.controller('usersCtrl', function($scope, $state, Auth) {
       });
     }
   }
-});
+}]);

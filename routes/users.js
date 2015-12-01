@@ -16,13 +16,14 @@ router.post('/register', (req, res) =>{
   user.username= req.body.username;
   user.email= req.body.email;
   user.setPassword(req.body.password);
+  user.isDeveloper = req.body.isDeveloper;
 
   user.save( (err, data) => {
     if(err) return res.status(499).send(err)
 
     let jwt = data.generateJWT();
     res.send(jwt);
-  })
+  });
 });
 
 router.post('/login', function(req, res, next){
@@ -39,7 +40,23 @@ router.post('/login', function(req, res, next){
 
     let jwt = user.generateJWT();
     res.send(jwt)
-  })
+  });
+});
+
+router.put('/edit', jwtAuth.middleware, (req, res)=> {
+  const userId = jwtAuth.getUserId(req.headers.authorization);
+
+  User.findByIdAndUpdate(userId, req.body, (err, user)=>{
+    err ? res.status(499).send(err) : res.end()
+  });
+});
+
+router.get('/me', jwtAuth.middleware, (req, res) => {
+  const userId = jwtAuth.getUserId(req.headers.authorization);
+
+  User.findById(userId, (err, user)=>{
+    err ? res.status(499).send(err) : res.send(user);
+  });
 });
 
 module.exports = router;
