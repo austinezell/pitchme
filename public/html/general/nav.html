@@ -1,0 +1,13 @@
+<nav class="navbar navbar-inverse" ng-controller='navCtrl'>
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" ui-sref="home">Remove This Title</a>
+    </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a ng-hide="loggedIn" href="" ui-sref="users.login">Login</a></li>
+        <li><a ng-show="loggedIn" href="" ng-click="logout()">Logout</a></li>
+        <li><a ng-hide="loggedIn" href="" ui-sref="users.register">Register</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
