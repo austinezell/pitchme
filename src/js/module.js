@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('pitchMe', ['ui.router', 'ui.bootstrap']);
+import app from './app.js';
 
 app.constant('localStorageKey', 'pitchMe-token');
 

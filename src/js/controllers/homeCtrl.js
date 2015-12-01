@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('pitchMe');
+import app from '../app.js';
 
 app.controller('homeCtrl', function($scope) {
 

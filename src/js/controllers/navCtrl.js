@@ -1,5 +1,5 @@
 'use strict';
-app = angular.module('pitchMe');
+import app from '../app.js';
 
 app.controller('navCtrl', function($scope, Auth, $state) {
   $scope.logout = function (){

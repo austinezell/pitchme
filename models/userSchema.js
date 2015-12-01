@@ -14,7 +14,8 @@ let UserSchema = new Mongoose.Schema({
   score: {type: Number, default: 0},
   isDeveloper: {type: Boolean, required: true},
   associates: [{type: Mongoose.Schema.ObjectId, ref: 'User'}],
-  messages: [{type: Mongoose.Schema.ObjectId, ref: 'Message'}],
+  messagesSent: [{type: Mongoose.Schema.ObjectId, ref: 'Message'}],
+  messagesReceived: [{type: Mongoose.Schema.ObjectId, ref: 'Message'}],
   pitchesWorkedOn: [{type: Mongoose.Schema.ObjectId, ref: 'Pitch'}]
 })
 

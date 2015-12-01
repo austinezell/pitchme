@@ -1,4 +1,4 @@
-app = angular.module('pitchMe');
+import app from '../app.js';
 
 app.controller('usersCtrl', function($scope, $state, Auth) {
   $scope.login = (user) => {
@@ -16,8 +16,7 @@ app.controller('usersCtrl', function($scope, $state, Auth) {
         showConfirmButton: true,
         closeOnConfirm: true,
         timer: 2500
-      })
+      });
     }
   }
-
 });

@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('pitchMe');
+import app from '../app.js';
 
 app.service('Auth', ['$http', '$window', "localStorageKey", '$rootScope', '$state', function($http, $window, localStorageKey, $rootScope, $state){
 
