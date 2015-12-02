@@ -1,15 +1,19 @@
 import app from '../app.js';
 
-app.controller('usersCtrl', ['$scope', 'Auth', function($scope, Auth) {
+app.controller('usersCtrl', ['$scope', 'Auth', "User", function($scope, Auth, User) {
   $scope.isChecked = true;
 
   $scope.login = (user) => {
-    Auth.login(user);
+    Auth.login(user).then( () => {
+      User.getCurrentUserInfo()
+    })
   }
 
   $scope.register = (user) => {
     if (user.password === $scope.confirm){
-      Auth.register(user)
+      Auth.register(user).then( ()=>{
+        User.getCurrentUserInfo()
+      })
     }
     else {
       swal({

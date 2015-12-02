@@ -9,4 +9,10 @@ app.service('Pitch', ["$state", "$http", function($state, $http){
       console.log(data);
     })
   }
+  this.getAll = () => {
+    return $http.get('/pitches')
+    .success( data => {
+      console.log(data);
+    })
+  }
 }])

@@ -1,8 +1,20 @@
 <h1>Pitch Me</h1>
 
 <div class="container">
-  <h4>Pitches:</h4>
+  <h2>Pitches:</h2>
   <div class='col-md-6 col-lg-6 col-sm-6 col-xs-12 about'>
-    
+    <ul>
+      <li ng-repeat='pitch in pitches track by $index'>
+        <h3>{{pitch.title}}</h3>
+        <div>Created by:
+          <a ng-href='#/profile/{{pitch.pitcher.username}}'>
+            {{pitch.pitcher.username}}
+          </a>
+        </div>
+        <div>
+          tags: <span ng-repeat='tags in pitch.tags track by $index'>&bull;{{tags}} </span>
+        </div>
+      </li>
+    </ul>
   </div>
 </div>

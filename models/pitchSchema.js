@@ -5,7 +5,7 @@ let Mongoose = require('mongoose')
 let PitchSchema = new Mongoose.Schema({
   title: {type: String, required: true},
   description: {type: String, required: true},
-  technologiesDesired: [{type: String}],
+  tags: [{type: String}],
   score: {type: Number, default: 0},
   pitcher: {type: Mongoose.Schema.ObjectId, ref: "User"},
   developers: [{type: Mongoose.Schema.ObjectId, ref: "User"}],

@@ -21,8 +21,8 @@ router.post('/register', (req, res) =>{
   user.save( (err, data) => {
     if(err) return res.status(499).send(err)
 
-    let jwt = data.generateJWT();
-    res.send(jwt);
+    const jwt = data.generateJWT();
+    res.send({jwt, user});
   });
 });
 
@@ -38,8 +38,8 @@ router.post('/login', function(req, res, next){
       return res.status(401).send('Invalid login credentials')
     }
 
-    let jwt = user.generateJWT();
-    res.send(jwt)
+    const jwt = user.generateJWT();
+    res.send({jwt, user});
   });
 });
 

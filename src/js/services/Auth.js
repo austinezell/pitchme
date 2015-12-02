@@ -32,11 +32,11 @@ app.service('Auth', ['$http', '$window', "localStorageKey", '$rootScope', '$stat
   };
 
   this.register = (user) =>{
-    $http.post('/users/register', user)
-    .then( res => {
-      this.saveToken(res.data);
-      $rootScope.loggedIn = this.isLoggedIn()
-      $state.go('me')
+    return $http.post('/users/register', user)
+    .success( data => {
+      this.saveToken(data.jwt);
+      $rootScope.loggedIn = this.isLoggedIn();
+      $state.go('me');
     })
     .catch(err => {
       console.log(err);
@@ -44,9 +44,9 @@ app.service('Auth', ['$http', '$window', "localStorageKey", '$rootScope', '$stat
   };
 
   this.login = (user) =>{
-    $http.post('/users/login', user)
-    .then(res => {
-      this.saveToken(res.data);
+    return $http.post('/users/login', user)
+    .success(data => {
+      this.saveToken(data.jwt);
       $rootScope.loggedIn = this.isLoggedIn();
       $state.go('me');
     }).catch(err => {
@@ -57,6 +57,7 @@ app.service('Auth', ['$http', '$window', "localStorageKey", '$rootScope', '$stat
   this.logOut = () =>{
     $window.localStorage.removeItem(localStorageKey);
     $rootScope.loggedIn = this.isLoggedIn();
+    $rootScope.currentUser = null;
     $state.go('home')
   };
 
