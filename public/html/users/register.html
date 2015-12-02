@@ -1,5 +1,5 @@
 <h1>Register</h1>
-<div class="col-sm-4">
+<div class="col-sm-6">
   ​<form ng-submit='register(user)'>
     <div class="form-group">
       <label for='username'>
@@ -26,12 +26,11 @@
       <input required type="password" ng-model='confirm'>
     </div>
     <div class="form-group">
-      <p for='developer'>
-        Click here if you are a developer.
-      </p><br>
+
       <input type="radio" ng-value='isChecked' ng-model='user.isDeveloper'>
+      <label for='developer'>Click here if you are a developer.</label>
     </div>
-    <div class='form-group'>
+    <div class="form-group">
       <button type='submit' class='btn btn-primary'>Register</button>
     </div>
   </form>

@@ -8,28 +8,32 @@ app.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('home', {
       url: '/',
-      templateUrl: '/html/general/home.html',
+      templateUrl: './html/general/home.html',
       controller: 'homeCtrl'
     })
-
-  .state('users', {
-      abstract: true,
-      templateUrl: '/html/users/users.html'
+    .state('info', {
+      url: '/info',
+      templateUrl: "./html/general/home.html"
     })
-    .state('users.login', {
+    .state('login', {
       url: '/login',
-      templateUrl: '/html/users/login.html',
+      templateUrl: './html/users/login.html',
       controller: 'usersCtrl'
     })
-    .state('users.register', {
+    .state('register', {
       url: '/register',
-      templateUrl: '/html/users/register.html',
+      templateUrl: './html/users/register.html',
       controller: 'usersCtrl'
     })
-    .state('users.me', {
+    .state('me', {
       url: '/me',
       templateUrl: 'html/users/profile.html',
       controller: 'profileCtrl'
+    })
+    .state('addPitch', {
+      url: '/addPitch',
+      templateUrl: "html/pitches/addPitch.html",
+      controller: 'addPitchCtrl'
     })
   $urlRouterProvider.otherwise('/');
 });

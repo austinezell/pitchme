@@ -2,7 +2,7 @@
 
 let Mongoose = require('mongoose')
 
-let pitchSchema = new Mongoose.Schema({
+let PitchSchema = new Mongoose.Schema({
   title: {type: String, required: true},
   description: {type: String, required: true},
   technologiesDesired: [{type: String}],

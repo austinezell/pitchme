@@ -1,9 +1,9 @@
 'use strict'
 
 let jwt = require('express-jwt');
-let constants = require('./constants')
-let jwtAuth = {}
-let atob = require('atob')
+let constants = require('./constants');
+let jwtAuth = {};
+let atob = require('atob');
 
 jwtAuth.middleware = jwt({secret: constants.SECRET, userProperty: 'payload'});
 

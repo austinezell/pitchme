@@ -1,23 +1,19 @@
 <h1>Login</h1>
 <div class="col-sm-4">
   ​<form ng-submit='login(user)'>
-    <div align='left' class='row'>
-      <div class="col-sm-12">
+    <div class="form-group">
+      <label for='username'>
         Username:
-      </div>
-      <div align='right' class="col-sm-12">
-        <input required type="text" ng-model='user.username'>
-      </div>
-      <div class="col-sm-12">
-        Password:
-      </div>
-      <div align='right' class="col-sm-12">
-        <input required type="password" ng-model='user.password'>
-      </div>
+      </label><br>
+      <input required type="text" ng-model='user.username'>
     </div>
-    <div class="row">
-      <div align='right' class='col-sm-12'>
-        <button class='btn btn-sm btn-info'>Login</button>
+    <div class="form-group">
+      <label for='password'>
+        Pasword:
+      </label><br>
+      <input required type="text" ng-model='user.password'>
+    </div>
+        <button class='btn btn-primary'>Login</button>
       </div>
     </div>
   </form>
