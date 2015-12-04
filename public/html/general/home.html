@@ -6,6 +6,9 @@
     <ul>
       <li ng-repeat='pitch in pitches track by $index'>
         <h3>{{pitch.title}}</h3>
+        <div>
+          <a ng-href="#/pitch/{{pitch._id}}">Click here to read more</a>
+        </div>
         <div>Created by:
           <a ng-href='#/profile/{{pitch.pitcher.username}}'>
             {{pitch.pitcher.username}}

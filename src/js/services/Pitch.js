@@ -9,7 +9,16 @@ app.service('Pitch', ["$state", "$http", function($state, $http){
       console.log(data);
     })
   }
+
   this.getAll = () => {
     return $http.get('/pitches')
+  }
+
+  this.getOneById = (id) =>{
+    return $http.get(`/pitches/one/${id}`)
+  }
+
+  this.request = (pitchId, pitcherId) => {
+    $http.post('/pitches/request', {pitchId, pitcherId})
   }
 }])

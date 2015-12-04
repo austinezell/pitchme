@@ -41,7 +41,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
       controller: 'addPitchCtrl'
     })
     .state('pitch', {
-      url: '/pitch',
+      url: '/pitch/:id',
       templateUrl: "html/pitches/viewPitch.html",
       controller: 'viewPitchCtrl'
     })
