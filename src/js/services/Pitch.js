@@ -11,8 +11,5 @@ app.service('Pitch', ["$state", "$http", function($state, $http){
   }
   this.getAll = () => {
     return $http.get('/pitches')
-    .success( data => {
-      console.log(data);
-    })
   }
 }])

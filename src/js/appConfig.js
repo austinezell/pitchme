@@ -35,10 +35,16 @@ app.config(function($stateProvider, $urlRouterProvider) {
     //   templateUrl: 'html/users/profile.html',
     //   controller
     // })
-    .state('addPitch', {
+    .state('add_pitch', {
       url: '/addPitch',
       templateUrl: "html/pitches/addPitch.html",
       controller: 'addPitchCtrl'
     })
+    .state('pitch', {
+      url: '/pitch',
+      templateUrl: "html/pitches/viewPitch.html",
+      controller: 'viewPitchCtrl'
+    })
+
   $urlRouterProvider.otherwise('/');
 });

@@ -1,0 +1,11 @@
+verticalLine {
+  height: 100%;
+  border-right: 3px;
+}
+
+.verticalLine{
+  border-left:medium grey solid;
+  min-height: 400px;
+  height:100%;
+  margin-left: 5px;
+}
