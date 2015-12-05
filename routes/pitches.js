@@ -3,6 +3,7 @@
 let router = require('express').Router();
 const jwtAuth = require('../config/auth.js');
 const Pitch = require('../models/pitchSchema.js');
+const Message = require('../models/messageSchema.js');
 
 router.get('/', (req, res) => {
   Pitch.find({}).populate('pitcher').exec( (err, pitches) => {
@@ -20,25 +21,61 @@ router.post('/create', jwtAuth.middleware, (req, res) => {
   const userId = jwtAuth.getUserId(req.headers.authorization);
   req.body.pitcher = userId;
 
-    if(/\W/.test(req.body.tags)){
-      req.body.tags = req.body.tags.split(/\W/)
-      let tempArr = [];
-      req.body.tags.forEach(tag=>{
-        if(tempArr.indexOf(tag) === -1 && tag){
-          tempArr.push(tag);
-        }
-      })
-      req.body.tags = tempArr;
-    }
+  if(/\W/.test(req.body.tags)){
+    req.body.tags = req.body.tags.split(/\W/)
+    let tempArr = [];
+    req.body.tags.forEach(tag=>{
+      if(tempArr.indexOf(tag) === -1 && tag){
+        tempArr.push(tag);
+      }
+    })
+    req.body.tags = tempArr;
+  }
 
   Pitch.create(req.body, (err, pitch)=> {
     err ? res.status(499).send(err) : res.send(pitch);
   })
 });
 
+
+}
+
+
+
+
+
 router.post('/request', jwtAuth.middleware, (req, body) =>{
   const userId = jwtAuth.getUserId(req.headers.authorization);
+  User.findById(userId, (err, sender)=>{
+    if (err) return res.status(499).send(err)
 
+    User.findById(req.body.pitcherId, (err, recipient) =>{
+      if (err) return res.status(499).send(err)
+
+      Pitch.findById(req.body.pitchId, (err, pitch)=>{
+        if (err) return res.status(499).send(err)
+
+        const body = `Hi, ${recipient.username},\
+        \n${sender.username} would \
+        like to be added to your project ${pitch.title}. \
+        Click the here to accept, or click here to refuse.`;
+        const subject = "New request!";
+
+        let messageObject = {
+          subject, body, recipient: recipient._id, sender: sender._id
+        }
+
+        Message.create(messageObject, (err, message)=>{
+          if (err) return res.status(499).send(err)
+
+          sender.messagesSent.push(message._id);
+          recipient.messagesReceived.push(message._id);
+
+          sender.save
+        })
+      })
+    })
+  })
 });
 
 

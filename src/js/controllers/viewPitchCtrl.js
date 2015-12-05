@@ -9,7 +9,7 @@ app.controller('viewPitchCtrl', ["$scope", 'Pitch', "$stateParams", function($sc
   })
 
   $scope.request = () =>{
-    Pitch.request($scope.pitch._id)
+    Pitch.request($scope.pitch._id, $scope.pitch.pitcher._id)
   }
 
 

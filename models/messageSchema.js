@@ -3,7 +3,7 @@
 const Mongoose = require('mongoose');
 
 const MessageSchema = new Mongoose.Schema({
-  title: {type: String, default: 'No title'},
+  subject: {type: String, default: 'No subject'},
   body: {type: String, required: true},
   sender: {type: Mongoose.Schema.ObjectId, ref: "User"},
   recipient: {type: Mongoose.Schema.ObjectId, ref: "User"},

@@ -3,6 +3,10 @@ verticalLine {
   border-right: 3px;
 }
 
+body{
+  background-color: ghostwhite;
+}
+
 .verticalLine{
   border-left:medium grey solid;
   min-height: 400px;
