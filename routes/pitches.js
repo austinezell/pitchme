@@ -5,7 +5,8 @@ const jwtAuth = require('../config/auth.js');
 const Pitch = require('../models/pitchSchema.js');
 const Message = require('../models/messageSchema.js');
 const User = require('../models/userSchema.js');
-const Comment = require('../models/commentSchema.js')
+const Comment = require('../models/commentSchema.js');
+// const deepPopulate = require('mongoose-deep-populate')(require('mongoose'));
 
 router.get('/', (req, res) => {
   Pitch.find({}).populate('pitcher').exec( (err, pitches) => {
@@ -14,7 +15,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/one/:id', (req, res)=> {
-  Pitch.findById(req.params.id).populate('pitcher').exec( (err, pitch)=>{
+  Pitch.findById(req.params.id).deepPopulate(['pitcher', "comments", "comments.commenter"]).exec( (err, pitch)=>{
     err ? res.status(499).send(err) : res.send(pitch);
   })
 });
@@ -42,7 +43,7 @@ router.post('/create', jwtAuth.middleware, (req, res) => {
 
 router.post('/addComment/', jwtAuth.middleware, (req,res)=>{
   const userId = jwtAuth.getUserId(req.headers.authorization);
-  console.log(req.body);
+
   let commentObject = {
     commenter: userId,
     parentPitch: req.body.pitchId,
@@ -50,13 +51,16 @@ router.post('/addComment/', jwtAuth.middleware, (req,res)=>{
   };
 
   Comment.create(commentObject, (err, comment) =>{
-    if (err) res.status(499).send(err)
+    if (err) res.status(499).send(err);
 
     Pitch.findById(req.body.pitchId, (err, pitch)=>{
       pitch.comments.push(comment);
 
-      pitch.save(err=>{
-        err ? res.status(499).send(err) : res.send(pitch);
+      pitch.save((err)=>{
+        if (err) res.status(499).send(err);
+        pitch.deepPopulate('pitcher comments comments.commenter', (err)=>{
+          err ? res.status(499).send(err) : res.send(pitch);
+        })
       })
     })
   })
@@ -65,7 +69,6 @@ router.post('/addComment/', jwtAuth.middleware, (req,res)=>{
 
 router.post('/request', jwtAuth.middleware, (req, res) =>{
   const userId = jwtAuth.getUserId(req.headers.authorization);
-
 
   User.findById(userId, (err, sender)=>{
     if (err) return res.status(499).send(err)

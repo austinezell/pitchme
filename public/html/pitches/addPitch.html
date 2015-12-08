@@ -8,7 +8,7 @@
     </div>
     <div class="form-group">
       <label for="description">Add a description. Be as thorough as possible!</label>
-      <textarea required name="description" ng-required id="description" cols="30" rows="10" ng-minlenghth="150" ng-model='pitch.description'>
+      <textarea required name="description" ng-required id="description" cols="30" rows="10" ng-minlengthh="150" ng-model='pitch.description'>
       </textarea>
       <p ng-class="{hidden: pitch.description.length >= 150}">Please enter {{150-pitch.description.length}} more characters</p>
     </div>

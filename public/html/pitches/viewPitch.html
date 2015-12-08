@@ -23,8 +23,10 @@
           </div>
         </form>
         </div>
-        <div ng-repeat>
-          <h3>
+        <div ng-repeat="comment in pitch.comments">
+
+          <h3>{{comment.commenter.username}} said:</h3>
+          <p>{{comment.body}}</p>
         </div>
       </div>
     </div>

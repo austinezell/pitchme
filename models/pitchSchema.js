@@ -1,8 +1,9 @@
 "use strict";
 
-let Mongoose = require('mongoose')
+const Mongoose = require('mongoose');
+const deepPopulate = require('mongoose-deep-populate')(Mongoose);
 
-let PitchSchema = new Mongoose.Schema({
+const PitchSchema = new Mongoose.Schema({
   title: {type: String, required: true},
   description: {type: String, required: true},
   tags: [{type: String}],
@@ -15,5 +16,13 @@ let PitchSchema = new Mongoose.Schema({
   requestedUsers: [{type: Mongoose.Schema.ObjectId, ref: "User"}],
   dateCompleted: {type: Date}
 });
+
+PitchSchema.plugin(deepPopulate, {
+  whitelist: [
+    "pitcher",
+    "comments",
+    "comments.commenter"
+  ]
+})
 
 module.exports = Mongoose.model('Pitch', PitchSchema)

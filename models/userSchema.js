@@ -1,12 +1,12 @@
 'use strict'
 
-let Mongoose = require('mongoose');
-let crypto = require('crypto');
-let jwt = require('jsonwebtoken');
-let constants = require('../config/constants');
+const Mongoose = require('mongoose');
+const crypto = require('crypto');
+const jwt = require('jsonwebtoken');
+const constants = require('../config/constants');
 
 
-let UserSchema = new Mongoose.Schema({
+const UserSchema = new Mongoose.Schema({
   username: {type: String, lowercase: true, unique: true},
   email: {type: String, required: true, unique: true},
   hash: {type: String, required: true},
