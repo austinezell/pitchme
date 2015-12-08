@@ -6,7 +6,6 @@ app.service('Pitch', ["$state", "$http", function($state, $http){
   this.createPitch = (pitch) => {
     $http.post('/pitches/create', pitch)
     .then( (data, err)=>{
-      console.log(data);
     })
   }
 
@@ -22,10 +21,7 @@ app.service('Pitch', ["$state", "$http", function($state, $http){
     return $http.post('/pitches/request', {pitchId, pitcherId})
   }
 
-  this.addComment = (comment, pitch) =>{
-    $http.post('/pitches/addComment', {comment, pitch})
-    .then(data=>{
-      
-    })
+  this.addComment = (comment, pitchId) =>{
+    return $http.post('/pitches/addComment', {comment, pitchId})
   }
 }])

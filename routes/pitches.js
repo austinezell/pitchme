@@ -42,16 +42,22 @@ router.post('/create', jwtAuth.middleware, (req, res) => {
 
 router.post('/addComment/', jwtAuth.middleware, (req,res)=>{
   const userId = jwtAuth.getUserId(req.headers.authorization);
-
+  console.log(req.body);
   let commentObject = {
     commenter: userId,
     parentPitch: req.body.pitchId,
     body: req.body.comment
   };
-  Pitch.findById(req.body.pitchId)
+
   Comment.create(commentObject, (err, comment) =>{
-    pitch.save((err, pitch)=>{
-      err ? res.status(499).send(err) : res.send(pitch);
+    if (err) res.status(499).send(err)
+
+    Pitch.findById(req.body.pitchId, (err, pitch)=>{
+      pitch.comments.push(comment);
+
+      pitch.save(err=>{
+        err ? res.status(499).send(err) : res.send(pitch);
+      })
     })
   })
 })

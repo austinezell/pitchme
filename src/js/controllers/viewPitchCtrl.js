@@ -11,8 +11,11 @@ app.controller('viewPitchCtrl', ["$scope", 'Pitch', "$stateParams", "$rootScope"
 
 
   $scope.addComment = (comment) => {
-    console.log($scope.pitch);
-    Pitch.addComment(comment, $scope.pitch)
+    Pitch.addComment(comment, $scope.pitch._id)
+    .then(res => {
+      $scope.pitch = res.data
+      $scope.comment = ""
+    })
   }
 
   $scope.request = () =>{
