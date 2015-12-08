@@ -19,6 +19,13 @@ app.service('Pitch', ["$state", "$http", function($state, $http){
   }
 
   this.request = (pitchId, pitcherId) => {
-    $http.post('/pitches/request', {pitchId, pitcherId})
+    return $http.post('/pitches/request', {pitchId, pitcherId})
+  }
+
+  this.addComment = (comment, pitch) =>{
+    $http.post('/pitches/addComment', {comment, pitch})
+    .then(data=>{
+      
+    })
   }
 }])

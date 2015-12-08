@@ -4,6 +4,8 @@ let router = require('express').Router();
 const jwtAuth = require('../config/auth.js');
 const Pitch = require('../models/pitchSchema.js');
 const Message = require('../models/messageSchema.js');
+const User = require('../models/userSchema.js');
+const Comment = require('../models/commentSchema.js')
 
 router.get('/', (req, res) => {
   Pitch.find({}).populate('pitcher').exec( (err, pitches) => {
@@ -38,14 +40,27 @@ router.post('/create', jwtAuth.middleware, (req, res) => {
 });
 
 
-}
-
-
-
-
-
-router.post('/request', jwtAuth.middleware, (req, body) =>{
+router.post('/addComment/', jwtAuth.middleware, (req,res)=>{
   const userId = jwtAuth.getUserId(req.headers.authorization);
+
+  let commentObject = {
+    commenter: userId,
+    parentPitch: req.body.pitchId,
+    body: req.body.comment
+  };
+  Pitch.findById(req.body.pitchId)
+  Comment.create(commentObject, (err, comment) =>{
+    pitch.save((err, pitch)=>{
+      err ? res.status(499).send(err) : res.send(pitch);
+    })
+  })
+})
+
+
+router.post('/request', jwtAuth.middleware, (req, res) =>{
+  const userId = jwtAuth.getUserId(req.headers.authorization);
+
+
   User.findById(userId, (err, sender)=>{
     if (err) return res.status(499).send(err)
 
@@ -55,10 +70,19 @@ router.post('/request', jwtAuth.middleware, (req, body) =>{
       Pitch.findById(req.body.pitchId, (err, pitch)=>{
         if (err) return res.status(499).send(err)
 
+        if(pitch.requestedUsers.indexOf(sender._id) !== -1){
+          return res.status(450).send("You've already requested to be put on this project!")
+        }
+
+        pitch.requestedUsers.push(sender._id);
+        pitch.save(err=>{
+          if (err) return res.status(499).send(err)
+        })
+
         const body = `Hi, ${recipient.username},\
         \n${sender.username} would \
         like to be added to your project ${pitch.title}. \
-        Click the here to accept, or click here to refuse.`;
+        Click here to accept, or click here to refuse.`;
         const subject = "New request!";
 
         let messageObject = {
@@ -70,8 +94,16 @@ router.post('/request', jwtAuth.middleware, (req, body) =>{
 
           sender.messagesSent.push(message._id);
           recipient.messagesReceived.push(message._id);
+          let errs = [];
+          sender.save(err=>{
+            if (err) return res.status(499).send(err)
 
-          sender.save
+          })
+          recipient.save(err=>{
+            if (err) return res.status(499).send(err)
+
+            res.send("Request Sent")
+          })
         })
       })
     })

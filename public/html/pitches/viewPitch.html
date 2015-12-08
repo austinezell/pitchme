@@ -15,7 +15,7 @@
 
         <form ng-submit="addComment(comment)">
           <div class="form-group">
-            <textarea name="" ng-model="comment" cols="30" rows="5">
+            <textarea name="comment" required ng-model="comment" cols="30" rows="5">
             </textarea>
           </div>
           <div class="form-group pull-right">
@@ -37,10 +37,13 @@
         No one is working on this project.
       </p>
       <hr/>
-      <h4>
+      <h4 ng-if="!requested">
         Request to be put on the projejct!
       </h4>
-      <button class='btn btn-success pull-right' ng-click='request()'>Request</button>
+      <h4 ng-if="requested">
+        You've already requested this project!
+      </h4>
+      <button class='btn btn-success pull-right' ng-disabled='requested' ng-click='request()'>Request</button>
 
       <hr>
     </div>

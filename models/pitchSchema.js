@@ -11,7 +11,8 @@ let PitchSchema = new Mongoose.Schema({
   developers: [{type: Mongoose.Schema.ObjectId, ref: "User"}],
   completed: {type: Boolean, default: false},
   datePitched: {type: Date, default: new Date()},
-  comments: {type: Mongoose.Schema.ObjectId, ref: "Comment"},
+  comments: [{type: Mongoose.Schema.ObjectId, ref: "Comment"}],
+  requestedUsers: [{type: Mongoose.Schema.ObjectId, ref: "User"}],
   dateCompleted: {type: Date}
 });
 

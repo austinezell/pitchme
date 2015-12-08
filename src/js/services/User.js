@@ -11,7 +11,7 @@ app.service('User', ['$http', 'Auth', '$rootScope', function($http, Auth, $rootS
         if (err) console.log(err);
         $rootScope.currentUser = data.data;
         $rootScope.currentUser.unreadMessages = $rootScope.currentUser.messagesReceived.filter(message => {
-          return message.isRead;
+          return !message.isRead;
         })
       })
     }
