@@ -8,8 +8,7 @@
   "scripts": {
     "test": "mocha test/*",
     "start": "node ./bin/www",
-    "postinstall": "bower install",
-    "setup": "rm -rf node_modules public/bower_components && touch .env && npm i && bower i"
+    "postinstall": "bower install"
   },
   "dependencies": {
     "atob": "^1.1.2",

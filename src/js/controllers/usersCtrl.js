@@ -3,7 +3,11 @@ import app from '../app.js';
 app.controller('usersCtrl', ['$scope', 'Auth', "User", function($scope, Auth, User) {
   $scope.isChecked = true;
 
-  $scope.login = (user) => {
+  $scope.login = () => {
+    let user = {
+      username: $scope.username,
+      password: $scope.password
+    };
     Auth.login(user).then( () => {
       User.getCurrentUserInfo()
     })

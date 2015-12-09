@@ -18,6 +18,10 @@ body{
   display: none;
 }
 
+.profileIntro {
+  display: inline-block;
+}
+
 .profileImage {
   width: 150px;
   height: 150px;

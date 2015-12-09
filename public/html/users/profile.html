@@ -1,16 +1,23 @@
-<div class="container">
-  <div class="col-md-6 col-sm-6 col-lg-6 col-xs-6">
-    <h1>{{profileUser.username}}</h1>
-      <div class='imgContainer profileIntro'>
-        <div class="hoverText" data-keyboard="true" data-toggle="modal" data-target="#imageModal">
-          <span class="glyphicon glyphicon-zoom-in"></span>
-        </div>
-        <img class="profileImage" src="{{profileUser.profileImage}}"></img>
-      </div>
-      <ng-include src="'./html/users/modals/imageModal.html'"></ng-include>
-    <div class="profileScore profileIntro">
-      {{profileUser.score}}
+<div class="col-md-6 col-sm-6 col-lg-6 col-xs-12 page-right">
+  <h1>{{profileUser.username}}</h1>
+  <div class='imgContainer profileIntro'>
+    <div class="hoverText" data-keyboard="true" data-toggle="modal" data-target="#imageModal">
+      <span class="glyphicon glyphicon-zoom-in"></span>
     </div>
+    <img class="profileImage" src="{{profileUser.profileImage}}"></img>
   </div>
-
+  <ng-include src="'./html/users/modals/imageModal.html'"></ng-include>
+  <div class="profileScore profileIntro">
+    <h2>Score: </h2>
+    <h3>{{profileUser.score}}</h3>
+  </div>
+</div>
+<div class="col-md-6 col-sm-6 col-lg-6 col-xs-12 page-left">
+  <div>
+    Joined on {{profileUser.dateJoined}}
+  </div>
+  <div class="jumbotron">
+    <h3>About this user:</h3>
+    {{profileUser.aboutMe}}
+  </div>
 </div>
