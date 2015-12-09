@@ -7,6 +7,7 @@ import './controllers/navCtrl.js';
 import './controllers/usersCtrl.js';
 import './controllers/profileCtrl.js';
 import './controllers/pitchCtrl.js';
+import './controllers/currentUserCtrl';
 
 import './services/Pitch.js';
 import './services/User.js';

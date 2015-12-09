@@ -13,21 +13,21 @@
         </div>
         <div>
 
-        <form ng-submit="addComment(comment)">
-          <div class="form-group">
-            <textarea name="comment" required ng-model="comment" cols="30" rows="5">
-            </textarea>
-          </div>
-          <div class="form-group pull-right">
-            <input class='btn btn-info' type="submit"/>
-          </div>
-        </form>
+          <form ng-submit="addComment(comment)">
+            <div class="form-group">
+              <textarea name="comment" required ng-model="comment" cols="30" rows="5">
+              </textarea>
+            </div>
+            <div class="form-group pull-right">
+              <input class='btn btn-info' type="submit"/>
+            </div>
+          </form>
         </div>
-        <div ng-repeat="comment in pitch.comments">
+      </div>
+      <div ng-repeat="comment in pitch.comments">
 
-          <h3>{{comment.commenter.username}} said:</h3>
-          <p>{{comment.body}}</p>
-        </div>
+        <h3>{{comment.commenter.username}} said:</h3>
+        <p>{{comment.body}}</p>
       </div>
     </div>
 

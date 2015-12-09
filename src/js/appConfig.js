@@ -13,7 +13,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     })
     .state('info', {
       url: '/info',
-      templateUrl: "./html/general/home.html"
+      templateUrl: "./html/general/about.html"
     })
     .state('login', {
       url: '/login',
@@ -28,7 +28,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     .state('me', {
       url: '/me',
       templateUrl: 'html/users/profile.html',
-      controller: 'profileCtrl'
+      controller: 'currentUserCtrl'
     })
     // .state('profile', {
     //   url: "/profile/:username",

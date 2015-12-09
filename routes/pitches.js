@@ -6,7 +6,6 @@ const Pitch = require('../models/pitchSchema.js');
 const Message = require('../models/messageSchema.js');
 const User = require('../models/userSchema.js');
 const Comment = require('../models/commentSchema.js');
-// const deepPopulate = require('mongoose-deep-populate')(require('mongoose'));
 
 router.get('/', (req, res) => {
   Pitch.find({}).populate('pitcher').exec( (err, pitches) => {
@@ -58,7 +57,7 @@ router.post('/addComment/', jwtAuth.middleware, (req,res)=>{
 
       pitch.save((err)=>{
         if (err) res.status(499).send(err);
-        pitch.deepPopulate('pitcher comments comments.commenter', (err)=>{
+        pitch.deepPopulate('tester comments comments.commenter', (err)=>{
           err ? res.status(499).send(err) : res.send(pitch);
         })
       })

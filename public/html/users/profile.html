@@ -1,1 +1,16 @@
-<h1>{{currentUser.username}}</h1>
+<div class="container">
+  <div class="col-md-6 col-sm-6 col-lg-6 col-xs-6">
+    <h1>{{profileUser.username}}</h1>
+      <div class='imgContainer profileIntro'>
+        <div class="hoverText" data-keyboard="true" data-toggle="modal" data-target="#imageModal">
+          <span class="glyphicon glyphicon-zoom-in"></span>
+        </div>
+        <img class="profileImage" src="{{profileUser.profileImage}}"></img>
+      </div>
+      <ng-include src="'./html/users/modals/imageModal.html'"></ng-include>
+    <div class="profileScore profileIntro">
+      {{profileUser.score}}
+    </div>
+  </div>
+
+</div>
