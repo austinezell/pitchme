@@ -1,5 +1,4 @@
 'use strict';
-
 import app from '../app.js';
 
 app.service('User', ['$http', 'Auth', '$rootScope', function($http, Auth, $rootScope){
@@ -9,9 +8,7 @@ app.service('User', ['$http', 'Auth', '$rootScope', function($http, Auth, $rootS
       return $http.get('/users/me')
       .success(data => {
         $rootScope.currentUser = data;
-        $rootScope.currentUser.unreadMessages = $rootScope.currentUser.messagesReceived.filter(message => {
-          return !message.isRead;
-        })
+        console.log(data);
       }).error(err =>{
         console.log(err);
       })

@@ -54,9 +54,23 @@ router.put('/edit', jwtAuth.middleware, (req, res)=> {
 router.get('/me', jwtAuth.middleware, (req, res) => {
   const userId = jwtAuth.getUserId(req.headers.authorization);
 
-  User.findById(userId, (err, user)=>{
+  User.findById(userId).populate("messagesReceived").exec( (err, user)=>{
+    if (err) return res.status(499).send(err)
+    user.messagesReceived = user.messagesReceived.filter(message => !message.isRead);
+
+
+    res.send(user);
+  })
+});
+
+router.get('/me/archive', jwtAuth.middleware, (req, res) => {
+  const userId = jwtAuth.getUserId(req.headers.authorization);
+
+  User.findById(userId).populate("messagesReceived").exec( (err, user)=>{
+    user.messagesReceived = user.messagesReceived.filter(message => message.isRead)
     err ? res.status(499).send(err) : res.send(user);
   });
 });
+
 
 module.exports = router;

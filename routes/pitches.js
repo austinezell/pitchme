@@ -35,7 +35,13 @@ router.post('/create', jwtAuth.middleware, (req, res) => {
   }
 
   Pitch.create(req.body, (err, pitch)=> {
-    err ? res.status(499).send(err) : res.send(pitch);
+    if (err) return res.status(499).send(err);
+    User.findById(userId, (err, user) => {
+      user.pitches.push(pitch._id);
+      user.save(err=>{
+        err ? res.status(499).send(err) : res.send(pitch);
+      })
+    })
   })
 });
 
@@ -70,21 +76,18 @@ router.post('/request', jwtAuth.middleware, (req, res) =>{
   const userId = jwtAuth.getUserId(req.headers.authorization);
 
   User.findById(userId, (err, sender)=>{
-    if (err) return res.status(499).send(err)
-
+    if (err) return res.status(499).send(err);
     User.findById(req.body.pitcherId, (err, recipient) =>{
-      if (err) return res.status(499).send(err)
-
+      if (err) return res.status(499).send(err);
       Pitch.findById(req.body.pitchId, (err, pitch)=>{
-        if (err) return res.status(499).send(err)
+        if (err) return res.status(499).send(err);
 
         if(pitch.requestedUsers.indexOf(sender._id) !== -1){
           return res.status(450).send("You've already requested to be put on this project!")
         }
-
         pitch.requestedUsers.push(sender._id);
         pitch.save(err=>{
-          if (err) return res.status(499).send(err)
+          if (err) return res.status(499).send(err);
         })
 
         const body = `Hi, ${recipient.username},\
@@ -98,19 +101,19 @@ router.post('/request', jwtAuth.middleware, (req, res) =>{
         }
 
         Message.create(messageObject, (err, message)=>{
-          if (err) return res.status(499).send(err)
+          if (err) return res.status(499).send(err);
 
           sender.messagesSent.push(message._id);
           recipient.messagesReceived.push(message._id);
           let errs = [];
           sender.save(err=>{
-            if (err) return res.status(499).send(err)
+            if (err) return res.status(499).send(err);
 
           })
           recipient.save(err=>{
-            if (err) return res.status(499).send(err)
+            if (err) return res.status(499).send(err);
 
-            res.send("Request Sent")
+            res.send("Request Sent");
           })
         })
       })

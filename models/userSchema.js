@@ -13,6 +13,7 @@ const UserSchema = new Mongoose.Schema({
   salt: {type: String, required: true},
   score: {type: Number, default: 0},
   isDeveloper: {type: Boolean, default: false},
+  pitches: [{type: Mongoose.Schema.ObjectId, ref: 'Pitch'}],
   associates: [{type: Mongoose.Schema.ObjectId, ref: 'User'}],
   messagesSent: [{type: Mongoose.Schema.ObjectId, ref: 'Message'}],
   messagesReceived: [{type: Mongoose.Schema.ObjectId, ref: 'Message'}],
@@ -44,7 +45,7 @@ UserSchema.methods.generateJWT = function() {
     _id: this._id,
     username: this.username,
     exp: parseInt(exp.getTime() / 1000),
-  }, (constants.SECRET));
+  }, (constants.JWT_SECRET));
 };
 
 module.exports = Mongoose.model('User', UserSchema)
