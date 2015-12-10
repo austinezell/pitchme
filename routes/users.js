@@ -43,21 +43,20 @@ router.post('/login', function(req, res, next){
   });
 });
 
-router.put('/edit', jwtAuth.middleware, (req, res)=> {
+router.put('/update', jwtAuth.middleware, (req, res)=> {
   const userId = jwtAuth.getUserId(req.headers.authorization);
 
-  User.findByIdAndUpdate(userId, req.body, (err, user)=>{
-    err ? res.status(499).send(err) : res.end()
+  User.findByIdAndUpdate(userId, req.body, {new: true}, (err, user)=>{
+    err ? res.status(499).send(err) : res.send(user)
   });
 });
 
 router.get('/me', jwtAuth.middleware, (req, res) => {
   const userId = jwtAuth.getUserId(req.headers.authorization);
 
-  User.findById(userId).populate("messagesReceived").exec( (err, user)=>{
+  User.findById(userId).populate("messagesReceived pitches").exec( (err, user)=>{
     if (err) return res.status(499).send(err)
     user.messagesReceived = user.messagesReceived.filter(message => !message.isRead);
-
 
     res.send(user);
   })

@@ -10,7 +10,6 @@
       </div>
       <img class="profile-image" src="{{profileUser.profileImage}}"></img>
     </div>
-    <ng-include src="'./html/users/modals/imageModal.html'"></ng-include>
     <div class="profile-score profile-intro">
       <h3>Score: </h3>
       <h4>{{profileUser.score}}</h4>
@@ -20,12 +19,25 @@
     <div class="date-joined">
       <span>Joined on {{dateJoined.toDateString()}}</span>
     </div>
-    <div class="user pitches">
-      
+    <div class="user-pitches">
+      <p><b>{{profileUser.username}}'s latest pitches:</b></p>
+      <div ng-if="profileUser.pitches.length">
+        <p ng-repeat="pitch in profileUser.pitches">{{pitch.title}} (<a href ng-href="#/pitch/{{pitch._id}}">view more</a>)</p>
+        <p>[<a href ui-sref="#/:username/pitches">View All Pitch Entries</a>]</p>
+      </div>
+      <div ng-if="!profileUser.pitches.length">
+        <p>(<b>Looks like this user has no pitches</b>)</p>
+      </div>
     </div>
     <div class="about-user">
-      <p>About this user:</p>
-      {{profileUser.aboutMe}}
+      <div class='blurb-title'><b>{{profileUser.username}}'s Blurbs:</b></div>
+      <div>
+        <b class="about-title">About Me: </b>
+        <p>{{profileUser.aboutMe}}</p>
+      </div>
+      <div ng-if="me" class="edit"><a href data-keyboard="true" data-toggle="modal" data-target="#aboutMeModal">Edit About Me</a></div>
     </div>
   </div>
 </div>
+<ng-include src="'./html/users/modals/imageModal.html'"></ng-include>
+<ng-include src="'./html/users/modals/aboutMeModal.html'" ng-if="me"></ng-include>

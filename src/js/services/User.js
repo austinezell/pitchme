@@ -8,10 +8,13 @@ app.service('User', ['$http', 'Auth', '$rootScope', function($http, Auth, $rootS
       return $http.get('/users/me')
       .success(data => {
         $rootScope.currentUser = data;
-        console.log(data);
       }).error(err =>{
         console.log(err);
       })
     }
+  }
+
+  this.update = (obj) => {
+    return $http.put('/users/update', obj)
   }
 }])
