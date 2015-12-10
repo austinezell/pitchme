@@ -1,13 +1,16 @@
 import './appConfig.js';
 
-import './controllers/mainCtrl.js';
-import './controllers/viewPitchCtrl.js';
-import './controllers/homeCtrl.js';
-import './controllers/navCtrl.js';
-import './controllers/usersCtrl.js';
-import './controllers/profileCtrl.js';
-import './controllers/pitchCtrl.js';
-import './controllers/currentUserCtrl';
+import './controllers/general/mainCtrl.js';
+import './controllers/general/homeCtrl.js';
+import './controllers/general/navCtrl.js';
+
+import './controllers/users/authCtrl.js';
+import './controllers/users/currentUserCtrl';
+import './controllers/users/profileCtrl.js';
+import './controllers/users/inboxCtrl.js';
+
+import './controllers/pitches/pitchCtrl.js';
+import './controllers/pitches/viewPitchCtrl.js';
 
 import './services/Pitch.js';
 import './services/User.js';

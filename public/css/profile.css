@@ -124,8 +124,8 @@ body{
 }
 
 .navbar-inverse {
-  background-color: #6796ce;
-  border-color: #6796ce;
+  background-color: #1559bc;
+  border-color: #1559bc;
   margin-bottom: 0px;
 }
 .navbar-inverse .navbar-brand {
@@ -145,17 +145,17 @@ body{
 }
 .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
   color: #000000;
-  background-color: #6796ce;
+  background-color: #1559bc;
 }
 .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
   color: #000000;
-  background-color: #6796ce;
+  background-color: #1559bc;
 }
 .navbar-inverse .navbar-toggle {
-  border-color: #6796ce;
+  border-color: #1559bc;
 }
 .navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
-  background-color: #6796ce;
+  background-color: #1559bc;
 }
 .navbar-inverse .navbar-toggle .icon-bar {
   background-color: #ffffff;

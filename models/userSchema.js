@@ -9,6 +9,7 @@ const constants = require('../config/constants');
 const UserSchema = new Mongoose.Schema({
   username: {type: String, lowercase: true, unique: true},
   email: {type: String, required: true, unique: true},
+  isEmailDisplayed: {type: Boolean, default: false},
   hash: {type: String, required: true},
   salt: {type: String, required: true},
   score: {type: Number, default: 0},

@@ -1,4 +1,4 @@
-import app from "../app.js";
+import app from "../../app.js";
 
 app.controller('viewPitchCtrl', ["$scope", 'Pitch', "$stateParams", "$rootScope", function($scope, Pitch, $stateParams, $rootScope){
 

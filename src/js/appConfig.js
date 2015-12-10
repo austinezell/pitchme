@@ -45,6 +45,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: "html/pitches/viewPitch.html",
       controller: 'viewPitchCtrl'
     })
+    .state('inbox', {
+      url: '/inbox',
+      templateUrl: "html/users/inbox.html",
+      controller: "inboxCtrl"
+    })
 
   $urlRouterProvider.otherwise('/');
 });
