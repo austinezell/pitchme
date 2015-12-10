@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="./css/profile.css">
 <div class="row profile-container">
-  <div>
+  <div class="username">
     <h1>{{profileUser.username}}</h1>
   </div>
   <div class="col-md-5 col-sm-5 col-lg-5 col-xs-5 page-right">
@@ -13,6 +13,25 @@
     <div class="profile-score profile-intro">
       <h3>Score: </h3>
       <h4>{{profileUser.score}}</h4>
+    </div>
+
+    <div class="messages">
+      <div class="message-label">
+        Contacting {{profileUser.username}}
+      </div>
+      <div class="message-box">
+
+        <a href ng-if="!me" data-keyboard="true" data-toggle="modal" data-target="#messageModal">
+          <span class="glyphicon glyphicon-envelope"></span>
+          <span> Send Message</span>
+        </a>
+
+        <a href ui-sref="inbox">
+          <span class="glyphicon glyphicon-envelope"></span>
+          <span>View Your Messages</span>
+        </a>
+
+      </div>
     </div>
   </div>
   <div class="col-md-7 col-sm-7 col-lg-7 col-xs-7 page-left">
@@ -41,3 +60,4 @@
 </div>
 <ng-include src="'./html/users/modals/imageModal.html'"></ng-include>
 <ng-include src="'./html/users/modals/aboutMeModal.html'" ng-if="me"></ng-include>
+<ng-include src="'./html/users/modals/messageModal.html'" ng-if="!me"></ng-include>
