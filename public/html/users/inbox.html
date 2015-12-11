@@ -1,3 +1,27 @@
-<div>
-  test
+<!-- <div class="col-md-6 col-sm-6 col-lg-6 col-xs-6">
+<h1>Inbox</h1>
+</div> -->
+
+
+<div class="panel-group" id="messageAccordion" role="tablist" aria-multiselectable="false">
+  <div ng-repeat="message in currentUser.messagesReceived track by $index" class="panel panel-default">
+    <div class="panel-heading" role="tab" id="{{'header' + letters[$index]}}">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#messageAccordion" data-target="{{'#'+ 'collapse' + letters[$index]}}" aria-expanded="false" aria-controls="{{'collapse'+letters[$index]}}" ng-click="readMessage(message._id)">
+          <div>
+            {{$index + 1}}: {{message.subject}}
+          </div>
+        </a>
+      </h4>
+    </div>
+    <div id="{{'collapse'+letters[$index]}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+        {{message.body}}
+        <div>
+          <a href ng-click="deleteMessage(message._id)"
+        </div>
+      </div>
+
+    </div>
+  </div>
 </div>
