@@ -71,5 +71,12 @@ router.get('/me/archive', jwtAuth.middleware, (req, res) => {
   });
 });
 
+router.get('/one/:username', (req, res)=> {
+
+  User.findOne({username: req.params.username}).populate('pitches').exec( (err, user)=>{
+    err ? res.status(499).send(err) : res.send(user)
+  })
+})
+
 
 module.exports = router;

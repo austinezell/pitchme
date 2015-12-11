@@ -17,4 +17,8 @@ app.service('User', ['$http', 'Auth', '$rootScope', function($http, Auth, $rootS
   this.update = (obj) => {
     return $http.put('/users/update', obj)
   }
+
+  this.getProfileUser = (username) => {
+    return $http.get(`/users/one/${username}`)
+  }
 }])

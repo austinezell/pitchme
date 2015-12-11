@@ -30,11 +30,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: 'html/users/profile.html',
       controller: 'currentUserCtrl'
     })
-    // .state('profile', {
-    //   url: "/profile/:username",
-    //   templateUrl: 'html/users/profile.html',
-    //   controller
-    // })
+    .state('profile', {
+      url: "/profile/:username",
+      templateUrl: 'html/users/profile.html',
+      controller: "profileCtrl"
+    })
     .state('add_pitch', {
       url: '/addPitch',
       templateUrl: "html/pitches/addPitch.html",
