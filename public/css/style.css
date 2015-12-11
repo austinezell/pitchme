@@ -2,9 +2,38 @@ verticalLine {
   height: 100%;
   border-right: 3px;
 }
-
 body{
   background-color: ghostwhite;
+}
+
+div.pitch {
+  height: 200px;
+  text-align: center;
+}
+
+div.pitch div{
+  background: rgba(0,0,0,0.5);
+  color: white;
+  position: absolute;
+  cursor: pointer;
+  display: table;
+  opacity: 0;
+  padding: 0;
+  -webkit-transition: opacity 500ms;
+  -moz-transition: opacity 500ms;
+  -o-transition: opacity 500ms;
+  transition: opacity 500ms;
+}
+div.pitch div:hover{
+  opacity: 1;
+}
+
+div.pitch>span {
+  display: table-cell;
+  margin: auto;
+  vertical-align: middle;
+  font-size: 34px;
+  color: red;
 }
 
 .add-pitch-form {
@@ -23,4 +52,10 @@ body{
 
 .hidden {
   display: none;
+}
+
+.pitch {
+  display: table;
+  border: 1px solid blue;
+  border-radius: 5px;
 }

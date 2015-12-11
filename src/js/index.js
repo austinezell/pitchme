@@ -9,6 +9,7 @@ import './controllers/users/currentUserCtrl';
 import './controllers/users/profileCtrl.js';
 import './controllers/users/inboxCtrl.js';
 
+import './controllers/pitches/myPitchesCtrl.js';
 import './controllers/pitches/pitchCtrl.js';
 import './controllers/pitches/viewPitchCtrl.js';
 
