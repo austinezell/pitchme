@@ -20,7 +20,7 @@ const UserSchema = new Mongoose.Schema({
   messagesReceived: [{type: Mongoose.Schema.ObjectId, ref: 'Message'}],
   pitchesWorkedOn: [{type: Mongoose.Schema.ObjectId, ref: 'Pitch'}],
   aboutMe: {type: String},
-  dateJoined: {type: Date, default: Date.now()},
+  dateJoined: {type: Date, default: new Date},
   profileImage: {type: String, default: "http://placeholdit.imgix.net/~text?txtsize=33&txt=No+image&w=300&h=300"}
 })
 

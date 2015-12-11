@@ -7,4 +7,9 @@ app.controller('profileCtrl', ['$scope', 'User', '$stateParams', function($scope
     $scope.profileUser = res.data;
   })
 
+  $scope.sendMessage = (message) => {
+    message.recipient = $scope.profileUser._id;
+    User.sendMessage(message)
+  }
+
 }])

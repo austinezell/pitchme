@@ -9,11 +9,11 @@
         <form ng-submit="sendMessage(message)">
             <div class="form-group">
               <label for="subject">Subject</label><br>
-              <input type="text" placeholder="Subject" ng-model="message.subject"/>
+              <input type="text" id="subject" ng-model="message.subject"/>
             </div>
             <div class="form-group">
               <label for="body">Body</label><br>
-              <textarea required ng-model="message.body" id="" cols="30" rows="10"></textarea>
+              <textarea required ng-model="message.body" id="body" cols="30" rows="10"></textarea>
             </div>
           <hr>
           <div class="form-group">

@@ -1,10 +1,10 @@
 'use strict';
 
 let router = require('express').Router();
-let jwtAuth = require('../config/auth.js');
+const jwtAuth = require('../config/auth.js');
 
-
-let User = require('../models/userSchema.js');
+const Message = require('../models/messageSchema.js')
+const User = require('../models/userSchema.js');
 
 
 router.post('/register', (req, res) =>{
@@ -76,6 +76,29 @@ router.get('/one/:username', (req, res)=> {
   User.findOne({username: req.params.username}).populate('pitches').exec( (err, user)=>{
     err ? res.status(499).send(err) : res.send(user)
   })
+})
+
+router.post('/sendMessage', jwtAuth.middleware, (req, res) => {
+  const userId = jwtAuth.getUserId(req.headers.authorization);
+
+  let messageObject = req.body.message;
+  messageObject.sender = userId;
+  User.findById(messageObject.recipient, (err, recipient)=>{
+    if (err) return res.status(499).send(err);
+    Message.create(messageObject, (err, message)=>{
+      if (err) return res.status(499).send(err);
+      recipient.messagesReceived.push(message._id);
+      recipient.save((err)=>{
+        err ? res.status(499).send(err) : res.send('Message Sent!')
+      })
+      User.findById(userId, (err, sender)=>{
+        sender.messagesSent.push(message._id)
+        sender.save(()=>{
+        })
+      })
+    })
+  })
+
 })
 
 

@@ -21,4 +21,16 @@ app.service('User', ['$http', 'Auth', '$rootScope', function($http, Auth, $rootS
   this.getProfileUser = (username) => {
     return $http.get(`/users/one/${username}`)
   }
+
+  this.sendMessage = (message) => {
+    $http.post('/users/sendMessage', {message})
+    .success((data)=>{
+      swal({
+        title: "Message Sent",
+        type: "success",
+        text: "Message Successfully Sent",
+        timer: 800
+      })
+    })
+  }
 }])

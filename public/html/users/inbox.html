@@ -1,6 +1,6 @@
-<div class="col-md-6 col-sm-6 col-lg-6 col-xs-6">
+<div class="col-md-9 col-sm-9 col-lg-9 col-xs-9">
   <h1>Inbox</h1>
-  <div class="panel-group" id="messageAccordion" role="tablist" aria-multiselectable="false">
+  <div ng-if="messages.length" class="panel-group" id="messageAccordion" role="tablist" aria-multiselectable="false">
     <div ng-repeat="message in messages track by $index" class="panel panel-default">
       <div class="panel-heading" role="tab" id="{{'header' + letters[$index]}}">
         <h4 class="panel-title">
@@ -21,5 +21,8 @@
 
       </div>
     </div>
+  </div>
+  <div ng-if="!messages.length">
+    <h3>No unread messages!</h3>
   </div>
 </div>
