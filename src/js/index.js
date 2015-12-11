@@ -15,3 +15,4 @@ import './controllers/pitches/viewPitchCtrl.js';
 import './services/Pitch.js';
 import './services/User.js';
 import './services/Auth.js';
+import './services/Message.js';

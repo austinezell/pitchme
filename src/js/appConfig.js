@@ -46,7 +46,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
       controller: 'viewPitchCtrl'
     })
     .state('inbox', {
-      url: '/inbox',
+      url: '/inbox/:num',
       templateUrl: "html/users/inbox.html",
       controller: "inboxCtrl"
     })

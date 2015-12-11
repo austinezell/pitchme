@@ -79,6 +79,10 @@ body{
   width: 95%;
   margin: 0 auto;
   background-color: white;
+  height: 850px;
+}
+ui-view {
+  height: 100%
 }
 
 .profile-intro {
