@@ -1,62 +1,75 @@
-body {
-  background-color: lightgrey; }
+body{
+  background-color: lightgrey;
+}
 
 div.my-pitch {
   height: 200px;
-  text-align: center; }
+  text-align: center;
+}
 
 .about {
   width: 100%;
   background-image: url("../assets/images/background1.jpg");
   background-position: center;
   background-repeat: no-repeat;
-  height: 450px; }
+  height: 450px;
+}
 
 .about-paragraph {
-  display: table;
+  display:table;
   width: 100%;
-  height: 100%; }
+  height: 100%;
+}
 
-.about span {
-  display: table-cell;
-  vertical-align: middle; }
+.about span{
+  display:table-cell;
+  vertical-align: middle;
+}
 
-.about p {
-  text-align: justify; }
+.about p{
+  text-align: justify;
+}
 
 .about-paragraph-text {
-  background: rgba(0, 0, 0, 0.6);
-  color: white; }
+  background: rgba(0,0,0,0.6);
+  color: white;
+}
 
 .pitch-right {
-  height: 100%; }
+  height: 100%;
+}
 
 .pitch {
   margin-top: 5px;
   border: 1px solid black;
   height: 50px;
-  width: 100%; }
+  width: 100%;
+}
 
 .pitch-right {
-  display: table; }
+  display: table;
+}
 
 .pitch-title {
   display: table-cell;
   vertical-align: middle;
-  font-size: 23px; }
+  font-size: 23px;
+}
 
 .pitch-info {
   display: table;
   text-align: right;
-  height: 100%; }
+  height: 100%
+}
 
-.pitch-info > span {
+.pitch-info>span{
   display: table-cell;
   text-align: right;
-  vertical-align: middle; }
+  vertical-align: middle;
+}
 
-div.my-pitch div {
-  background: rgba(0, 0, 0, 0.5);
+div.my-pitch div{
+  background: rgba(0,0,0,0.5);
   color: white;
   position: absolute;
   cursor: pointer;
@@ -66,34 +79,40 @@ div.my-pitch div {
   -webkit-transition: opacity 500ms;
   -moz-transition: opacity 500ms;
   -o-transition: opacity 500ms;
-  transition: opacity 500ms; }
+  transition: opacity 500ms;
+}
+div.my-pitch div:hover{
+  opacity: 1;
+}
 
-div.my-pitch div:hover {
-  opacity: 1; }
-
-div.my-pitch > span {
+div.my-pitch>span {
   display: table-cell;
   margin: auto;
   vertical-align: middle;
   font-size: 34px;
-  color: red; }
+  color: red;
+}
 
 .add-pitch-form {
   margin: auto;
   width: 60%;
   border: 1px solid lightgrey;
-  text-align: center; }
+  text-align: center;
+}
 
-.verticalLine {
-  border-left: medium grey solid;
+.verticalLine{
+  border-left:medium grey solid;
   min-height: 400px;
-  height: 100%;
-  margin-left: 5px; }
+  height:100%;
+  margin-left: 5px;
+}
 
 .hidden {
-  display: none; }
+  display: none;
+}
 
 .my-pitch {
   display: table;
   border: 1px solid blue;
-  border-radius: 5px; }
+  border-radius: 5px;
+}

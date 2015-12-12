@@ -1,0 +1,21 @@
+<div id="imageModal" tabindex="-1" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" align='center'>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Larger Profile Image</h4>
+      </div>
+      <div class="modal-body" align='center'>
+        <img class="lg-profile-image" src="{{profileUser.profileImage}}"></img>
+        <hr>
+        <div ng-if="me">
+          Change Profile Image?
+          <input type="file" accept="image/*">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

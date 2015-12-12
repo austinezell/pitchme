@@ -4,13 +4,13 @@ var concat = require('gulp-concat');
 var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
-let webpack = require('webpack');
+var webpack = require('webpack');
 
 var dirs = {
   src: {
     js: "src/js/**/*.js",
     scss: "src/scss/**/*.scss",
-    html: "src/templates/**/*.html",
+    html: "src/html/**/*.html",
     lib: "src/assets/**/*"
   },
   out: {
@@ -20,25 +20,19 @@ var dirs = {
   }
 }
 
-gulp.task('default', ['sass','library','watch']);
+gulp.task('default', ['sass','assets', 'templates', 'watch']);
 
-gulp.task('dev', ['sass','library'])
+gulp.task('dev', ['sass','assets', 'templates'])
 
 gulp.task('sass', function(done) {
-  gulp.src('scss')
+  gulp.src(dirs.src.scss)
     .pipe(sass())
     .on('error', sass.logError)
-    .pipe(concat('style.css'))
-    .pipe(gulp.dest(dirs.out.css))
-    .pipe(minifyCss({
-      keepSpecialComments: 0
-    }))
-    .pipe(rename({ extname: '.min.css' }))
     .pipe(gulp.dest(dirs.out.css))
     .on('end', done);
 });
 
-gulp.task('library', function() {
+gulp.task('assets', function() {
   gulp.src(dirs.src.lib)
     .pipe(gulp.dest(dirs.out.lib))
 });

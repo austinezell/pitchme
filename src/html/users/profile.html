@@ -1,0 +1,63 @@
+<link rel="stylesheet" href="./css/profile.css">
+<div class="row profile-container">
+  <div class="username">
+    <h1>{{profileUser.username}}</h1>
+  </div>
+  <div class="col-md-5 col-sm-5 col-lg-5 col-xs-5 page-right">
+    <div class='img-container profile-intro'>
+      <div class="hover-text" data-keyboard="true" data-toggle="modal" data-target="#imageModal">
+        <span class="glyphicon glyphicon-zoom-in"></span>
+      </div>
+      <img class="profile-image" src="{{profileUser.profileImage}}"></img>
+    </div>
+    <div class="profile-score profile-intro">
+      <h3>Score: </h3>
+      <h4>{{profileUser.score}}</h4>
+    </div>
+
+    <div class="messages">
+      <div class="message-label">
+        Contacting {{profileUser.username}}
+      </div>
+      <div class="message-box">
+
+        <a href ng-if="!me" data-keyboard="true" data-toggle="modal" data-target="#messageModal">
+          <span class="glyphicon glyphicon-envelope"></span>
+          <span> Send Message</span>
+        </a>
+
+        <a href ng-if="me" ui-sref="inbox">
+          <span class="glyphicon glyphicon-envelope"></span>
+          <span>View Your Messages</span>
+        </a>
+
+      </div>
+    </div>
+  </div>
+  <div class="col-md-7 col-sm-7 col-lg-7 col-xs-7 page-left">
+    <div class="date-joined">
+      <span>Joined on {{dateJoined.toDateString()}}</span>
+    </div>
+    <div class="user-pitches">
+      <p><b>{{profileUser.username}}'s latest pitches:</b></p>
+      <div ng-if="profileUser.pitches.length">
+        <p ng-repeat="pitch in profileUser.pitches">{{pitch.title}} (<a href ng-href="#/pitch/{{pitch._id}}">view more</a>)</p>
+        <p>[<a href ui-sref="#/:username/pitches">View All Pitch Entries</a>]</p>
+      </div>
+      <div ng-if="!profileUser.pitches.length">
+        <p>(<b>Looks like this user has no pitches</b>)</p>
+      </div>
+    </div>
+    <div class="about-user">
+      <div class='blurb-title'><b>{{profileUser.username}}'s Blurbs:</b></div>
+      <div>
+        <b class="about-title">About Me: </b>
+        <p>{{profileUser.aboutMe}}</p>
+      </div>
+      <div ng-if="me" class="edit"><a href data-keyboard="true" data-toggle="modal" data-target="#aboutMeModal">Edit About Me</a></div>
+    </div>
+  </div>
+</div>
+<ng-include src="'./html/users/modals/imageModal.html'"></ng-include>
+<ng-include src="'./html/users/modals/aboutMeModal.html'" ng-if="me"></ng-include>
+<ng-include src="'./html/users/modals/messageModal.html'" ng-if="!me"></ng-include>
