@@ -56,10 +56,12 @@ app.service('Auth', ['$http', '$window', "localStorageKey", '$rootScope', '$stat
 
   this.logOut = () =>{
     $window.localStorage.removeItem(localStorageKey);
-    $rootScope.loggedIn = this.isLoggedIn();
+    $rootScope.loggedIn = false;
     $rootScope.currentUser = null;
     $state.go('home')
   };
 
+
   $rootScope.loggedIn = this.isLoggedIn();
+  console.log($rootScope.loggedIn);
 }])

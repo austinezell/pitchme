@@ -3,9 +3,16 @@
 import app from '../app.js'
 
 app.service('Pitch', ["$state", "$http", function($state, $http){
+
   this.createPitch = (pitch) => {
     $http.post('/pitches/create', pitch)
-    .then( (data, err)=>{
+    .then( data =>{
+      swal({
+        title: "Pitch Created",
+        type: "success",
+        text: "Pitch Successfully Created",
+        timer: 800
+      })
     })
   }
 
