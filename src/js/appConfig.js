@@ -11,10 +11,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: './html/general/home.html',
       controller: 'homeCtrl'
     })
-    .state('info', {
-      url: '/info',
-      templateUrl: "./html/general/about.html"
-    })
     .state('login', {
       url: '/login',
       templateUrl: './html/users/login.html',

@@ -1,28 +1,83 @@
 <h1>Welcome to Pitch Me!</h1>
-<ng-include src="'./html/general/about.html'"/></ng-include>
+<div class="about">
+  <div class='col-md-12 col-lg-12 col-sm-12 col-xs-12 about-paragraph'>
+    <span id="to-disappear">
+      <div class='about-paragraph-text'>
+        <h3>About us:</h3>
+        <p>
+          Pitch Me is a place for people with development
+          ideas to network and meet people who will help them along
+          their way to the final realization of the idea. We provide
+          the connection and the location, you provide the ideas
+          and the elbow grease.
+        </p>
+        <div class='links'>
+          <p>
+            Click <a href id="faq-scroll">here</a> to read more,
+          </p>
+          <p>
+            Or click <a href id="pitch-scroll">here</a> to see some of our users' most recent pitches!
+          </p>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
 <div class="spacer"></div>
 
 <ng-include src="'./html/general/faq.html'"/></ng-include>
 
-
-<div class="container">
-
+<div class="container" id="pitches-top">
   <h2>Pitches:</h2>
-  <div class='col-md-12 col-lg-12 col-sm-12 col-xs-12'>
-    <div class='pitch row' ng-repeat='pitch in pitches track by $index'>
-      <div class="col-xs-8 pitch-right">
-        <div class="pitch-title">
-          {{pitch.title}}
+  <div class="row">
+    <div class='col-xs-12'>
+      <div class='pitch row' ng-repeat='pitch in pitches track by $index'>
+        <div class="col-xs-8 pitch-right">
+          <div class="pitch-title">
+            {{pitch.title}}
+          </div>
         </div>
-
-      </div>
-      <div class="col-xs-4 pitch-info">
-        <span>
-          <a ng-href="#/pitch/{{pitch._id}}">
-            Click here to read more
-          </a>
-        </span>
+        <div class="col-xs-4 pitch-info">
+          <span>
+            <a ng-href="#/pitch/{{pitch._id}}">
+              Click here to read more
+            </a>
+          </span>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+<footer>
+  <div class="row">
+    <div class="col-xs-3">
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+    <div class="col-xs-3">
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+    <div class="col-xs-3">
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+    <div class="col-xs-3">
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+  </div>
+</footer>
