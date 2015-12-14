@@ -39,6 +39,9 @@ body{
   border: 1px solid black;
   height: 50px;
   width: 100%;
+  background-color: ghostwhite;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
 }
 
 .pitch-title {
@@ -119,12 +122,29 @@ body{
   border-bottom: 1px solid black;
 }
 
+footer {
+  background-color: rgb(83, 83, 83);
+  margin-top: 100px;
+  text-align: center;
+  a {
+    color: rgb(116, 251, 255);
+  }
+  a:hover {
+    color: white;
+  }
+}
+
 .question {
   margin-top: 5px;
   border-bottom: 1px solid grey;
 }
 
-
 .spacer {
   height: 250px;
+}
+
+.modal {
+  input {
+    text-align: center;
+  }
 }
