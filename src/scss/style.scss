@@ -3,6 +3,18 @@ body{
   margin-top: 100px;
 }
 
+html, body {
+  height: 90%;
+}
+
+.content {
+ height: 90%;
+}
+body > .content {
+  height: auto; min-height: 100%;
+}
+
+
 .about {
   width: 100%;
   background-image: url("../assets/images/background1.jpg");
@@ -158,8 +170,12 @@ body{
 
 footer {
   background-color: rgb(83, 83, 83);
-  margin-top: 100px;
+  margin-top: 3em;
   text-align: center;
+  clear: both;
+  min-height: 10%;
+  // z-index: 10;
+  position: relative;
   a {
     color: rgb(116, 251, 255);
   }

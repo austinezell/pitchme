@@ -1,9 +1,8 @@
 'use strict';
-
 import app from '../../app.js';
 import faqs from '../../misc/faq.js';
 
-app.controller('homeCtrl', ['$scope', 'Pitch', function($scope, Pitch) {
+app.controller('homeCtrl', ['$scope', 'Pitch', '$window', function($scope, Pitch, $window) {
 
   $scope.faqs = faqs;
 
@@ -33,7 +32,6 @@ app.controller('homeCtrl', ['$scope', 'Pitch', function($scope, Pitch) {
       } else if ($window.scrollTop() === 0) {
         $("#to-disappear").css("opacity", 1)
       } else if (($window).scrollTop()) {
-
       }
     });
   });

@@ -8,7 +8,7 @@ const User = require('../models/userSchema.js');
 const Comment = require('../models/commentSchema.js');
 
 router.get('/', (req, res) => {
-  Pitch.find({}).populate('pitcher').exec( (err, pitches) => {
+  Pitch.find({}, (err, pitches) => {
     err ? res.status(499).send(err) : res.send(pitches);
   })
 });

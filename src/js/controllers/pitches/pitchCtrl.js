@@ -5,4 +5,6 @@ app.controller('addPitchCtrl', ["$scope", "Pitch", function($scope, Pitch) {
     Pitch.createPitch(pitch)
   }
 
+  
+
 }])
