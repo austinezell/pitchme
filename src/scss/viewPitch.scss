@@ -1,0 +1,35 @@
+.content {
+  background-image: url('../assets/images/background1.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  display: table;
+}
+
+.pitch-description {
+
+}
+
+.comment {
+  margin: 5px;
+  color: black;
+  background-color: lightgrey;
+  border: 1px solid rgb(152, 173, 173);
+  border-bottom: 2px solid rgb(152, 173, 173);
+  border-right: 2px solid rgb(152, 173, 173);
+}
+
+a {
+  color: rgb(116, 251, 255);
+}
+
+a:hover {
+  color: white;
+}
+
+.page {
+  background: rgba(0,0,0,0.5);
+  color: white;
+  width: 100%;
+  display: table-cell;
+  vertical-align: middle;
+}
