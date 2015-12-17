@@ -5,8 +5,19 @@
   display: table;
 }
 
-.pitch-description {
+.content-child {
+  display: table-cell;
+  vertical-align: middle;
 
+}
+
+.page {
+  background: rgba(0,0,0,0.5);
+  color: white;
+
+}
+
+.pitch-description {
 }
 
 .comment {
@@ -24,12 +35,4 @@ a {
 
 a:hover {
   color: white;
-}
-
-.page {
-  background: rgba(0,0,0,0.5);
-  color: white;
-  width: 100%;
-  display: table-cell;
-  vertical-align: middle;
 }
