@@ -1,0 +1,38 @@
+.read-more {
+  display: table;
+  text-align: right;
+  height: 100%;
+  >span{
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+}
+
+.landing-pitch-title {
+  height: 100%;
+  display: table;
+  div {
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 23px;
+  }
+}
+
+.pitch {
+  margin-top: 5px;
+  border: 1px solid black;
+  height: 50px;
+  width: 100%;
+  background-color: white;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+#pitches-top {
+  text-align: center;
+  margin-bottom: 10px;
+  .letters {
+    border-bottom: 2px solid black;
+  }
+}

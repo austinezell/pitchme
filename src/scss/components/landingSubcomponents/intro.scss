@@ -1,0 +1,30 @@
+.about {
+  width: 100%;
+  background-image: url("../assets/images/background1.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 450px;
+  .about-paragraph {
+    display:table;
+    width: 100%;
+    height: 100%;
+    span{
+      display:table-cell;
+      vertical-align: middle;
+      div{
+        background: rgba(0,0,0,0.6);
+        color: white;
+      }
+      a {
+        color: rgb(116, 251, 255);
+      }
+      a:hover {
+        color: white;
+      }
+    }
+    p{
+      text-align:justify;
+      font-size: 20px;
+    }
+  }
+}

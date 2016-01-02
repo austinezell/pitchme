@@ -1,25 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html ng-app='pitchMe'>
 <head>
   <title>pitchMe</title>
   <link rel="stylesheet" href="./bower_components/sweetalert/dist/sweetalert.css">
   <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel='stylesheet' href='./css/style.css' />
 </head>
-<body ng-app='pitchMe' ng-controller='mainCtrl'>
+<body ng-controller='mainCtrl'>
   <div class="content">
-    <div class="content-child">
-      <ng-include src="'./html/general/nav.html'"></ng-include>
-      <ui-view></ui-view>
-      <script src='./bower_components/sweetalert/dist/sweetalert.min.js'></script>
-      <script src="./bower_components/jquery/dist/jquery.min.js"></script>
-      <script src="./bower_components/angular/angular.min.js"></script>
-      <script src="./bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-      <script src="./bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
-      <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <ng-include src="'./html/general/nav.html'"></ng-include>
+    <ui-view></ui-view>
+    <script src='./bower_components/sweetalert/dist/sweetalert.min.js'></script>
+    <script src="./bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="./bower_components/angular/angular.min.js"></script>
+    <script src="./bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="./bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
-      <script src='./dist/bundle.js'></script>
-    </div>
+    <script src='./dist/bundle.js'></script>
   </div>
   <ng-include src="'./html/general/footer.html'"></ng-include>
   <ng-include src="'./html/general/modals/email.html'"></ng-include>
