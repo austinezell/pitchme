@@ -1,0 +1,95 @@
+.about {
+  width: 100%;
+  background-image: url("../assets/images/background1.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 450px;
+}
+
+.about-paragraph {
+  display:table;
+  width: 100%;
+  height: 100%;
+  span{
+    display:table-cell;
+    vertical-align: middle;
+    div{
+      background: rgba(0,0,0,0.6);
+      color: white;
+    }
+    a {
+      color: rgb(116, 251, 255);
+    }
+    a:hover {
+      color: white;
+    }
+  }
+  p{
+    text-align:justify;
+    font-size: 20px;
+  }
+}
+
+#to-disappear {
+  opacity: 1;
+}
+
+.faqs {
+  border: 1px solid black;
+  padding: 0px;
+  border-right: 2px solid black;
+  background-color: white;
+}
+.faq-header{
+  border-bottom: 2px solid black;
+  text-align: center;
+}
+
+.answer {
+  border-bottom: 1px solid black;
+}
+
+.question {
+  margin-top: 5px;
+  border-bottom: 1px solid grey;
+}
+
+.read-more {
+  display: table;
+  text-align: right;
+  height: 100%;
+  >span{
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+}
+
+.pitch-right {
+  height: 100%;
+  display: table;
+}
+
+.pitch {
+  margin-top: 5px;
+  border: 1px solid black;
+  height: 50px;
+  width: 100%;
+  background-color: white;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+.pitch-title {
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 23px;
+}
+
+#pitches-top {
+  text-align: center;
+  margin-bottom: 10px;
+  .letters {
+    border-bottom: 2px solid black;
+  }
+}

@@ -9,7 +9,7 @@ var webpack = require('webpack');
 var dirs = {
   src: {
     js: "src/js/**/*.js",
-    scss: "src/scss/**/*.scss",
+    scss: "src/scss/*.scss",
     html: "src/html/**/*.html",
     lib: "src/assets/**/*"
   },
@@ -44,5 +44,5 @@ gulp.task('templates', function(){
 
 gulp.task('watch', function() {
   gulp.watch(dirs.src.html, ['templates']);
-  gulp.watch(dirs.src.scss, ['sass']);
+  gulp.watch('src/scss/**/*.scss', ['sass']);
 });

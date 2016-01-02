@@ -1,7 +1,7 @@
 import app from "../../app.js";
 
 app.controller("inboxCtrl", ["$scope", "User", "$stateParams", "$rootScope", "$state", "Message", function($scope, User, $stateParams, $rootScope, $state, Message){
-  if(!$stateParams.num) $stateParams.num = 1
+  if(!$stateParams.num) $stateParams.num = 1;
 
   User.getCurrentUserInfo()
   .then(()=>{

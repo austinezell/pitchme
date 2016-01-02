@@ -11,21 +11,16 @@ app.controller('homeCtrl', ['$scope', 'Pitch', '$window', function($scope, Pitch
   });
 
   angular.element(document).ready(function() {
-    $("#faq-scroll").click(function(e) {
-      e.preventDefault();
+    $(".scroll").click(function(event) {
+      event.preventDefault();
+      const location = $(this).attr("href");
       $('html,body').animate({
-        scrollTop: $("#faq-top").offset().top - 50
+        scrollTop: $(location).offset().top - 50
       }, 'slow');
     });
 
-    $("#pitch-scroll").click(function(e) {
-      e.preventDefault();
-      $('html,body').animate({
-        scrollTop: $("#pitches-top").offset().top - 50
-      }, 'slow');
-    });
-
-    let $window = $(window)
+    let $window = $(window);
+    $window.off();
     $window.scroll(function() {
       if ($window.scrollTop() > 160) {
         $("#to-disappear").css("opacity", 1 - ($window.scrollTop() - 160) / 250);
