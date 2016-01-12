@@ -61,7 +61,5 @@ app.service('Auth', ['$http', '$window', "localStorageKey", '$rootScope', '$stat
     $state.go('home')
   };
 
-
   $rootScope.loggedIn = this.isLoggedIn();
-  console.log($rootScope.loggedIn);
 }])

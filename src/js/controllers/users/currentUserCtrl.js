@@ -23,9 +23,7 @@ app.controller("currentUserCtrl", ["$scope", "User", "$rootScope", function($sco
   $scope.updateAboutMe = (aboutMe) => {
     User.update({aboutMe})
     .success(data=>{
-      console.log('data');
       $scope.profileUser = data;
-      console.log($scope.profileUser);
       $scope.aboutMe = "";
       $("#aboutMeModal textarea").val('')
       $rootScope.currentUser = data;
