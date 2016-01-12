@@ -1,0 +1,33 @@
+.page {
+  color: white;
+  textarea {
+    color: black;
+    width: 100%;
+  }
+  .btn {
+    background-color: rgb(159, 121, 77);
+    border: 1px solid white;
+  }
+}
+
+.vertical-line {
+  width: 0px;
+  height: 100%;
+}
+
+.comment {
+  margin: 5px;
+  color: black;
+  background-color: lightgrey;
+  border: 1px solid rgb(152, 173, 173);
+  border-bottom: 2px solid rgb(152, 173, 173);
+  border-right: 2px solid rgb(152, 173, 173);
+}
+
+a {
+  color: rgb(116, 251, 255);
+}
+
+a:hover {
+  color: white;
+}

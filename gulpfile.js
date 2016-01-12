@@ -44,5 +44,6 @@ gulp.task('templates', function(){
 
 gulp.task('watch', function() {
   gulp.watch(dirs.src.html, ['templates']);
+  gulp.watch(dirs.src.lib, ["assets"])
   gulp.watch('src/scss/**/*.scss', ['sass']);
 });

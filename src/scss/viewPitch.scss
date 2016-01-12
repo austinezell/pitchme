@@ -1,32 +1,16 @@
 .content {
-  background-image: url('../assets/images/background1.jpg');
+  background-image: url('../assets/images/letsbuild.jpeg');
   background-position: center;
   background-repeat: no-repeat;
   display: table;
 }
 
-.page {
-  background: rgba(0,0,0,0.5);
-  color: white;
-
+.content-child {
+  display: table-cell;
+  vertical-align: middle;
+  background: rgba(0,0,0,0.2);
 }
 
-.pitch-description {
-}
-
-.comment {
-  margin: 5px;
-  color: black;
-  background-color: lightgrey;
-  border: 1px solid rgb(152, 173, 173);
-  border-bottom: 2px solid rgb(152, 173, 173);
-  border-right: 2px solid rgb(152, 173, 173);
-}
-
-a {
-  color: rgb(116, 251, 255);
-}
-
-a:hover {
-  color: white;
+body, html {
+  min-width: 500px;
 }
