@@ -1,3 +1,5 @@
+$darkShadow: rgb(45, 45, 45);
+
 .page {
   color: white;
   textarea {
@@ -6,28 +8,43 @@
   }
   .btn {
     background-color: rgb(159, 121, 77);
-    border: 1px solid white;
+    border: 0px;
+    border-bottom: 3px solid $darkShadow;
+    border-right: 3px solid $darkShadow;
+  }
+  .btn:hover {
+    background: gold;
+    color: black;
+    border: 0px;
+    border-top: 3px solid $darkShadow;
+    border-left: 4px solid $darkShadow;
+  }
+  .btn[disabled]{
+    border: 0px;
+    border-top: 3px solid $darkShadow;
+    border-left: 4px solid $darkShadow;
+  }
+  .btn[disabled]:hover{
+    color: white;
+    background-color: darken(rgb(159, 121, 77), 35)
   }
 }
 
+
+
 .vertical-line {
-  width: 0px;
-  height: 100%;
+  position: absolute;
+  min-height: 100%;
+  border: 1px solid white;
 }
 
 .comment {
-  margin: 5px;
+  margin: 7px;
   color: black;
   background-color: lightgrey;
-  border: 1px solid rgb(152, 173, 173);
-  border-bottom: 2px solid rgb(152, 173, 173);
-  border-right: 2px solid rgb(152, 173, 173);
-}
-
-a {
-  color: rgb(116, 251, 255);
-}
-
-a:hover {
-  color: white;
+  border-radius: 4px;
+  border: 1px solid black;
+  border-bottom: 2px solid $darkShadow;
+  border-right: 2px solid $darkShadow;
+  box-shadow: 4px 4px 2px $darkShadow;
 }

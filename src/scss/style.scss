@@ -17,6 +17,7 @@ body > .content {
   height: auto; min-height: 93%;
 }
 
+$shadow: rgb(69, 69, 69);
 @import
 "./components/_landing",
 "./components/_viewPitch";

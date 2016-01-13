@@ -14,3 +14,18 @@
 body, html {
   min-width: 500px;
 }
+
+.row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+}
+
+a {
+  color: rgb(116, 251, 255);
+}
+
+a:hover {
+  color: white;
+}
