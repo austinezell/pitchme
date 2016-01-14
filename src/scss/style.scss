@@ -19,6 +19,7 @@ body > .content {
 }
 
 $shadow: rgb(69, 69, 69);
+$darkShadow: rgb(45, 45, 45);
 @import
 "./components/_landing",
 "./components/_viewPitch";
