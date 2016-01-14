@@ -13,6 +13,7 @@ html {
 .content {
  height: 93%;
 }
+
 body > .content {
   height: auto; min-height: 93%;
 }
@@ -22,17 +23,6 @@ $shadow: rgb(69, 69, 69);
 "./components/_landing",
 "./components/_viewPitch";
 
-.page-container {
-  background: rgba(0,0,0,0.5);
-  color: white;
-}
-
-
-
-.jumbotron {
-  color: black;
-  background-color: #eee;
-}
 
 .col-centered {
   display:inline-block;
@@ -43,17 +33,6 @@ $shadow: rgb(69, 69, 69);
 .row-centered {
   text-align: center;
 }
-
-
-.row-centered {
-  text-align: center;
-}
-
-.row {
-  margin-left: 0px;
-  margin-right: 0px;
-}
-
 
 .my-pitch {
   height: 200px;

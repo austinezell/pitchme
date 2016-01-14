@@ -5,6 +5,14 @@
   display: table;
 }
 
+.jumbotron {
+  color: black;
+  background-color: #eee;
+  border-bottom: 3px solid $darkShadow;
+  border-right: 3px solid $darkShadow;
+  box-shadow: 8px 8px 4px $darkShadow;
+}
+
 .content-child {
   display: table-cell;
   vertical-align: middle;

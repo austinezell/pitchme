@@ -5,6 +5,11 @@ $darkShadow: rgb(45, 45, 45);
   textarea {
     color: black;
     width: 100%;
+    border-top: 4px solid $darkShadow;
+    border-left: 3px solid $darkShadow;
+  }
+  textarea:focus {
+    outline-color: $darkShadow;
   }
   .btn {
     background-color: rgb(159, 121, 77);

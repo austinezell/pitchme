@@ -8,9 +8,10 @@
       <div class="jumbotron">
         {{pitch.description}}
       </div>
+
       <div class="row">
 
-        <div class="col-xs-6 col-md-4" >
+        <div class="col-xs-6 col-sm-7 col-md-8" >
           <div class="comment" ng-repeat="comment in pitch.comments">
 
             <div>{{comment.commenter.username}} said:</div>
@@ -18,7 +19,7 @@
           </div>
         </div>
 
-        <div class="col-xs-6">
+        <div class="col-xs-6 col-sm-5 col-md-4">
           <div>
             Post a comment
           </div>
