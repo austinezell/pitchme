@@ -10,21 +10,6 @@ html {
   min-width: 350px;
 }
 
-.content {
- height: 93%;
-}
-
-body > .content {
-  height: auto; min-height: 93%;
-}
-
-$shadow: rgb(69, 69, 69);
-$darkShadow: rgb(45, 45, 45);
-@import
-"./components/_landing",
-"./components/_viewPitch";
-
-
 .col-centered {
   display:inline-block;
   float:none;
@@ -35,39 +20,21 @@ $darkShadow: rgb(45, 45, 45);
   text-align: center;
 }
 
-.my-pitch {
-  height: 200px;
-  text-align: center;
-  display: table;
-  border: 1px solid blue;
-  border-radius: 5px;
-  div{
-    background: rgba(0,0,0,0.5);
-    color: white;
-    position: absolute;
-    cursor: pointer;
-    display: table;
-    width: 100%;
-    margin-left: 15px;
-    left: -15px;
-    opacity: 0;
-    padding: 0;
-    -webkit-transition: opacity 500ms;
-    -moz-transition: opacity 500ms;
-    -o-transition: opacity 500ms;
-    transition: opacity 500ms;
-  }
-  div:hover{
-    opacity: 1;
-  }
-  >span {
-    display: table-cell;
-    margin: auto;
-    vertical-align: middle;
-    font-size: 34px;
-    color: red;
-  }
+.content {
+ height: 93%;
+ width: 100vw;
 }
+
+body > .content {
+  height: auto; min-height: 93%;
+}
+
+$shadow: rgb(69, 69, 69);
+$darkShadow: rgb(45, 45, 45);
+@import
+"./components/_landing",
+"./components/_viewPitch",
+"./components/_myPitches";
 
 .add-pitch-form {
   margin: auto;
@@ -87,6 +54,9 @@ footer {
   clear: both;
   min-height: 7%;
   position: relative;
+  .row {
+    margin: 0;
+  }
   a {
     color: rgb(116, 251, 255);
   }

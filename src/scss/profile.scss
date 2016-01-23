@@ -186,3 +186,17 @@ ui-view {
     background-color: #6796ce;
   }
 }
+
+footer {
+  background-color: #1559bc;
+  text-align: center;
+  clear: both;
+  min-height: 7%;
+  position: relative;
+  a {
+    color: white;
+  }
+  a:hover {
+    color: black;
+  }
+}

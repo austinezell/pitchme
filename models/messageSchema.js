@@ -10,6 +10,6 @@ const MessageSchema = new Mongoose.Schema({
   isRead: {type: Boolean, default: false},
   dateSent: {type: Date, default: new Date()},
   dateRead: {type: Date}
-})
+});
 
-module.exports = Mongoose.model('Message', MessageSchema)
+module.exports = Mongoose.model('Message', MessageSchema);

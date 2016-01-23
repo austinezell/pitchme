@@ -46,6 +46,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
     templateUrl: "html/pitches/myPitches.html",
     controller: "myPitchesCtrl"
   })
+  .state("pitch_dashboard", {
+    url: "/pitches/dashboard/:id",
+    templateUrl: "html/pitches/dashboard.html",
+    controller: "dashboardCtrl"
+  })
 
   $urlRouterProvider.otherwise('/');
 });

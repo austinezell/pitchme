@@ -22,12 +22,13 @@ var dirs = {
 
 gulp.task('default', ['sass','assets', 'templates', 'watch']);
 
-gulp.task('dev', ['sass','assets', 'templates'])
+gulp.task('dev', ['sass-minify','assets', 'templates'])
 
 gulp.task('sass', function(done) {
   gulp.src(dirs.src.scss)
     .pipe(sass())
     .on('error', sass.logError)
+    .pipe(minifyCss())
     .pipe(gulp.dest(dirs.out.css))
     .on('end', done);
 });
