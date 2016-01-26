@@ -10,10 +10,13 @@ const PitchSchema = new Mongoose.Schema({
   score: {type: Number, default: 0},
   pitcher: {type: Mongoose.Schema.ObjectId, ref: "User"},
   developers: [{type: Mongoose.Schema.ObjectId, ref: "User"}],
+  administrators: [{type: Mongoose.Schema.ObjectId, ref: "User"}],
   completed: {type: Boolean, default: false},
   datePitched: {type: Date, default: new Date()},
   comments: [{type: Mongoose.Schema.ObjectId, ref: "Comment"}],
   requestedUsers: [{type: Mongoose.Schema.ObjectId, ref: "User"}],
+  url: {type: String},
+  issues: [{type: Mongoose.Schema.ObjectId, ref: "Issue"}],
   dateCompleted: {type: Date}
 });
 
@@ -21,7 +24,12 @@ PitchSchema.plugin(deepPopulate, {
   whitelist: [
     "pitcher",
     "comments",
-    "comments.commenter"
+    "comments.commenter",
+    "issues",
+    "issues.reporter",
+    "issues.suggestions",
+    "issues.suggestions.suggestor",
+    "issues.suggestions.body"
   ]
 })
 

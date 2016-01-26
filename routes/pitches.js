@@ -19,6 +19,12 @@ router.get('/one/:id', (req, res)=> {
   })
 });
 
+router.get('/details', (req, res)=> {
+  Pitch.findById(req.params.id).populate('pitcher developers requestedUsers').exec( (err, pitch)=>{
+
+  })
+})
+
 router.post('/create', jwtAuth.middleware, (req, res) => {
   const userId = jwtAuth.getUserId(req.headers.authorization);
   req.body.pitcher = userId;

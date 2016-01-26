@@ -12,6 +12,7 @@ import './controllers/users/inboxCtrl.js';
 import './controllers/pitches/myPitchesCtrl.js';
 import './controllers/pitches/pitchCtrl.js';
 import './controllers/pitches/viewPitchCtrl.js';
+import './controllers/pitches/dashboardCtrl.js';
 
 import './services/Pitch.js';
 import './services/User.js';
