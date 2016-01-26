@@ -4,6 +4,7 @@ app.controller('dashboardCtrl', ["$scope", "Pitch", "User", "$stateParams", func
   Pitch.getDetails($stateParams.id)
   .success(data => {
     $scope.pitch = data
+    console.log($scope.pitch);
   })
 
 

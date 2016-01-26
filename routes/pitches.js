@@ -4,6 +4,7 @@ let router = require('express').Router();
 const jwtAuth = require('../config/auth.js');
 const Pitch = require('../models/pitchSchema.js');
 const Message = require('../models/messageSchema.js');
+const Issue = require('../models/issueSchema.js');
 const User = require('../models/userSchema.js');
 const Comment = require('../models/commentSchema.js');
 
@@ -12,6 +13,13 @@ router.get('/', (req, res) => {
     err ? res.status(499).send(err) : res.send(pitches);
   })
 });
+
+router.get('/details/:id', (req, res)=>{
+  Pitch.findById(req.params.id).deepPopulate(['pitcher', 'issues', 'developers', 'administrators', 'url'])
+  .exec( (err, pitch)=>{
+    err ? res.status(499).send(err) : res.send(pitch);
+  })
+})
 
 router.get('/one/:id', (req, res)=> {
   Pitch.findById(req.params.id).deepPopulate(['pitcher', "comments", "comments.commenter"]).exec( (err, pitch)=>{
