@@ -1,4 +1,4 @@
-'use strict';
+bc'use strict';
 
 let router = require('express').Router();
 const jwtAuth = require('../config/auth.js');

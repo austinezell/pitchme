@@ -2,7 +2,7 @@
   height: 200px;
   text-align: center;
   display: table;
-  border-width: 3px;
+  // border-width: 3px;
   -webkit-border-image: -webkit-gradient(linear, 0 0, 100% 100%, from(black), to(white)) 1 100%;
   -webkit-border-image:  -webkit-linear-gradient(black, white, black, white, black) 1 100%;
   -moz-border-image: -moz-linear-gradient(black, white) 1 100%;

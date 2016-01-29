@@ -20,9 +20,18 @@ var dirs = {
   }
 }
 
-gulp.task('default', ['sass','assets', 'templates', 'watch']);
+gulp.task('default', ['sass','assets', 'webpack', 'templates', 'watch']);
 
-gulp.task('dev', ['sass-minify','assets', 'templates'])
+gulp.task('dev', ['sass','assets', 'webpack', 'templates']);
+
+gulp.task("webpack", function(done) {
+    webpack(require("./webpack.config.js"), function(err, stats) {
+        if(err) throw new gutil.PluginError("webpack", err);
+        gutil.log("[webpack]", stats.toString({
+        }));
+        done();
+    });
+});
 
 gulp.task('sass', function(done) {
   gulp.src(dirs.src.scss)
@@ -45,6 +54,7 @@ gulp.task('templates', function(){
 
 gulp.task('watch', function() {
   gulp.watch(dirs.src.html, ['templates']);
-  gulp.watch(dirs.src.lib, ["assets"])
+  gulp.watch(dirs.src.lib, ["assets"]);
   gulp.watch('src/scss/**/*.scss', ['sass']);
+  gulp.watch(dirs.src.js, ['webpack']);
 });
