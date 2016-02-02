@@ -48,6 +48,8 @@ router.post('/create', jwtAuth.middleware, (req, res) => {
     req.body.tags = tempArr;
   }
 
+  req.body.administrators = [userId];
+
   Pitch.create(req.body, (err, pitch)=> {
     if (err) return res.status(499).send(err);
     User.findById(userId, (err, user) => {

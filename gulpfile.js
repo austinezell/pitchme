@@ -27,8 +27,7 @@ gulp.task('dev', ['sass','assets', 'webpack', 'templates']);
 gulp.task("webpack", function(done) {
     webpack(require("./webpack.config.js"), function(err, stats) {
         if(err) throw new gutil.PluginError("webpack", err);
-        gutil.log("[webpack]", stats.toString({
-        }));
+        gutil.log("[webpack]", stats.toString({}));
         done();
     });
 });
