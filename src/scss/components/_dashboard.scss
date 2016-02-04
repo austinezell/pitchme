@@ -4,7 +4,9 @@ ul.nav.nav-tabs {
   a{
     background-color: white;
     float: left;
-    color: ligthen(blue, 25);
+  }
+  li{
+    box-shadow: 5px 1px 2px -2px $shadow;
   }
   li.active>a{
     background-color: lighten(grey, 25);
@@ -24,6 +26,6 @@ ul.nav.nav-tabs {
     border: 2px solid black;
     min-height: calc(100vh - 300px;);
     width: 70%;
-    box-shadow: $shadow 20px 20px 10px; 
+    box-shadow: $shadow 20px 20px 10px;
   }
 }

@@ -46,10 +46,27 @@ app.config(function($stateProvider, $urlRouterProvider) {
     templateUrl: "html/pitches/myPitches.html",
     controller: "myPitchesCtrl"
   })
-  .state("pitch_dashboard", {
+  .state("dashboard", {
     url: "/pitches/dashboard/:id",
-    templateUrl: "html/pitches/dashboard.html",
+    templateUrl: "html/pitches/dashboard/main.html",
+    abstract: "true",
     controller: "dashboardCtrl"
+  })
+  .state("dashboard.overview",{
+    url: "/overview/",
+    templateUrl: "html/pitches/dashboard/overview.html",
+  })
+  .state("dashboard.issues",{
+    url: "/issues/",
+    templateUrl: "html/pitches/dashboard/issues.html",
+  })
+  .state("dashboard.developers",{
+    url: "/developers/",
+    templateUrl: "html/pitches/dashboard/developers.html",
+  })
+  .state("dashboard.admin",{
+    url: "/admin/",
+    templateUrl: "html/pitches/dashboard/admin.html",
   })
 
   $urlRouterProvider.otherwise('/');
