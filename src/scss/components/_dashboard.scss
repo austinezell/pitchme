@@ -1,0 +1,29 @@
+ul.nav.nav-tabs {
+  margin-top: 58px;
+  display: inline-block;
+  a{
+    background-color: white;
+    float: left;
+    color: ligthen(blue, 25);
+  }
+  li.active>a{
+    background-color: lighten(grey, 25);
+  }
+  a:hover{
+    color: $linkBlue;
+  }
+}
+.dashboard {
+  background-color: grey;
+  min-height: calc(100vh - 100px);
+  .nav-holder {
+    height: 100px;
+  }
+  .views {
+    background-color: white;
+    border: 2px solid black;
+    min-height: calc(100vh - 300px;);
+    width: 70%;
+    box-shadow: $shadow 20px 20px 10px; 
+  }
+}

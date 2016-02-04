@@ -1,14 +1,17 @@
-body{
-  background-color: lightgrey;
-  margin-top: 50px;
-  height: 100%;
+$linkBlue: rgb(116, 251, 255);
+
+html {
+  min-height: 100%;
   min-width: 350px;
 }
 
-html {
-  height: 100%;
+body{
+  background-color: lightgrey;
+  margin-top: 50px;
+  min-height: calc(100vh - 1000px);
   min-width: 350px;
 }
+
 
 .col-centered {
   display:inline-block;
@@ -21,14 +24,14 @@ html {
 }
 
 .content {
- height: 93%;
- width: 100%;
- padding: 0;
- margin: 0;
+ // min-height: calc(100vh - 100px);
+ // width: 100%;
+ // padding: 0;
+ // margin: 0;
 }
 
 body > .content {
-  height: auto; min-height: 93%;
+  height: auto; min-height: calc(100vh - 100px);
 }
 
 $shadow: rgb(69, 69, 69);
@@ -36,7 +39,8 @@ $darkShadow: rgb(45, 45, 45);
 @import
 "./components/_landing",
 "./components/_viewPitch",
-"./components/_myPitches";
+"./components/_myPitches",
+"./components/_dashboard";
 
 .add-pitch-form {
   margin: auto;
@@ -54,13 +58,13 @@ footer {
   background-color: rgb(83, 83, 83);
   text-align: center;
   clear: both;
-  min-height: 7%;
+  height: 50px;
   position: relative;
   .row {
     margin: 0;
   }
   a {
-    color: rgb(116, 251, 255);
+    color: $linkBlue;
   }
   a:hover {
     color: white;
@@ -75,4 +79,9 @@ footer {
   input {
     text-align: center;
   }
+}
+
+.row {
+  margin-right: 0;
+  margin-left: 0;
 }

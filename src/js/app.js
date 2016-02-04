@@ -1,4 +1,4 @@
 'use strict'
-let app = angular.module('pitchMe', ['ui.router', 'ui.bootstrap']);
+let app = angular.module('pitchMe', ['ui.router']);
 
 export default app;

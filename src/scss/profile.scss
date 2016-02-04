@@ -79,7 +79,7 @@ body{
   width: 95%;
   margin: 0 auto;
   background-color: white;
-  height: 850px;
+  min-height: calc(100vh - 100px);
 }
 ui-view {
   height: 100%
