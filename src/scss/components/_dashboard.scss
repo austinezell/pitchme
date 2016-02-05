@@ -27,5 +27,26 @@ ul.nav.nav-tabs {
     min-height: calc(100vh - 300px;);
     width: 70%;
     box-shadow: $shadow 20px 20px 10px;
+    .title{
+      font-size: 5rem;
+    }
+    .view-child{
+      width: 75%;
+      margin-top: 2.5rem;
+      background-color: white;
+    }
+    .dates{
+      .date {
+        font-size: 1.8rem;
+        margin: 1.2rem;
+        display: block;
+        padding: 1.2rem;
+        border: 1px solid black;
+        border-radius: 6px;
+      }
+    }
+  }
+  .bottom-margin{
+    height: 100px;
   }
 }

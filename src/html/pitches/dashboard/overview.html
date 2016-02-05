@@ -1,1 +1,9 @@
-Test
+<div class="row view-child">
+  <div class="col-xs-6"></div>
+  <div class="col-xs-6"></div>
+
+  <div class="col-xs-12 dates">
+    <span class="date">Pitched on {{pitch.datePitched.toDateString()}} by {{pitch.pitcher._id === currentUser._id ? "YOU!" : currentUser.username}}</span>
+    <span class="date" ng-if="pitch.completed">Launched on {{pitch.dateCompleted.toDateString()}}</span>
+  </div>
+</div>
