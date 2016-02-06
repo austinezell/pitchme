@@ -10,30 +10,29 @@
     outline-color: $darkShadow;
   }
   .btn {
-    background-color: rgb(159, 121, 77);
+    background-color: skyblue;
     border: 0px;
     border-bottom: 3px solid $darkShadow;
     border-right: 3px solid $darkShadow;
   }
   .btn:hover {
-    background: gold;
+    background: darken(skyblue, 25);
     color: black;
     border: 0px;
     border-top: 3px solid $darkShadow;
     border-left: 4px solid $darkShadow;
+    border-radius: 5px;
   }
   .btn[disabled]{
     border: 0px;
+    background-color: darken(skyblue, 25);
     border-top: 3px solid $darkShadow;
     border-left: 4px solid $darkShadow;
   }
   .btn[disabled]:hover{
     color: white;
-    background-color: darken(rgb(159, 121, 77), 35)
   }
 }
-
-
 
 .vertical-line {
   position: absolute;
@@ -44,7 +43,7 @@
 .comment {
   margin: 7px;
   color: black;
-  background-color: lightgrey;
+  background-color: rgb(240,240,240);
   border-radius: 4px;
   border: 1px solid black;
   border-bottom: 2px solid $darkShadow;

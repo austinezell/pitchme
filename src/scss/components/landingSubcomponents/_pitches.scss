@@ -8,8 +8,12 @@
     vertical-align: middle;
   }
 }
+.pitch-header{
+  border-bottom: 2px solid black;
+}
 .pitch-header h2{
   text-shadow: 2px 2px 4px $shadow;
+  text-align: center;
 }
 
 .landing-pitch-title {
@@ -36,7 +40,4 @@
 #pitches-top {
   text-align: center;
   margin-bottom: 10px;
-  .letters {
-    border-bottom: 2px solid black;
-  }
 }

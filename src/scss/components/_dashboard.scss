@@ -24,9 +24,11 @@ ul.nav.nav-tabs {
   .views {
     background-color: white;
     border: 2px solid black;
-    min-height: calc(100vh - 300px;);
+    min-height: calc(100vh - 300px);
     width: 70%;
     box-shadow: $shadow 20px 20px 10px;
+    position: relative;
+    padding-bottom: 7rem;
     .title{
       font-size: 5rem;
     }
@@ -34,8 +36,12 @@ ul.nav.nav-tabs {
       width: 75%;
       margin-top: 2.5rem;
       background-color: white;
+      min-height: 600px;
     }
     .dates{
+      position: absolute;
+      bottom: 0;
+      right: 0;
       .date {
         font-size: 1.8rem;
         margin: 1.2rem;

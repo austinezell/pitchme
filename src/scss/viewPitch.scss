@@ -1,20 +1,20 @@
-$darkShadow: rgb(45, 45, 45);
+$shadow: rgb(69, 69, 69);
 
 
 .content {
-  background-image: url('../assets/images/letsbuild.jpeg');
+  background-image: url('../assets/images/blueprints.png');
   background-position: center;
+  background-size: cover;
   background-repeat: no-repeat;
   display: table;
   width: 100%;
+  color: black;
 }
 
 .jumbotron {
   color: black;
-  background-color: #eee;
-  border-bottom: 3px solid $darkShadow;
-  border-right: 3px solid $darkShadow;
-  box-shadow: 8px 8px 4px $darkShadow;
+  background-color: #fff;
+  box-shadow: 8px 8px 20px $shadow;
 }
 
 .content-child {
