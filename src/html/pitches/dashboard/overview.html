@@ -1,9 +1,21 @@
 <div class="row view-child">
-  <div class="col-xs-6"></div>
-  <div class="col-xs-6"></div>
 
-  <div class="col-xs-12 dates">
-    <span class="date">Pitched on {{pitch.datePitched.toDateString()}} by {{pitch.pitcher._id === currentUser._id ? "YOU!" : currentUser.username}}</span>
-    <span class="date" ng-if="pitch.completed">Launched on {{pitch.dateCompleted.toDateString()}}</span>
+  <div class="box">
+    <!-- <div ng-class="{'table': pitch.issues.length === 0}">
+      <div class="vertical-align"> -->
+
+        <div class="title">
+          {{pitch.issues.length}} open issues
+        </div>
+        <!-- ng-if="pitch.issues.length !== 0" -->
+        <div  class="horizontal-line"></div>
+        <div></div>
+      <!-- </div>
+    </div> -->
   </div>
+
+</div>
+<div class="dates">
+  <span class="date" ng-if="!pitch.completed">Pitched on {{pitch.datePitched.toDateString()}} by {{pitch.pitcher._id === currentUser._id ? "YOU!" : currentUser.username}}</span>
+  <span class="date" ng-if="pitch.completed">Launched on {{pitch.dateCompleted.toDateString()}}</span>
 </div>

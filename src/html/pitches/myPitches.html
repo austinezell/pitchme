@@ -5,7 +5,9 @@
     </h2>
     <div ng-repeat="pitch in currentUser.pitches" class="col-md-3 col-xs-6 col-sm-4 col-lg-2 my-pitch">
       <a href ui-sref="dashboard.overview({id: pitch._id})">
-        <div>
+        <div class="table">
+
+        <div class="hover">
           <span>
             {{pitch.description}}
           </span>
@@ -16,6 +18,7 @@
       </span>
     </div>
   </div>
+</div>
 
   <div ng-if="currentUser.pitchesWorkedOn.length" class="pitches worked-on-pitches row">
     <h2>

@@ -21,38 +21,28 @@ ul.nav.nav-tabs {
   .nav-holder {
     height: 100px;
   }
-  .views {
-    background-color: white;
-    border: 2px solid black;
-    min-height: calc(100vh - 300px);
-    width: 70%;
-    box-shadow: $shadow 20px 20px 10px;
-    position: relative;
-    padding-bottom: 7rem;
-    .title{
-      font-size: 5rem;
-    }
-    .view-child{
-      width: 75%;
-      margin-top: 2.5rem;
-      background-color: white;
-      min-height: 600px;
-    }
-    .dates{
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      .date {
-        font-size: 1.8rem;
-        margin: 1.2rem;
-        display: block;
-        padding: 1.2rem;
-        border: 1px solid black;
-        border-radius: 6px;
-      }
-    }
+}
+.bottom-margin{
+  height: 100px;
+}
+.views {
+  background-color: white;
+  border: 2px solid black;
+  min-height: calc(100vh - 300px);
+  width: 70%;
+  box-shadow: $shadow 20px 20px 10px;
+  position: relative;
+  padding-bottom: 7rem;
+  .title{
+    font-size: 3rem;
   }
-  .bottom-margin{
-    height: 100px;
+  .view-child{
+    width: 75%;
+    margin-top: 2.5rem;
+    background-color: white;
+    min-height: 500px;
+    text-align: left;
   }
 }
+
+@import "./dashboardComponents/_overview";
