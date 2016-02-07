@@ -55,18 +55,34 @@ app.config(function($stateProvider, $urlRouterProvider) {
   .state("dashboard.overview",{
     url: "/overview/",
     templateUrl: "html/pitches/dashboard/overview.html",
+    controller: function($scope, $state){
+      $scope.currentLocation.name = $state.current.name.replace('dashboard.', '');
+      $scope.$apply;
+    }
   })
   .state("dashboard.issues",{
     url: "/issues/",
     templateUrl: "html/pitches/dashboard/issues.html",
+    controller: function($scope, $state){
+      $scope.currentLocation.name = $state.current.name.replace('dashboard.', '');
+      $scope.$apply;
+    }
   })
   .state("dashboard.developers",{
     url: "/developers/",
     templateUrl: "html/pitches/dashboard/developers.html",
+    controller: function($scope, $state){
+      $scope.currentLocation.name = $state.current.name.replace('dashboard.', '');
+      $scope.$apply;
+    }
   })
   .state("dashboard.admin",{
     url: "/admin/",
     templateUrl: "html/pitches/dashboard/admin.html",
+    controller: function($scope, $state){
+      $scope.currentLocation.name = $state.current.name.replace('dashboard.', '');
+      $scope.$apply;
+    }
   })
 
   $urlRouterProvider.otherwise('/');

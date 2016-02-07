@@ -3,6 +3,7 @@
 const Mongoose = require('mongoose');
 
 const IssueSchema = new Mongoose.Schema({
+  title: {type: String, required: true},
   description: {type: String, required: true},
   reporter: {type: Mongoose.Schema.ObjectId, ref: "User"},
   isResolved: {type: Boolean, default: false},

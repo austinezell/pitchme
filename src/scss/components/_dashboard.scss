@@ -1,20 +1,25 @@
 ul.nav.nav-tabs {
   margin-top: 58px;
   display: inline-block;
+  min-width: 346px;
   a{
-    background-color: white;
+    background-color: lighten(grey, 45);
     float: left;
   }
   li{
     box-shadow: 5px 1px 2px -2px $shadow;
   }
   li.active>a{
-    background-color: lighten(grey, 25);
+    background-color: white;
+    border-bottom: 4px solid white;
+    z-index:1;
   }
+
   a:hover{
     color: $linkBlue;
   }
 }
+
 .dashboard {
   background-color: grey;
   min-height: calc(100vh - 100px);
@@ -27,7 +32,9 @@ ul.nav.nav-tabs {
 }
 .views {
   background-color: white;
-  border: 2px solid black;
+  border: 2px solid grey;
+  border-top-width: 1px;
+  min-width: 346px;
   min-height: calc(100vh - 300px);
   width: 70%;
   box-shadow: $shadow 20px 20px 10px;
@@ -37,11 +44,10 @@ ul.nav.nav-tabs {
     font-size: 3rem;
   }
   .view-child{
-    width: 75%;
+    width: 90%;
     margin-top: 2.5rem;
     background-color: white;
-    min-height: 500px;
-    text-align: left;
+    text-align: center;
   }
 }
 

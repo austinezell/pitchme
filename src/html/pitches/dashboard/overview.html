@@ -1,19 +1,31 @@
-<div class="row view-child">
 
-  <div class="box">
-    <!-- <div ng-class="{'table': pitch.issues.length === 0}">
-      <div class="vertical-align"> -->
+<div class="box-container">
+<div class="box">
+  <div ng-class="{'table': pitch.issues.length === 0}">
+    <div class="vertical-align">
 
-        <div class="title">
-          {{pitch.issues.length}} open issues
+      <div class="title">
+        {{pitch.issues.length}} open issues
+      </div>
+      <div ng-if="pitch.issues.length" class="horizontal-line"></div>
+      <div ng-if="pitch.issues.length">
+        <div>Most recent:</div>
+        <div class="issue" ng-repeat="issue in issues">
+          <div><a href>{{issue.title}}</a></div>
         </div>
-        <!-- ng-if="pitch.issues.length !== 0" -->
-        <div  class="horizontal-line"></div>
-        <div></div>
-      <!-- </div>
-    </div> -->
+      </div>
+    </div>
   </div>
-
+</div>
+  <div class="box invis"></div>
+  <div class="box"></div>
+</div>
+<div class="line-container">
+  <div class="vertical-line"></div>
+</div>
+<div class="box-container">
+  <div class="box"></div>
+  <div class="box invis"></div>
 </div>
 <div class="dates">
   <span class="date" ng-if="!pitch.completed">Pitched on {{pitch.datePitched.toDateString()}} by {{pitch.pitcher._id === currentUser._id ? "YOU!" : currentUser.username}}</span>

@@ -13,13 +13,41 @@
   }
 }
 
-.box {
+.box-container {
   display: inline-block;
+  width: 160px;
+}
+.box {
   width: 150px;
   height: 150px;
-  border: 2px solid black;
+  border: 2px solid grey;
+  border-radius: 5px;
   text-align: center;
+  position: relative;
   .title{
     font-size: 2rem;
   }
+  .issue {
+    margin-bottom: 1rem;
+  }
+}
+
+.line-container {
+  display: inline-block;
+  position: relative;
+  min-height: 450px;
+  height: 100%;
+  top: 0px;
+  width: 21px;
+  .vertical-line{
+    background-color: grey;
+    border-color: grey;
+    width: 3px;
+    left: 10px;
+    height: 100px;
+  }
+}
+
+.invis{
+  border-color: transparent;
 }
