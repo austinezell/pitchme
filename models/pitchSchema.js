@@ -26,6 +26,7 @@ PitchSchema.plugin(deepPopulate, {
     "comments",
     "comments.commenter",
     "issues",
+    "administrators",
     "issues.reporter",
     "issues.suggestions",
     "issues.suggestions.suggestor",

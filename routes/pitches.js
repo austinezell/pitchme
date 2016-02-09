@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/details/:id', (req, res)=>{
-  Pitch.findById(req.params.id).deepPopulate(['pitcher', 'issues', 'developers', 'administrators', 'url'])
+  Pitch.findById(req.params.id).deepPopulate(['pitcher', 'issues', 'developers', 'administrators'])
   .exec( (err, pitch)=>{
     err ? res.status(499).send(err) : res.send(pitch);
   })

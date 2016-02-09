@@ -4,7 +4,6 @@
       <ul class="nav nav-tabs" role="tablist" align='center'>
         <li ng-class="{'active': currentLocation.name === 'overview'}"><a href ui-sref="dashboard.overview({id: pitch._id})">Overview</a></li>
         <li ng-class="{'active': currentLocation.name === 'issues'}"><a href ui-sref="dashboard.issues({id: pitch._id})">Issues</a></li>
-        <li ng-class="{'active': currentLocation.name === 'developers'}"><a href ui-sref="dashboard.developers({id: pitch._id})">Developers</a></li>
         <li ng-class="{'active': currentLocation.name === 'admin'}" ng-if="pitch.administrators.indexOf(currentUser._id) !== -1"><a ui-sref="dashboard.admin({id: pitch._id})" href>Admin</a></li>
       </ul>
     </div>
