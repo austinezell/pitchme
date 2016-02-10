@@ -4,7 +4,7 @@
       Ideas you have Pitched
     </h2>
     <div ng-repeat="pitch in currentUser.pitches" class="col-md-3 col-xs-6 col-sm-4 col-lg-2 my-pitch">
-      <a href ui-sref="dashboard.overview({id: pitch._id})">
+      <a href ui-sref="pitches.dashboard.overview({id: pitch._id})">
         <div class="table">
 
         <div class="hover">
@@ -25,7 +25,7 @@
       Ideas you have Worked on
     </h2>
     <div ng-repeat="pitch in currentUser.pitchesWorkedOn" class="col-md-2 col-xs-6 col-sm-2 col-lg-2 my-pitch" >
-      <a href ui-sref="dashboard.overview({id: pitch._id})">
+      <a href ui-sref="pitches.dashboard.overview({id: pitch._id})">
         <div>
           <span>
             {{pitch.description}}

@@ -14,7 +14,7 @@
           <ul class="dropdown-menu">
             <li><a href ui-sref="home">Home</a></li>
             <li role="separator" class='divider'></li>
-            <li><a href ng-hide="loggedIn" ui-sref="login">Login</a></li>
+            <li><a href ng-hide="loggedIn" ui-sref="users.login">Login</a></li>
             <li><a href ng-hide="!loggedIn" ng-click="logout()">Logout</a></li>
           </ul>
         </li>
@@ -25,13 +25,13 @@
             {{currentUser.username}} ({{currentUser.messagesReceived.length}}) <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
-            <li><a href ui-sref="me">My Profile</a></li>
+            <li><a href ui-sref="me.profile">My Profile</a></li>
             <li role="separator" class='divider'></li>
-            <li><a href ui-sref='inbox'>InBox ({{currentUser.messagesReceived.length}})</a></li>
+            <li><a href ui-sref='me.inbox'>InBox ({{currentUser.messagesReceived.length}})</a></li>
             <li role="separator" class='divider'></li>
-            <li><a href ui-sref='my_pitches'>Projects</a></li>
+            <li><a href ui-sref='pitches.mine'>Projects</a></li>
             <li role="separator" class='divider'></li>
-            <li><a href ui-sref='add_pitch'>Pitch a new Idea</a></li>
+            <li><a href ui-sref='pitches.add'>Pitch a new Idea</a></li>
           </ul>
         </li>
       </ul>

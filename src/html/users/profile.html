@@ -26,7 +26,7 @@
           <span> Send Message</span>
         </a>
 
-        <a href ng-if="me" ui-sref="inbox">
+        <a href ng-if="me" ui-sref="me.inbox">
           <span class="glyphicon glyphicon-envelope"></span>
           <span>View Your Messages</span>
         </a>
@@ -41,8 +41,8 @@
     <div class="user-pitches">
       <p><b>{{profileUser.username}}'s latest pitches:</b></p>
       <div ng-if="profileUser.pitches.length">
-        <p ng-repeat="pitch in profileUser.pitches">{{pitch.title}} (<a href ui-sref="pitch({id:pitch._id})">view more</a>)</p>
-        <p>[<a href ui-sref="#/:username/pitches">View All Pitch Entries</a>]</p>
+        <p ng-repeat="pitch in profileUser.pitches">{{pitch.title}} (<a href ui-sref="pitches.view({id:pitch._id})">view more</a>)</p>
+        <!-- <p>[<a href ui-sref="#/:username/pitches">View All Pitch Entries</a>]</p> -->
       </div>
       <div ng-if="!profileUser.pitches.length">
         <p>(<b>Looks like this user has no pitches</b>)</p>
