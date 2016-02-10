@@ -13,7 +13,6 @@ const UserSchema = new Mongoose.Schema({
   hash: {type: String, required: true},
   salt: {type: String, required: true},
   score: {type: Number, default: 0},
-  isDeveloper: {type: Boolean, default: false},
   pitches: [{type: Mongoose.Schema.ObjectId, ref: 'Pitch'}],
   associates: [{type: Mongoose.Schema.ObjectId, ref: 'User'}],
   messagesSent: [{type: Mongoose.Schema.ObjectId, ref: 'Message'}],

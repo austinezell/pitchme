@@ -1,6 +1,7 @@
 import app from "../../app.js";
 
 app.controller('dashboardCtrl', ["$scope", "Pitch", "User", "$state", "$stateParams", "$rootScope", function($scope, Pitch, User, $state, $stateParams, $rootScope){
+  console.log('dash controller loaded');
   Pitch.getDetails($stateParams.id)
   .success(data => {
     generateDates(data);

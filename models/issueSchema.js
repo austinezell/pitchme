@@ -10,6 +10,7 @@ const IssueSchema = new Mongoose.Schema({
   reportedOn: {type: Date, default: new Date},
   dateResolved: {type: Date},
   datePosted: {type: Date, default: new Date},
+  relevancy: {type: Number, default: 1},
   suggestions: [{type: Mongoose.Schema.ObjectId, ref: "Suggestion"}]
 });
 

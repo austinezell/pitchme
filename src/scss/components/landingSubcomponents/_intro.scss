@@ -10,6 +10,9 @@
   background-size: cover;
   background-repeat: no-repeat;
   height: 450px;
+  .horizontal-line{
+    background-color: white;
+  }
   .about-paragraph {
     display:table;
     width: 100%;
@@ -33,6 +36,7 @@
       }
       .paragraph-link{
         margin-top: 2rem;
+        text-align: left;
         a {
           color: rgb(116, 251, 255);
         }

@@ -24,8 +24,8 @@
     <h2>
       Ideas you have Worked on
     </h2>
-    <div ng-repeat="pitch in currentUser.pitchesWorkedOn" class="col-md-2 col-xs-6 col-sm-2 col-lg-2 my-pitch" ng-href="/#/pitches/dashboard/{{pitch._id}}">
-      <a href ng-href="/#/pitches/dashboard/{{pitch._id}}">
+    <div ng-repeat="pitch in currentUser.pitchesWorkedOn" class="col-md-2 col-xs-6 col-sm-2 col-lg-2 my-pitch" >
+      <a href ui-sref="dashboard.overview({id: pitch._id})">
         <div>
           <span>
             {{pitch.description}}

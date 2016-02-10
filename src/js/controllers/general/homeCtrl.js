@@ -3,6 +3,7 @@ import app from '../../app.js';
 import faqs from '../../misc/faq.js';
 
 app.controller('homeCtrl', ['$scope', 'Pitch', '$window', function($scope, Pitch, $window) {
+  console.log('home controller loaded');
 
   $scope.faqs = faqs;
 

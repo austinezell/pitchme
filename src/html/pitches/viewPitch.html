@@ -42,7 +42,7 @@
     </div>
 
     <div class="col-xs-3">
-      <h3> Created by </h3> <a href ng-href='/#/profile/{{pitch.pitcher.username}}'>{{pitch.pitcher.username}}</a>
+      <h3> Created by </h3> <a href ui-sref="profile({username: pitch.pitcher.username})">{{pitch.pitcher.username}}</a>
       <hr/>
       <h4>Developers currently working on this project:</h4>
       <ul>

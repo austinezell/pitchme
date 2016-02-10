@@ -6,6 +6,7 @@
     <div id="to-disappear">
       <div class="alpha-background">
         <div class="subtitle">About us:</div>
+        <div class="horizontal-line"></div>
         <div class="paragraph">
           Pitch Me is a place for people with development
           ideas to network and meet people who will help them along
@@ -83,7 +84,7 @@
         </div>
         <div class="col-xs-4 read-more">
           <span>
-            <a ng-href="#/pitch/{{pitch._id}}">
+            <a ui-sref="pitch({id: pitch._id})">
               Click here to read more
             </a>
           </span>
