@@ -6,7 +6,7 @@
     "node": "5.1.x"
   },
   "scripts": {
-    "test": "mocha test/*",
+    "test": "echo 'No testing script assigned'",
     "start": "node ./bin/www",
     "postinstall": "bower install && gulp dev"
   },

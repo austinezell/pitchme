@@ -1,9 +1,9 @@
-<div class="container">
-  <div class="pitches pitched-pitches row">
+<div class="container" align="center">
+  <div class="pitches pitched-pitches">
     <h2>
       Ideas you have Pitched
     </h2>
-    <div ng-repeat="pitch in currentUser.pitches" class="col-md-3 col-xs-6 col-sm-4 col-lg-2 my-pitch">
+    <div ng-repeat="pitch in currentUser.pitches" class="my-pitch">
       <a href ui-sref="pitches.dashboard.overview({id: pitch._id})">
         <div class="table">
 
@@ -20,11 +20,11 @@
   </div>
 </div>
 
-  <div ng-if="currentUser.pitchesWorkedOn.length" class="pitches worked-on-pitches row">
+  <div ng-if="currentUser.pitchesWorkedOn.length" class="pitches worked-on-pitches">
     <h2>
       Ideas you have Worked on
     </h2>
-    <div ng-repeat="pitch in currentUser.pitchesWorkedOn" class="col-md-2 col-xs-6 col-sm-2 col-lg-2 my-pitch" >
+    <div ng-repeat="pitch in currentUser.pitchesWorkedOn" class="my-pitch" >
       <a href ui-sref="pitches.dashboard.overview({id: pitch._id})">
         <div>
           <span>
