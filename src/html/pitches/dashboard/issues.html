@@ -6,7 +6,8 @@
     <div class="table">
       <div class="vertical-align">
         <div class="horizontal-line"></div>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa provident accusantium ratione qui ad facere hic, quasi reiciendis dicta laborum non tempore exercitationem enim ab repudiandae fuga laudantium unde. Vitae.</div>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa provident accusantium ratione qui ad facere hic, quasi reiciendis dicta laborum non tempore exercitationem enim ab repudiandae fuga laudantium unde. Vitae.
+      </div>
     </div>
   </div>
 </div>
@@ -39,4 +40,17 @@
 
 </div>
 
-<div class="space-filler"></div>
+<!-- <div class="space-filler"></div> -->
+<div class="add-issue-div">
+<div class="title">Add Issue</div>
+  <form ng-submit="addIssue(issue)" id="addIssue">
+    <label for="title">Title</label>
+    <input type="text" placeholder="Title" id="issueTitleInput"/>
+
+    <div align="center" class="reveal">
+      
+      <textarea name="description" placeholder="Description" id="issueDescrip"></textarea>
+    </div>
+  </form>
+
+</div>
