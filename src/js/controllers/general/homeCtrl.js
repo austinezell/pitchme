@@ -21,7 +21,7 @@ app.controller('homeCtrl', ['$scope', 'Pitch', '$window', function($scope, Pitch
     });
 
     let $window = $(window);
-    $window.off();
+    $window.off("scroll");
     $window.scroll(function() {
       if ($window.scrollTop() > 160) {
         $("#to-disappear").css("opacity", 1 - ($window.scrollTop() - 160) / 250);

@@ -2,11 +2,10 @@
 
 import app from './app.js';
 
-app.config(function($stateProvider, $urlRouterProvider) {
+app.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/');
 
-  $stateProvider
-  .state('home', {
+  $stateProvider.state('default', {
     url: '/',
     templateUrl: './html/general/home.html',
     controller: 'homeCtrl'
@@ -95,6 +94,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
       $scope.$apply;
     }
   })
-});
+}]);
 
 app.constant('localStorageKey', 'pitchMe-token');
