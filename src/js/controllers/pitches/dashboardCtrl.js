@@ -23,4 +23,21 @@ app.controller('dashboardCtrl', ["$scope", "Pitch", "User", "$state", "$statePar
 
 
 
+}]);
+
+
+app.controller('issuesCtrl', ["$scope", "$state", "Pitch", function($scope, $state, Pitch){
+  $scope.currentLocation.name = $state.current.name.replace('pitches.dashboard.', '');
+  $scope.$apply;
+  $scope.issue = {};
+  angular.element(document).ready(function() {
+    $("#addIssue").on("click", function(){
+      $("#addIssueDiv").toggleClass("revealed");
+    })
+  });
+
+  $scope.addIssue = (issue) => {
+    Pitch.addIssue(issue, $scope.pitch._id)
+  }
+
 }])

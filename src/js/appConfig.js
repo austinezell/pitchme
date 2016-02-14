@@ -81,10 +81,7 @@ app.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $ur
   .state('pitches.dashboard.issues',{
     url: '/issues',
     templateUrl: 'html/pitches/dashboard/issues.html',
-    controller: function($scope, $state){
-      $scope.currentLocation.name = $state.current.name.replace('pitches.dashboard.', '');
-      $scope.$apply;
-    }
+    controller: "issuesCtrl"
   })
   .state('pitches.dashboard.admin',{
     url: '/admin',

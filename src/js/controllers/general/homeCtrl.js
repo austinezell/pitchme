@@ -3,8 +3,6 @@ import app from '../../app.js';
 import faqs from '../../misc/faq.js';
 
 app.controller('homeCtrl', ['$scope', 'Pitch', function($scope, Pitch) {
-  console.log('home controller loaded');
-
   $scope.faqs = faqs;
 
   Pitch.getAll().then(res => {
@@ -15,7 +13,7 @@ app.controller('homeCtrl', ['$scope', 'Pitch', function($scope, Pitch) {
     $(".scroll").click(function(event) {
       event.preventDefault();
       const location = $(this).attr("href");
-      $('html,body').animate({
+      $('body').animate({
         scrollTop: $(location).offset().top - 50
       }, 'slow');
     });

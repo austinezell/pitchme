@@ -16,6 +16,10 @@ app.service('Pitch', ["$state", "$http", function($state, $http){
     })
   }
 
+  this.addIssue= (issue, pitchId) =>{
+    $http.post(`/pitches/addIssue/${pitchId}`, issue)
+  }
+
   this.getAll = () => {
     return $http.get('/pitches')
   }

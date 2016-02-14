@@ -5,6 +5,7 @@ var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var webpack = require('webpack');
+var prefixer = require('gulp-autoprefixer');
 
 var dirs = {
   src: {
@@ -25,30 +26,34 @@ gulp.task('default', ['sass','assets', 'webpack', 'templates', 'watch']);
 gulp.task('dev', ['sass','assets', 'webpack', 'templates']);
 
 gulp.task("webpack", function(done) {
-    webpack(require("./webpack.config.js"), function(err, stats) {
-        if(err) throw new gutil.PluginError("webpack", err);
-        gutil.log("[webpack]", stats.toString({}));
-        done();
-    });
+  webpack(require("./webpack.config.js"), function(err, stats) {
+    if(err) throw new gutil.PluginError("webpack", err);
+    gutil.log("[webpack]", stats.toString({}));
+    done();
+  });
 });
 
 gulp.task('sass', function(done) {
   gulp.src(dirs.src.scss)
-    .pipe(sass())
-    .on('error', sass.logError)
-    .pipe(minifyCss())
-    .pipe(gulp.dest(dirs.out.css))
-    .on('end', done);
+  .pipe(sass())
+  .on('error', sass.logError)
+  .pipe(prefixer({
+    browsers: ['last 2 versions'],
+    cascade: false
+  }))
+  .pipe(minifyCss())
+  .pipe(gulp.dest(dirs.out.css))
+  .on('end', done);
 });
 
 gulp.task('assets', function() {
   gulp.src(dirs.src.lib)
-    .pipe(gulp.dest(dirs.out.lib))
+  .pipe(gulp.dest(dirs.out.lib))
 });
 
 gulp.task('templates', function(){
   return gulp.src(dirs.src.html)
-    .pipe(gulp.dest(dirs.out.html))
+  .pipe(gulp.dest(dirs.out.html))
 })
 
 gulp.task('watch', function() {

@@ -61,49 +61,72 @@
   height: 10px;
 }
 
-.add-issue-div {
+#addIssueDiv:hover {
+  transform: scale(1);
+  box-shadow: $shadow 10px 10px 5px;
+}
+
+#addIssueDiv.revealed{
+  transform: scale(1);
+  box-shadow: $shadow 10px 10px 5px;
+  #reveal {
+    height: 200px;
+  }
+}
+
+#addIssueDiv {
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: 10px;
+  transform: scale(0.9);
+  border: 1px solid grey;
+  background-color: white;
+  padding: 15px 15px 15px 5px;
+  right: 15px;
+  transition: all .5s ease;
+  textarea, input {
+    width: 120px;
+  }
+  a{
+    color: rgb(73, 104, 133);
+  }
   .title{
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
-  #issueTitleInput{
-    display: block;
-  }
-  .reveal {
+  #reveal {
     overflow: hidden;
     height: 0;
-  }
-  #issueTitleInput:focus + .reveal{
-    height: 100px;
-    opacity: 1;
+    min-width: 126px;
     transition: all .5s ease;
   }
   #issueDescrip{
     height: 80px;
-    // opacity: 0;
-    transition: all .5s ease;
-
   }
-  #issueDescrip:focus{
-    height: 100px;
-    opacity: 1;
+  button {
+    background-color: #add;
+    border: 2px solid black;
+    border-left-color: grey;
+    border-top-color: grey;
+    transition: all .2s;
   }
-}
+  button:hover {
+    background-color: darken(#add, 25);
+    border: 2px solid black;
+    border-right-color: grey;
+    border-bottom-color: grey;
+  }
+  ::-webkit-input-placeholder {
+    text-align: center;
+  }
 
-::-webkit-input-placeholder {
-   text-align: center;
-}
+  :-moz-placeholder { /* Firefox 18- */
+    text-align: center;
+  }
 
-:-moz-placeholder { /* Firefox 18- */
-   text-align: center;
-}
+  ::-moz-placeholder {  /* Firefox 19+ */
+    text-align: center;
+  }
 
-::-moz-placeholder {  /* Firefox 19+ */
-   text-align: center;
-}
-
-:-ms-input-placeholder {
-   text-align: center;
+  :-ms-input-placeholder {
+    text-align: center;
+  }
 }
