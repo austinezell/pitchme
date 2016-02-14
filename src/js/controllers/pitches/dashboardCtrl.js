@@ -17,8 +17,10 @@ app.controller('dashboardCtrl', ["$scope", "Pitch", "User", "$state", "$statePar
     pitch.administrators.forEach(admin => {
       if (admin._id === $rootScope.currentUser._id) $scope.isAdmin = true;
     });
-    $scope.issues = $scope.pitch.issues.reverse().filter( (issue)=> !issue.isResolved).slice(0, 3);
-    $scope.pitch.openIssues = $scope.pitch.issues.filter( (issue)=> !issue.isResolved);
+
+    var tempArr = Array.prototype.reverse.call(pitch.issues);
+    $scope.issues = tempArr.filter( (issue)=> !issue.isResolved).slice(0, 3);
+    $scope.pitch.openIssues = tempArr.filter( (issue)=> !issue.isResolved);
   }
 
 
@@ -38,6 +40,13 @@ app.controller('issuesCtrl', ["$scope", "$state", "Pitch", function($scope, $sta
 
   $scope.addIssue = (issue) => {
     Pitch.addIssue(issue, $scope.pitch._id)
+    .then((response)=>{
+      $scope.issue ={}
+      $scope.pitch = response.data.pitch;
+      console.log($scope.pitch);
+    }, (err)=>{
+      console.log(err)
+    })
   }
 
 }])

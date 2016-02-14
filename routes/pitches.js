@@ -33,6 +33,26 @@ router.get('/details', (req, res)=> {
   })
 })
 
+router.post('/addIssue/:id', jwtAuth.middleware, (req, res) =>{
+  const userId = jwtAuth.getUserId(req.headers.authorization);
+  req.body.reporter = userId;
+  
+  Issue.create(req.body, (err, issue)=>{
+    if (err) return res.status(499).send(err);
+
+    Pitch.findById(req.params.id, (err, pitch)=>{
+      if (err) return res.status(499).send(err);
+
+      pitch.issues.push(issue._id)
+      pitch.save( (err)=>{
+        if (err) return res.status(499).send(err);
+
+        err ? res.status(499).send(err) : res.send({pitch, issue});
+      })
+    })
+  })
+})
+
 router.post('/create', jwtAuth.middleware, (req, res) => {
   const userId = jwtAuth.getUserId(req.headers.authorization);
   req.body.pitcher = userId;

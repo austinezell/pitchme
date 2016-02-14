@@ -23,6 +23,7 @@ app.controller('viewPitchCtrl', ["$scope", 'Pitch', "$stateParams", "$rootScope"
     .then(res =>{
       $scope.requested = true;
       swal({
+        title: "Request Sent!",
         type: "success",
         text: "You successfully requested to be added to the project"
       })

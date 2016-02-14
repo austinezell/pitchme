@@ -43,7 +43,7 @@
 <div id="addIssueDiv">
   <div class="title"><a href id="addIssue">Add Issue</a></div>
   <div align="center" id="reveal" class="revealed">
-    <form ng-submit="addIssue(issue)" id="addIssue">
+    <form autocomplete="off" ng-submit="addIssue(issue)" id="addIssue">
       <label for="title">Title</label><br/>
       <input required ng-model="issue.title" type="text" placeholder="Title" id="issueTitleInput"/><br>
       <label for="title">Description</label><br>

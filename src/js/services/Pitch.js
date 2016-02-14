@@ -17,7 +17,24 @@ app.service('Pitch', ["$state", "$http", function($state, $http){
   }
 
   this.addIssue= (issue, pitchId) =>{
-    $http.post(`/pitches/addIssue/${pitchId}`, issue)
+    return $http.post(`/pitches/addIssue/${pitchId}`, issue)
+    .success((data)=>{
+      swal({
+        title: "Issue Reported",
+        type: "success",
+        text: "Your issue has been reported",
+        timer: 1000
+      })
+    })
+    .error((err)=>{
+      swal({
+        title: "Error",
+        type: "error",
+        text: "Something went wrong! Make sure all fields are filled out, or try again later!",
+        timer: 3000
+      })
+
+    })
   }
 
   this.getAll = () => {
