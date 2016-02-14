@@ -15,33 +15,15 @@
   Issues
 </div>
 <div class="issues-scroller">
-  <ul issues="">
-    <li>Test</li>
-    <li>Test</li>
-    <li>Test</li>
-    <li>Test</li>
-    <li>Test</li>
-    <li>Test</li>
-    <li>Test</li>
-    <li>Test</li>
-    <li>Test</li>
-    <li>Test</li>
-    <li>Test</li>
-    <li>Test</li>
-    <li>Test</li>
-    <li>Test</li>
-    <li>Test</li>
-    <li>Test</li>
-    <li>Test</li>
-    <li>Test</li>
-    <li>Test</li>
-    <li>Test</li>
+  <ul>
+    <li ng-repeat="issue in openIssues">{{issue.title}}</li>
   </ul>
 
 </div>
 
 <div id="addIssueDiv">
-  <div class="title"><a href id="addIssue">Add Issue</a></div>
+  <a href id="addIssue"><div class="fill-link"></div></a>
+    <div class="title">Add Issue</div>
   <div align="center" id="reveal" class="revealed">
     <form autocomplete="off" ng-submit="addIssue(issue)" id="addIssue">
       <label for="title">Title</label><br/>

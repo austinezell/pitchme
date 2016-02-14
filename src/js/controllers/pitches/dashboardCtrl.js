@@ -1,7 +1,6 @@
 import app from "../../app.js";
 
-app.controller('dashboardCtrl', ["$scope", "Pitch", "User", "$state", "$stateParams", "$rootScope", function($scope, Pitch, User, $state, $stateParams, $rootScope){
-  console.log('dash controller loaded');
+app.controller("dashboardCtrl", ["$scope", "Pitch", "User", "$state", "$stateParams", "$rootScope", function($scope, Pitch, User, $state, $stateParams, $rootScope){
   Pitch.getDetails($stateParams.id)
   .success(data => {
     generateDates(data);
@@ -19,8 +18,10 @@ app.controller('dashboardCtrl', ["$scope", "Pitch", "User", "$state", "$statePar
     });
 
     var tempArr = Array.prototype.reverse.call(pitch.issues);
-    $scope.issues = tempArr.filter( (issue)=> !issue.isResolved).slice(0, 3);
-    $scope.pitch.openIssues = tempArr.filter( (issue)=> !issue.isResolved);
+    $scope.openIssues = tempArr.filter( (issue)=> !issue.isResolved);
+    $scope.issues = $scope.openIssues.slice(0, 3);
+    $scope.$apply;
+    console.log("parent", $scope.openIssues);
   }
 
 
@@ -28,13 +29,19 @@ app.controller('dashboardCtrl', ["$scope", "Pitch", "User", "$state", "$statePar
 }]);
 
 
-app.controller('issuesCtrl', ["$scope", "$state", "Pitch", function($scope, $state, Pitch){
-  $scope.currentLocation.name = $state.current.name.replace('pitches.dashboard.', '');
+app.controller("issuesCtrl", ["$scope", "$state", "Pitch", function($scope, $state, Pitch){
+  $scope.currentLocation.name = $state.current.name.replace("pitches.dashboard.", "");
   $scope.$apply;
   $scope.issue = {};
+  let $addIssueDiv;
   angular.element(document).ready(function() {
-    $("#addIssue").on("click", function(){
-      $("#addIssueDiv").toggleClass("revealed");
+    $addIssueDiv = $("#addIssueDiv");
+    $("#addIssue").on("click", function(event){
+      event.stopPropagation();
+      $addIssueDiv.toggleClass("revealed");
+    })
+    $(".content").on("click", function(){
+      if($addIssueDiv.hasClass("revealed")) $addIssueDiv.removeClass("revealed");
     })
   });
 
@@ -43,7 +50,6 @@ app.controller('issuesCtrl', ["$scope", "$state", "Pitch", function($scope, $sta
     .then((response)=>{
       $scope.issue ={}
       $scope.pitch = response.data.pitch;
-      console.log($scope.pitch);
     }, (err)=>{
       console.log(err)
     })

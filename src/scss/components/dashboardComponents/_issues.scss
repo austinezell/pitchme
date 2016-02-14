@@ -71,6 +71,10 @@
   box-shadow: $shadow 10px 10px 5px;
   #reveal {
     height: 200px;
+    margin-top: 25px;
+  }
+  .fill-link{
+    background-color: rgba(149, 200, 183, 0);
   }
 }
 
@@ -80,9 +84,21 @@
   transform: scale(0.9);
   border: 1px solid grey;
   background-color: white;
-  padding: 15px 15px 15px 5px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   right: 15px;
+  width: 150px;
+  overflow: hidden;
   transition: all .5s ease;
+  .fill-link{
+    width: 150px;
+    height: 60px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: transparentize(#add, .7);;
+    transition: background-color .5s ease-in;
+  }
   textarea, input {
     width: 120px;
   }
@@ -118,7 +134,7 @@
     text-align: center;
   }
 
-  :-moz-placeholder { /* Firefox 18- */
+  :-moz-placeholder {
     text-align: center;
   }
 
