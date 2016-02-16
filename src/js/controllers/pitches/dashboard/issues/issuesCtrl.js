@@ -6,18 +6,18 @@ app.controller("issuesCtrl", ["$scope", "$state", "Pitch", function($scope, $sta
   $scope.$apply;
   $scope.newIssue = {};
   $scope.issue = {};
-  let $addIssueDiv;
+  let $addItem;
   angular.element(document).ready(function() {
-    $addIssueDiv = $("#addIssueDiv");
-    $("#addIssue").on("click", function(event){
+    $addItem = $(".add-item-div");
+    $("#addIssue, #addSuggestionDiv").on("click", function(event){
       event.stopPropagation();
-      $addIssueDiv.toggleClass("revealed");
+      $(this).closest('.add-item-div').toggleClass("revealed");
     });
-    $addIssueDiv.on("click", function(event){
+    $addItem.on("click", function(event){
       event.stopPropagation();
     })
     $(".content").on("click", function(){
-      if($addIssueDiv.hasClass("revealed")) $addIssueDiv.removeClass("revealed");
+      $addItem.removeClass("revealed");
     })
   });
 
@@ -35,5 +35,9 @@ app.controller("issuesCtrl", ["$scope", "$state", "Pitch", function($scope, $sta
       console.log(err)
     })
   }
+
+  // $scope.addSuggestion = (suggestion) =>{
+  //   Pitch.addSuggestion
+  // }
 
 }])

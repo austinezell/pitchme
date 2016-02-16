@@ -102,24 +102,7 @@
   height: 10px;
 }
 
-#addIssueDiv:hover {
-  transform: scale(1);
-  box-shadow: $shadow 10px 10px 5px;
-}
-
-#addIssueDiv.revealed{
-  transform: scale(1);
-  box-shadow: $shadow 10px 10px 5px;
-  #reveal {
-    height: 200px;
-    margin-top: 25px;
-  }
-  .fill-link{
-    background-color: rgba(149, 200, 183, 0);
-  }
-}
-
-#addIssueDiv {
+.add-item-div {
   position: absolute;
   bottom: 10px;
   transform: scale(0.9);
@@ -127,7 +110,6 @@
   background-color: white;
   padding-top: 15px;
   padding-bottom: 15px;
-  left: 15px;
   width: 150px;
   overflow: hidden;
   transition: all .5s ease;
@@ -146,17 +128,11 @@
   a{
     color: rgb(73, 104, 133);
   }
-  .title{
-    font-size: 2rem;
-  }
-  #reveal {
+  .reveal {
     overflow: hidden;
     height: 0;
     min-width: 126px;
     transition: all .5s ease;
-  }
-  #issueDescrip{
-    height: 80px;
   }
   button {
     background-color: #add;
@@ -185,5 +161,41 @@
 
   :-ms-input-placeholder {
     text-align: center;
+  }
+}
+
+#addSuggestionDiv{
+  right: 15px;
+  .title{
+    font-size: 1.7rem;
+  }
+  textarea{
+    height: 80px;
+  }
+}
+
+.add-item-div:hover {
+  transform: scale(1);
+  box-shadow: $shadow 10px 10px 5px;
+}
+
+.add-item-div.revealed{
+  transform: scale(1);
+  box-shadow: $shadow 10px 10px 5px;
+  .reveal {
+    height: 200px;
+    margin-top: 25px;
+  }
+  .fill-link{
+    background-color: rgba(149, 200, 183, 0);
+  }
+}
+#addIssueDiv {
+  left: 15px;
+  .title{
+    font-size: 2rem;
+  }
+  textarea{
+    height: 80px;
   }
 }

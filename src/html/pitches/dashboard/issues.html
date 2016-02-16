@@ -29,19 +29,29 @@
   </div>
 </div>
 
-<div id="addSuggestionDiv">
-  
+<div ng-show="issue.title" class="add-item-div" id="addSuggestionDiv">
+  <div class="title">Suggest a fix</div>
+  <a href id="revealSuggestionForm"><div class="fill-link"></div></a>
+  <div align="center" class="reveal">
+    <form ng-submit="addSuggestion(newSuggestion)" autocomplete="false">
+      <label for="title">Title</label><br/>
+      <input placeholder="Suggestion Title" type="text" ng-model="newSuggestion.title">
+      <label for="body">Body</label><br/>
+      <textarea ng-model="newSuggestion.body" placeholder="Suggestion Body"></textarea>
+      <button type="submit">Suggest</button>
+    </form>
+  </div>
 </div>
 
-<div id="addIssueDiv">
+<div class="add-item-div" id="addIssueDiv">
   <a href id="addIssue"><div class="fill-link"></div></a>
   <div class="title">Add Issue</div>
-  <div align="center" id="reveal" class="revealed">
+  <div align="center" class="reveal">
     <form autocomplete="off" ng-submit="addIssue(newIssue)" id="addIssue">
       <label for="title">Title</label><br/>
       <input required ng-model="newIssue.title" type="text" placeholder="Title" id="issueTitleInput"/><br>
-      <label for="title">Description</label><br>
-      <textarea required ng-model="newIssue.description" name="description" placeholder="Description" id="issueDescrip"></textarea><br>
+      <label for="description">Description</label><br>
+      <textarea required ng-model="newIssue.description" name="description" placeholder="Description"></textarea><br>
       <button type="submit">Add Issue</button>
     </form>
   </div>
