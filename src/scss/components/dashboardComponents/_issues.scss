@@ -13,12 +13,10 @@
     box-shadow: $shadow 20px 20px 10px;
     .title{
       font-size: 2rem;
-      position: absolute;
-      top: 40px;
-      left: calc(50% - 24px);
+      padding-top: 2rem;
     }
-    .table {
-      padding: 0 35px 0 35px;
+    .issue-description {
+      padding: 2rem 35px 0 35px;
     }
   }
 }
@@ -37,6 +35,12 @@
   ul{
     list-style-type: none;
     padding: 0;
+  }
+  li.active{
+    background-color: rgb(190, 190, 190);
+    a{
+      color: black;
+    }
   }
 }
 

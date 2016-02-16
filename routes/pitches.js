@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/details/:id', (req, res)=>{
-  Pitch.findById(req.params.id).deepPopulate(['pitcher', 'issues', 'developers', 'administrators', 'url'])
+  Pitch.findById(req.params.id).deepPopulate(['pitcher', 'issues', 'issues.reporter', 'developers', 'administrators', 'url'])
   .exec( (err, pitch)=>{
     err ? res.status(499).send(err) : res.send(pitch);
   })
@@ -27,16 +27,11 @@ router.get('/one/:id', (req, res)=> {
   })
 });
 
-router.get('/details', (req, res)=> {
-  Pitch.findById(req.params.id).populate('pitcher developers requestedUsers').exec( (err, pitch)=>{
-
-  })
-})
 
 router.post('/addIssue/:id', jwtAuth.middleware, (req, res) =>{
   const userId = jwtAuth.getUserId(req.headers.authorization);
   req.body.reporter = userId;
-  
+
   Issue.create(req.body, (err, issue)=>{
     if (err) return res.status(499).send(err);
 
@@ -58,9 +53,10 @@ router.post('/create', jwtAuth.middleware, (req, res) => {
   req.body.pitcher = userId;
 
   if(/\W/.test(req.body.tags)){
-    req.body.tags = req.body.tags.split(/\W/)
+    req.body.tags = req.body.tags.split(/\s+/);
     let tempArr = [];
     req.body.tags.forEach(tag=>{
+      tag.replace(/[,?!^]/, "")
       if(tempArr.indexOf(tag) === -1 && tag){
         tempArr.push(tag);
       }

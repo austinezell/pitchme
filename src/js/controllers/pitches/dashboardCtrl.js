@@ -4,10 +4,10 @@ app.controller("dashboardCtrl", ["$scope", "Pitch", "User", "$state", "$statePar
   Pitch.getDetails($stateParams.id)
   .success(data => {
     generateDates(data);
-    console.log(data);
-  })
-
+  });
+  $scope.pitch = {};
   $scope.currentLocation = {};
+  $scope.openIssues = [];
 
   let generateDates = (pitch) =>{
     pitch.datePitched = new Date(pitch.datePitched);
@@ -21,7 +21,6 @@ app.controller("dashboardCtrl", ["$scope", "Pitch", "User", "$state", "$statePar
     $scope.openIssues = tempArr.filter( (issue)=> !issue.isResolved);
     $scope.issues = $scope.openIssues.slice(0, 3);
     $scope.$apply;
-    console.log("parent", $scope.openIssues);
   }
 
 
@@ -32,6 +31,7 @@ app.controller("dashboardCtrl", ["$scope", "Pitch", "User", "$state", "$statePar
 app.controller("issuesCtrl", ["$scope", "$state", "Pitch", function($scope, $state, Pitch){
   $scope.currentLocation.name = $state.current.name.replace("pitches.dashboard.", "");
   $scope.$apply;
+  $scope.newIssue = {};
   $scope.issue = {};
   let $addIssueDiv;
   angular.element(document).ready(function() {
@@ -39,20 +39,48 @@ app.controller("issuesCtrl", ["$scope", "$state", "Pitch", function($scope, $sta
     $("#addIssue").on("click", function(event){
       event.stopPropagation();
       $addIssueDiv.toggleClass("revealed");
+    });
+    $addIssueDiv.on("click", function(event){
+      event.stopPropagation();
     })
     $(".content").on("click", function(){
       if($addIssueDiv.hasClass("revealed")) $addIssueDiv.removeClass("revealed");
     })
   });
 
+  $scope.changeIssue = (issue) => {
+    console.log(issue);
+    $scope.issue = issue;
+  }
+
   $scope.addIssue = (issue) => {
     Pitch.addIssue(issue, $scope.pitch._id)
     .then((response)=>{
-      $scope.issue ={}
-      $scope.pitch = response.data.pitch;
+      $scope.newIssue ={}
+      $scope.openIssues.unshift(response.data.issue);
+      $scope.$apply;
     }, (err)=>{
       console.log(err)
     })
   }
 
 }])
+
+app.controller("singleIssueCtrl", ["$scope", "$stateParams", "Pitch", function($scope, $stateParams, Pitch){
+  $scope.currentLocation.name = "issues";
+  $scope.currentLocation.id = $stateParams.issueID;
+  $scope.$apply;
+
+  if (!$scope.issue._id){
+    var unbind = $scope.$watch(
+      "openIssues",
+      function(nVal, oVal){
+        nVal.forEach(issue =>{
+          if (issue._id === $stateParams.issueID) {
+            $scope.issue = issue;
+            unbind();
+          }
+        })
+      })
+    }
+  }])

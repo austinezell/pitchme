@@ -5,11 +5,15 @@ import app from './app.js';
 app.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/');
 
-  $stateProvider.state('default', {
+  $stateProvider
+  .state('home', {
     url: '/',
     templateUrl: './html/general/home.html',
     controller: 'homeCtrl'
   })
+  // .state("faqs", {
+  //
+  // })
 
   .state('users',{
     url: '/users',
@@ -82,6 +86,11 @@ app.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $ur
     url: '/issues',
     templateUrl: 'html/pitches/dashboard/issues.html',
     controller: "issuesCtrl"
+  })
+  .state('pitches.dashboard.issues.details', {
+    url: '/view/:issueID',
+    templateUrl: 'html/pitches/dashboard/issues/details.html',
+    controller: "singleIssueCtrl"
   })
   .state('pitches.dashboard.admin',{
     url: '/admin',

@@ -53,6 +53,10 @@ app.service('Pitch', ["$state", "$http", function($state, $http){
     return $http.post('/pitches/addComment', {comment, pitchId})
   }
 
+  this.getIssueDetails = (issueID)=>{
+    return $http.get(`/pitches/issues/details/${issue}`)
+  }
+
   this.getDetails = (pitchId) => {
     return $http.get(`/pitches/details/${pitchId}`)
   }

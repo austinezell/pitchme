@@ -1,22 +1,12 @@
 <div class="sunken">
-  <div class="sunken-child">
-    <div class="title">
-      Test
-    </div>
-    <div class="table">
-      <div class="vertical-align">
-        <div class="horizontal-line"></div>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa provident accusantium ratione qui ad facere hic, quasi reiciendis dicta laborum non tempore exercitationem enim ab repudiandae fuga laudantium unde. Vitae.
-      </div>
-    </div>
-  </div>
+  <ui-view></ui-view>
 </div>
 <div class="title issue-title">
   Issues
 </div>
 <div class="issues-scroller">
   <ul>
-    <li ng-repeat="issue in openIssues">{{issue.title}}</li>
+    <li ng-repeat="issue in openIssues" ng-class="{'active': issue._id === currentLocation.id}"><a ng-click="changeIssue(issue)" ui-sref="pitches.dashboard.issues.details({issueID: issue._id})">{{issue.title}}</a></li>
   </ul>
 
 </div>
@@ -25,11 +15,11 @@
   <a href id="addIssue"><div class="fill-link"></div></a>
     <div class="title">Add Issue</div>
   <div align="center" id="reveal" class="revealed">
-    <form autocomplete="off" ng-submit="addIssue(issue)" id="addIssue">
+    <form autocomplete="off" ng-submit="addIssue(newIssue)" id="addIssue">
       <label for="title">Title</label><br/>
-      <input required ng-model="issue.title" type="text" placeholder="Title" id="issueTitleInput"/><br>
+      <input required ng-model="newIssue.title" type="text" placeholder="Title" id="issueTitleInput"/><br>
       <label for="title">Description</label><br>
-      <textarea required ng-model="issue.description" name="description" placeholder="Description" id="issueDescrip"></textarea><br>
+      <textarea required ng-model="newIssue.description" name="description" placeholder="Description" id="issueDescrip"></textarea><br>
       <button type="submit">Add Issue</button>
     </form>
   </div>
