@@ -77,10 +77,10 @@ app.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $ur
   .state('pitches.dashboard.overview',{
     url: '/overview',
     templateUrl: 'html/pitches/dashboard/overview.html',
-    controller: function($scope, $state){
+    controller: ["$scope", "$state", function($scope, $state){
       $scope.currentLocation.name = $state.current.name.replace('pitches.dashboard.', '');
       $scope.$apply;
-    }
+    }]
   })
   .state('pitches.dashboard.issues',{
     url: '/issues',
@@ -95,10 +95,10 @@ app.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $ur
   .state('pitches.dashboard.admin',{
     url: '/admin',
     templateUrl: 'html/pitches/dashboard/admin.html',
-    controller: function($scope, $state){
+    controller: ["$scope", "$state", function($scope, $state){
       $scope.currentLocation.name = $state.current.name.replace('pitches.dashboard.', '');
       $scope.$apply;
-    }
+    }]
   })
 }]);
 

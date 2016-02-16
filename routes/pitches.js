@@ -65,6 +65,7 @@ router.post('/create', jwtAuth.middleware, (req, res) => {
   }
 
   req.body.administrators = [userId];
+  req.body.developers = [userId];
 
   Pitch.create(req.body, (err, pitch)=> {
     if (err) return res.status(499).send(err);

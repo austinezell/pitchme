@@ -1,4 +1,5 @@
 <div class="sunken-child">
+  <div class="relevancy">{{issue.relevancy/pitch.developers.length *100}}% of developers think this is relevant</div>
   <div class="title">
     {{issue.title}}
   </div>
@@ -6,5 +7,6 @@
   <div class="issue-description">
     {{issue.description}}
   </div>
-  <div class="reporter">{{issue.reporter.username}}</div>
+  <div class="reporter">Reported By: {{issue.reporter.username}}</div>
+  <div class="date">Reported On: {{issue.datePosted.toDateString()}}</div>
 </div>

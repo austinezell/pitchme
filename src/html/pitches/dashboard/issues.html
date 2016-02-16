@@ -1,19 +1,41 @@
 <div class="sunken">
   <ui-view></ui-view>
 </div>
-<div class="title issue-title">
-  Issues
+<div class="scroller-container">
+  <div class="title issue-title">
+    Issues
+  </div>
+  <div class="issues-scroller scroller">
+    <ul>
+      <li ng-repeat="issue in openIssues" ng-class="{'active': issue._id === currentLocation.id}"><a ng-click="changeIssue(issue)" ui-sref="pitches.dashboard.issues.details({issueID: issue._id})">{{issue.title}}</a></li>
+    </ul>
+  </div>
 </div>
-<div class="issues-scroller">
-  <ul>
-    <li ng-repeat="issue in openIssues" ng-class="{'active': issue._id === currentLocation.id}"><a ng-click="changeIssue(issue)" ui-sref="pitches.dashboard.issues.details({issueID: issue._id})">{{issue.title}}</a></li>
-  </ul>
+<div ng-class="{'visible': issue.title}" class="scroller-container suggestions">
+  <div class="title">Suggestions</div>
+  <div class="suggestions-scroller scroller">
+    <ul>
+      <li>test</li>
+      <li>test</li>
+      <li>test</li>
+      <li>test</li>
+      <li>test</li>
+      <li>test</li>
+      <li>test</li>
+      <li>test</li>
+      <li>test</li>
+      <li>test</li>
+    </ul>
+  </div>
+</div>
 
+<div id="addSuggestionDiv">
+  
 </div>
 
 <div id="addIssueDiv">
   <a href id="addIssue"><div class="fill-link"></div></a>
-    <div class="title">Add Issue</div>
+  <div class="title">Add Issue</div>
   <div align="center" id="reveal" class="revealed">
     <form autocomplete="off" ng-submit="addIssue(newIssue)" id="addIssue">
       <label for="title">Title</label><br/>
