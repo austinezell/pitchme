@@ -16,20 +16,32 @@
 }
 
 .home-slide {
-  transition: all .5s ease;
+  transition: transform .5s;
   transform: translateX(0);
+  width: 100vw;
+  min-height: 700px;
 }
 
 .home-slide.ng-enter {
-    transform: translateX(-100%) scale(0);
+  transform: translateX(30vw) scale(0);
 }
 
-.home-slide.ng-enter-active, .home-slide.ng-leave {
-    position: absolute;
-    opacity: 1;
-    transform: translateX(0) scale(1);
+.home-slide.ng-enter-active.ng-enter, .home-slide.ng-leave {
+  position: absolute;
+  overflow-x: hidden;
+  width: 100vw;
+  min-height: 700px;
+  transform: translateX(0) scale(1);
 }
 
 .home-slide.ng-leave.ng-leave-active {
-    transform: translateX(100%) scale(0);
+  transform: translateX(-30vw) scale(0);
+}
+
+.wrapper{
+  max-width: 100vw;
+  overflow: hidden;
+  min-height: calc(100vh-100px);
+  min-height: 700px;
+  margin-bottom: 100px;
 }
