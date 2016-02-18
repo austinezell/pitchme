@@ -9,8 +9,9 @@ app.controller("issuesCtrl", ["$scope", "$state", "Pitch", function($scope, $sta
   let $addItem;
   angular.element(document).ready(function() {
     $addItem = $(".add-item-div");
-    $("#addIssue, #addSuggestionDiv").on("click", function(event){
+    $("#revealIssueForm, #revealSuggestionForm").on("click", function(event){
       event.stopPropagation();
+      $(".revealed").not(this).removeClass("revealed");
       $(this).closest('.add-item-div').toggleClass("revealed");
     });
     $addItem.on("click", function(event){
@@ -36,8 +37,8 @@ app.controller("issuesCtrl", ["$scope", "$state", "Pitch", function($scope, $sta
     })
   }
 
-  // $scope.addSuggestion = (suggestion) =>{
-  //   Pitch.addSuggestion
-  // }
+  $scope.addSuggestion = (suggestion) =>{
+    Pitch.addSuggestion(suggestion, $scope.issue._id)
+  }
 
 }])

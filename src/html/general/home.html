@@ -1,97 +1,10 @@
 
 
-<div class="title">Welcome to Pitch Me!</div>
-<div class="about">
-  <div class='about-paragraph'>
-    <div id="to-disappear">
-      <div class="alpha-background">
-        <div class="subtitle">About us:</div>
-        <div class="horizontal-line"></div>
-        <div class="paragraph">
-          Pitch Me is a place for people with development
-          ideas to network and meet people who will help them along
-          their way to the final realization of the idea. We provide
-          the connection and the location, you provide the ideas
-          and the elbow grease.
-        </div>
-        <div>
-          <div class="paragraph-link">
-            Click <a href="#faq-top" class="scroll">here</a> to read more,
-          </div>
-          <div class="paragraph-link">
-            Or click <a href="#pitches-top" class="scroll">here</a> to see some of our users' most recent pitches!
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="spacer"></div>
+<div class="title home-title">Welcome to Pitch Me!</div>
+<div class="link"><a ui-sref="home.faqs">Faq Test</a></div>
+<div class="link"><a ui-sref="home.intro">intro Test</a></div>
+<div class="link"><a ui-sref="home.pitches">pitches Test</a></div>
 
-<div class="row" id="faq-top">
-  <div class="col-xs-2 col-xs-offset-3 faq-header">
-    <h2>F</h2>
-  </div>
-  <div class="col-xs-2 faq-header">
-    <h2>A</h2>
-  </div>
-  <div class="col-xs-2 faq-header">
-    <h2>Q</h2>
-  </div>
-</div>
-<br>
-<div class="row">
+<div ui-view class="home-slide"></div>
 
-  <div class="col-xs-8 col-xs-offset-2 faqs">
-    <div ng-repeat="faq in faqs" class="faq">
-      <div class="question">
-        Question: <br>
-        {{faq.question}}
-      </div>
-      <div class="answer">
-        Answer: <br>
-        {{faq.answer}}
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="spacer"></div>
-
-<div id="pitches-top">
-  <div class="row">
-    <div class="col-xs-8 col-xs-offset-2 letters">
-      <div class="row row-centered">
-          <div class="col-xs-1 col-centered pitch-header"><h2>P</h2></div>
-          <div class="col-xs-1 col-centered pitch-header"><h2>i</h2></div>
-          <div class="col-xs-1 col-centered pitch-header"><h2>t</h2></div>
-          <div class="col-xs-1 col-centered pitch-header"><h2>c</h2></div>
-          <div class="col-xs-1 col-centered pitch-header"><h2>h</h2></div>
-          <div class="col-xs-1 col-centered pitch-header"><h2>e</h2></div>
-          <div class="col-xs-1 col-centered pitch-header"><h2>s</h2></div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="container pitches">
-  <div class="row row-centered">
-    <div class='col-xs-12 col-sm-10 col-md-8 col-centered'>
-      <div class='pitch row' ng-repeat='pitch in pitches track by $index'>
-        <div class="col-xs-8 landing-pitch-title">
-          <div>
-            {{pitch.title}}
-          </div>
-        </div>
-        <div class="col-xs-4 read-more">
-          <span>
-            <a ui-sref="pitches.view({id: pitch._id})">
-              Click here to read more
-            </a>
-          </span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</div>
-<div class="spacer"></div>
+<div class="margin"></div>

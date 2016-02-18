@@ -5,6 +5,31 @@
 ;
 
 
-#to-disappear {
-  opacity: 1;
+.home-title{
+  height: calc(100px + 5rem);
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.margin{
+  height: 100px;
+}
+
+.home-slide {
+  transition: all .5s ease;
+  transform: translateX(0);
+}
+
+.home-slide.ng-enter {
+    transform: translateX(-100%) scale(0);
+}
+
+.home-slide.ng-enter-active, .home-slide.ng-leave {
+    position: absolute;
+    opacity: 1;
+    transform: translateX(0) scale(1);
+}
+
+.home-slide.ng-leave.ng-leave-active {
+    transform: translateX(100%) scale(0);
 }

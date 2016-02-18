@@ -1,0 +1,35 @@
+<div id="pitches-top">
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2 letters">
+      <div class="row row-centered">
+          <div class="col-xs-1 col-centered pitch-header"><h2>P</h2></div>
+          <div class="col-xs-1 col-centered pitch-header"><h2>i</h2></div>
+          <div class="col-xs-1 col-centered pitch-header"><h2>t</h2></div>
+          <div class="col-xs-1 col-centered pitch-header"><h2>c</h2></div>
+          <div class="col-xs-1 col-centered pitch-header"><h2>h</h2></div>
+          <div class="col-xs-1 col-centered pitch-header"><h2>e</h2></div>
+          <div class="col-xs-1 col-centered pitch-header"><h2>s</h2></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container pitches">
+  <div class="row row-centered">
+    <div class='col-xs-12 col-sm-10 col-md-8 col-centered'>
+      <div class='pitch row' ng-repeat='pitch in pitches track by $index'>
+        <div class="col-xs-8 landing-pitch-title">
+          <div>
+            {{pitch.title}}
+          </div>
+        </div>
+        <div class="col-xs-4 read-more">
+          <span>
+            <a ui-sref="pitches.view({id: pitch._id})">
+              Click here to read more
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

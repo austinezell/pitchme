@@ -7,13 +7,24 @@ app.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $ur
 
   $stateProvider
   .state('home', {
-    url: '/',
     templateUrl: './html/general/home.html',
+    abstract: true,
     controller: 'homeCtrl'
   })
-  // .state("faqs", {
-  //
-  // })
+  .state("home.intro", {
+    url: '/',
+    templateUrl: '/html/general/home/intro.html'
+  })
+  .state("home.faqs", {
+    url: '/faqs',
+    templateUrl: '/html/general/home/faq.html'
+  })
+  .state("home.pitches", {
+    url: '/pitches',
+    templateUrl: '/html/general/home/pitches.html'
+  })
+
+
 
   .state('users',{
     url: '/users',

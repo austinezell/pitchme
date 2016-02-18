@@ -25,7 +25,7 @@
     .title{
       font-size: 4rem;
     }
-    #to-disappear{
+    >div{
       display:table-cell;
       vertical-align: middle;
       text-align: center;
@@ -35,20 +35,6 @@
         width: 75%;
         margin: 0 auto;
       }
-      .paragraph-link{
-        margin-top: 2rem;
-        text-align: left;
-        a {
-          color: rgb(116, 251, 255);
-        }
-        a:hover {
-          color: white;
-        }
-      }
-    }
-    p{
-      text-align:justify;
-      font-size: 20px;
     }
   }
 }

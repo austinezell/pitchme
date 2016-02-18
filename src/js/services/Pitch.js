@@ -37,6 +37,8 @@ app.service('Pitch', ["$state", "$http", function($state, $http){
     })
   }
 
+  this.addIsue
+
   this.getAll = () => {
     return $http.get('/pitches')
   }
