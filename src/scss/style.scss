@@ -54,19 +54,14 @@ footer {
   clear: both;
   height: 50px;
   position: relative;
-  .row {
-    margin: 0;
-  }
+  padding: 15px;
   a {
+    font-size: 20px;
     color: $linkBlue;
   }
   a:hover {
     color: white;
   }
-}
-
-.spacer {
-  height: 60vh;
 }
 
 .modal {

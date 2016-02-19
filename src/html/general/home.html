@@ -1,12 +1,11 @@
+<div class="title home-title">Welcome to Pitch Me!</div>
+<ul class="links">
+  <li class="link" ng-class="{'active':homeLocation.name==='faqs'}"><a ui-sref="home.faqs">Faq</a></li>
+  <li class="link" ng-class="{'active':homeLocation.name==='intro'}"><a ui-sref="home.intro">Home</a></li>
+  <li class="link" ng-class="{'active':homeLocation.name==='pitches'}"><a ui-sref="home.pitches">Recent Pitches</a></li>
+</ul>
+
 <div class="wrapper">
-
-  <div class="title home-title">Welcome to Pitch Me!</div>
-  <ul class="links">
-    <li class="link" ng-class="{'active':homeLocation.name==='faqs'}"><a ui-sref="home.faqs">Faq</a></li>
-    <li class="link" ng-class="{'active':homeLocation.name==='intro'}"><a ui-sref="home.intro">Home</a></li>
-    <li class="link" ng-class="{'active':homeLocation.name==='pitches'}"><a ui-sref="home.pitches">Recent Pitches</a></li>
-  </ul>
-
   <div ui-view class="home-slide"></div>
 </div>
 <div class="margin"></div>
