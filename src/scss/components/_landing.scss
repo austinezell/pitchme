@@ -4,6 +4,35 @@
 "./landingSubcomponents/_pitches"
 ;
 
+.links {
+  list-style-type: none;
+  height: 50px;
+  text-align: center;
+  padding: 0px;
+  li.link{
+    width: 200px;
+    border-width: 2px;
+    border-color: black;
+    border-radius: 10px;
+    border: 2px solid black;
+    background-color: slategrey;
+    padding: calc(50px-1rem);
+    display: inline-block;
+    a{
+      display: inline-block;
+      font-size: 2rem;
+      color: white;
+      width: 100%;
+    }
+  }
+  li.link.active{
+    background-color: white;
+    border-color: slategrey;
+    a{
+      color: black;
+    }
+  }
+}
 
 .home-title{
   height: calc(100px + 5rem);
@@ -12,7 +41,7 @@
 }
 
 .margin{
-  height: 100px;
+  min-height: 100px;
 }
 
 .home-slide {
@@ -43,5 +72,4 @@
   overflow: hidden;
   min-height: calc(100vh-100px);
   min-height: 700px;
-  margin-bottom: 100px;
 }

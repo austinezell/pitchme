@@ -13,18 +13,28 @@ app.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $ur
   })
   .state("home.intro", {
     url: '/',
-    templateUrl: '/html/general/home/intro.html'
+    templateUrl: '/html/general/home/intro.html',
+    controller: ["$scope", "$state", function($scope, $state){
+      $scope.homeLocation.name = $state.current.name.replace('home.', '');
+      $scope.$apply;
+    }]
   })
   .state("home.faqs", {
     url: '/faqs',
-    templateUrl: '/html/general/home/faq.html'
+    templateUrl: '/html/general/home/faq.html',
+    controller: ["$scope", "$state", function($scope, $state){
+      $scope.homeLocation.name = $state.current.name.replace('home.', '');
+      $scope.$apply;
+    }]
   })
   .state("home.pitches", {
     url: '/pitches',
-    templateUrl: '/html/general/home/pitches.html'
+    templateUrl: '/html/general/home/pitches.html',
+    controller: ["$scope", "$state", function($scope, $state){
+      $scope.homeLocation.name = $state.current.name.replace('home.', '');
+      $scope.$apply;
+    }]
   })
-
-
 
   .state('users',{
     url: '/users',
@@ -41,7 +51,6 @@ app.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $ur
     templateUrl: 'html/users/profile.html',
     controller: 'profileCtrl'
   })
-
 
   .state('me', {
     url: '/me',
