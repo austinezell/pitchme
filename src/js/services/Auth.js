@@ -58,7 +58,7 @@ app.service('Auth', ['$http', '$window', "localStorageKey", '$rootScope', '$stat
     $window.localStorage.removeItem(localStorageKey);
     $rootScope.loggedIn = false;
     $rootScope.currentUser = null;
-    $state.go('home')
+    $state.go('home.intro')
   };
 
   $rootScope.loggedIn = this.isLoggedIn();
