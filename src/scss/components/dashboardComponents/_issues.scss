@@ -1,3 +1,37 @@
+.shrink-down {
+  transition: all .5s ease;
+  width: calc(100% - 50px);
+  min-height: 150px;
+  transform: scaleY(1);
+  height: calc(20vh - 50px);
+}
+
+.shrink-down.ng-enter {
+  transition-delay: .5s;
+  transform: scaleY(0);
+  height: 0px;
+}
+
+.shrink-down.ng-enter-active.ng-enter, .shrink-down.ng-leave {
+  position: absolute;
+  color: black;
+  right: 0;
+  left: 0;
+  width: calc(100% - 50px);
+  margin-right: auto;
+  margin-left: auto;
+  min-height: 150px;
+  transform: scaleY(1);
+  height: calc(20vh - 50px);
+}
+.shrink-down.ng-leave{
+  color: white !important;
+}
+
+.shrink-down.ng-leave.ng-leave-active {
+  transform: scaleY(0);
+}
+
 .sunken {
   height: 20vh;
   min-height: 200px;
