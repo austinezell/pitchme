@@ -3,7 +3,6 @@
 import app from '../app.js'
 
 app.service('Pitch', ["$state", "$http", function($state, $http){
-
   this.createPitch = (pitch) => {
     $http.post('/pitches/create', pitch)
     .then( data =>{
@@ -37,8 +36,6 @@ app.service('Pitch', ["$state", "$http", function($state, $http){
     })
   }
 
-  this.addIsue
-
   this.getAll = () => {
     return $http.get('/pitches')
   }
@@ -55,11 +52,11 @@ app.service('Pitch', ["$state", "$http", function($state, $http){
     return $http.post('/pitches/addComment', {comment, pitchId})
   }
 
-  this.getIssueDetails = (issueID)=>{
-    return $http.get(`/pitches/issues/details/${issue}`)
+  this.getDetails = (pitchId) => {
+    return $http.get(`/pitches/details/${pitchId}`);
   }
 
-  this.getDetails = (pitchId) => {
-    return $http.get(`/pitches/details/${pitchId}`)
+  this.addSuggestion = (suggestion, issueID) =>{
+    return $http.post(`/pitches/addSuggestion/${issueID}`, suggestion);
   }
 }])

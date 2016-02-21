@@ -39,6 +39,8 @@ app.controller("issuesCtrl", ["$scope", "$state", "Pitch", function($scope, $sta
 
   $scope.addSuggestion = (suggestion) =>{
     Pitch.addSuggestion(suggestion, $scope.issue._id)
-  }
+    .then(response =>{
 
+    })
+  }
 }])

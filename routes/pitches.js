@@ -5,6 +5,7 @@ const jwtAuth = require('../config/auth.js');
 const Pitch = require('../models/pitchSchema.js');
 const Message = require('../models/messageSchema.js');
 const Issue = require('../models/issueSchema.js');
+const Suggestion = require('../models/suggestionSchema.js');
 const User = require('../models/userSchema.js');
 const Comment = require('../models/commentSchema.js');
 
@@ -13,20 +14,6 @@ router.get('/', (req, res) => {
     err ? res.status(499).send(err) : res.send(pitches);
   })
 });
-
-router.get('/details/:id', (req, res)=>{
-  Pitch.findById(req.params.id).deepPopulate(['pitcher', 'issues', 'issues.reporter', 'developers', 'administrators', 'url'])
-  .exec( (err, pitch)=>{
-    err ? res.status(499).send(err) : res.send(pitch);
-  })
-})
-
-router.get('/one/:id', (req, res)=> {
-  Pitch.findById(req.params.id).deepPopulate(['pitcher', "comments", "comments.commenter"]).exec( (err, pitch)=>{
-    err ? res.status(499).send(err) : res.send(pitch);
-  })
-});
-
 
 router.post('/addIssue/:id', jwtAuth.middleware, (req, res) =>{
   const userId = jwtAuth.getUserId(req.headers.authorization);
@@ -82,7 +69,7 @@ router.post('/create', jwtAuth.middleware, (req, res) => {
 router.post('/addComment/', jwtAuth.middleware, (req,res)=>{
   const userId = jwtAuth.getUserId(req.headers.authorization);
 
-  let commentObject = {
+  const commentObject = {
     commenter: userId,
     parentPitch: req.body.pitchId,
     body: req.body.comment
@@ -110,43 +97,41 @@ router.post('/request', jwtAuth.middleware, (req, res) =>{
 
   User.findById(userId, (err, sender)=>{
     if (err) return res.status(499).send(err);
-    User.findById(req.body.pitcherId, (err, recipient) =>{
+    Pitch.findById(req.body.pitchId, (err, pitch)=>{
       if (err) return res.status(499).send(err);
-      Pitch.findById(req.body.pitchId, (err, pitch)=>{
+
+      if(pitch.requestedUsers.indexOf(sender._id) !== -1){
+        return res.status(450).send("You've already requested to be put on this project!")
+      }
+      pitch.requestedUsers.push(sender._id);
+      pitch.save(err=>{
         if (err) return res.status(499).send(err);
+      })
 
-        if(pitch.requestedUsers.indexOf(sender._id) !== -1){
-          return res.status(450).send("You've already requested to be put on this project!")
-        }
-        pitch.requestedUsers.push(sender._id);
-        pitch.save(err=>{
-          if (err) return res.status(499).send(err);
-        })
-
-        const body = `Hi, ${recipient.username},\
-        \n${sender.username} would \
-        like to be added to your project ${pitch.title}. \
-        Click here to accept, or click here to refuse.`;
+      var i = 0;
+      pitch.administrators.forEach(admin =>{
+        const body = `You have a new request from ${sender.username} \
+        to be added to the project "${pitch.title}". Head toward \
+        the admin panel to accept or reject!`;
         const subject = "New request!";
-
-        let messageObject = {
-          subject, body, recipient: recipient._id, sender: sender._id
+        const messageObject = {
+          subject, body, recipient: admin, sender: sender._id
         }
-
-        Message.create(messageObject, (err, message)=>{
+        User.findById((err, administrator)=>{
           if (err) return res.status(499).send(err);
-
-          sender.messagesSent.push(message._id);
-          recipient.messagesReceived.push(message._id);
-          let errs = [];
-          sender.save(err=>{
+          Message.create(messageObject, (err, message)=>{
             if (err) return res.status(499).send(err);
 
-          })
-          recipient.save(err=>{
-            if (err) return res.status(499).send(err);
+            sender.messagesSent.push(message._id);
+            administrator.messagesReceived.push(message._id);
+            sender.save(err=>{
+              if (err) return res.status(499).send(err);
+            })
 
-            res.send("Request Sent");
+            administrator.save(err=>{
+              if (err) return res.status(499).send(err);
+              if(++i === pitch.administrators.length) res.end();
+            })
           })
         })
       })
@@ -154,5 +139,29 @@ router.post('/request', jwtAuth.middleware, (req, res) =>{
   })
 });
 
+router.get('/details/:id', (req, res)=>{
+  Pitch.findById(req.params.id).deepPopulate(['pitcher', 'issues', 'issues.reporter', 'developers', 'administrators', 'url'])
+  .exec( (err, pitch)=>{
+    err ? res.status(499).send(err) : res.send(pitch);
+  })
+})
 
+router.get('/one/:id', (req, res)=> {
+  Pitch.findById(req.params.id).deepPopulate(['pitcher', "comments", "comments.commenter"]).exec( (err, pitch)=>{
+    err ? res.status(499).send(err) : res.send(pitch);
+  })
+});
+
+router.post('/addSuggestion/:id', (req, res)=>{
+  Issue.findById( req.params.id, (err, issue)=>{
+    if (err) return res.status(499).send(err);
+    Suggestion.create(req.body, (err, suggestion)=>{
+      if (err) return res.status(499).send(err);
+      issue.suggestions.push(suggestion._id);
+      issue.save((err)=>{
+        err ? res.status(499).send(err) : res.send(suggestion);
+      })
+    })
+  })
+})
 module.exports = router;
