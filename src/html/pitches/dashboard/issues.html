@@ -7,7 +7,7 @@
   </div>
   <div class="issues-scroller scroller">
     <ul>
-      <li ng-repeat="issue in openIssues" ng-class="{'active': issue._id === currentLocation.id}"><a ng-click="changeIssue(issue)" ui-sref="pitches.dashboard.issues.details({issueID: issue._id})">{{issue.title}}</a></li>
+      <li ng-repeat="issue in openIssues" ng-class="{'active': issue._id === currentLocation.id}"><a ng-click="changeIssue(issue)" ui-sref="pitches.dashboard.issues.details({issueId: issue._id})">{{issue.title}}</a></li>
     </ul>
   </div>
 </div>

@@ -108,7 +108,7 @@ app.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $ur
     controller: "issuesCtrl"
   })
   .state('pitches.dashboard.issues.details', {
-    url: '/view/:issueID',
+    url: '/view/:issueId',
     templateUrl: 'html/pitches/dashboard/issues/details.html',
     controller: "singleIssueCtrl"
   })

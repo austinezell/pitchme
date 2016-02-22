@@ -91,7 +91,6 @@ router.post('/addComment/', jwtAuth.middleware, (req,res)=>{
   })
 })
 
-
 router.post('/request', jwtAuth.middleware, (req, res) =>{
   const userId = jwtAuth.getUserId(req.headers.authorization);
 
@@ -140,7 +139,10 @@ router.post('/request', jwtAuth.middleware, (req, res) =>{
 });
 
 router.get('/details/:id', (req, res)=>{
-  Pitch.findById(req.params.id).deepPopulate(['pitcher', 'issues', 'issues.reporter', 'developers', 'administrators', 'url'])
+  Pitch.findById(req.params.id)
+  .populate('pitcher', 'username')
+  .populate('administrators')
+  .populate('issues', 'title')
   .exec( (err, pitch)=>{
     err ? res.status(499).send(err) : res.send(pitch);
   })
@@ -164,4 +166,12 @@ router.post('/addSuggestion/:id', (req, res)=>{
     })
   })
 })
+
+router.get('/issues/one/:id', (req, res)=>{
+  Issue.findById(req.params.id, (err, issue)=>{
+    err ? res.status(499).send(err) : res.send(issue)
+  })
+})
+
+
 module.exports = router;

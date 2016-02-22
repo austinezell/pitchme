@@ -53,10 +53,17 @@ app.service('Pitch', ["$state", "$http", function($state, $http){
   }
 
   this.getDetails = (pitchId) => {
-    return $http.get(`/pitches/details/${pitchId}`);
+    return $http.get(`/pitches/details/${pitchId}`)
+    .success((data)=>{
+      console.log(data);
+    });
   }
 
-  this.addSuggestion = (suggestion, issueID) =>{
-    return $http.post(`/pitches/addSuggestion/${issueID}`, suggestion);
+  this.getIssue = (issueId) =>{
+    return $http.get(`/pitches/issues/one/${issueId}`)
+  }
+
+  this.addSuggestion = (suggestion, issueId) =>{
+    return $http.post(`/pitches/addSuggestion/${issueId}`, suggestion);
   }
 }])
