@@ -54,9 +54,6 @@ app.service('Pitch', ["$state", "$http", function($state, $http){
 
   this.getDetails = (pitchId) => {
     return $http.get(`/pitches/details/${pitchId}`)
-    .success((data)=>{
-      console.log(data);
-    });
   }
 
   this.getIssue = (issueId) =>{
