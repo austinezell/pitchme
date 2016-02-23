@@ -103,20 +103,32 @@ app.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $ur
     }]
   })
   .state('pitches.dashboard.issues',{
-    url: '/issues',
     templateUrl: 'html/pitches/dashboard/issues.html',
-    controller: "issuesCtrl"
+    controller: "issuesCtrl",
+    url: '/issues'
   })
   .state('pitches.dashboard.issues.details', {
-    url: '/view/:issueId',
+    url: '/one/:issueId',
     templateUrl: 'html/pitches/dashboard/issues/details.html',
     controller: "singleIssueCtrl"
+  })
+  .state('pitches.dashboard.issues.details.suggestion', {
+    url: '/suggestion/:sugId',
+    views: {
+      "suggestion@pitches.dashboard.issues": {
+        templateUrl: "html/pitches/dashboard/issues/suggestion.html",
+        controller: ["$scope", "$state", function($scope, $state){
+          $scope.currentLocation.name = "issues";
+          $scope.currentLocation.sugId = $state.params.sugId;
+        }]
+      }
+    }
   })
   .state('pitches.dashboard.admin',{
     url: '/admin',
     templateUrl: 'html/pitches/dashboard/admin.html',
     controller: ["$scope", "$state", function($scope, $state){
-      $scope.currentLocation.name = $state.current.name.replace('pitches.dashboard.', '');
+      $scope.currentLocation.name = "admin";
       $scope.$apply;
     }]
   })

@@ -2,10 +2,10 @@ import app from "../../../../app.js";
 
 
 app.controller("issuesCtrl", ["$scope", "$state", "Pitch", function($scope, $state, Pitch){
-  $scope.currentLocation.name = $state.current.name.replace("pitches.dashboard.", "");
+  $scope.currentLocation.name = 'issues'
   $scope.$apply;
   $scope.newIssue = {};
-  $scope.issue = {};
+  $scope.newSuggestion = {};
   let $addItem;
 
   angular.element(document).ready(function() {
@@ -22,10 +22,6 @@ app.controller("issuesCtrl", ["$scope", "$state", "Pitch", function($scope, $sta
     })
   });
 
-  $scope.changeIssue = (issue) => {
-    $scope.issue = issue;
-  }
-
   $scope.addIssue = (issue) => {
     Pitch.addIssue(issue, $scope.pitch._id)
     .then((response)=>{
@@ -40,7 +36,7 @@ app.controller("issuesCtrl", ["$scope", "$state", "Pitch", function($scope, $sta
   $scope.addSuggestion = (suggestion) =>{
     Pitch.addSuggestion(suggestion, $scope.issue._id)
     .then(response =>{
-
+      $scope.newSuggestion = {};
     })
   }
 }])

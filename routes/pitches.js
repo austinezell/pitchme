@@ -168,7 +168,9 @@ router.post('/addSuggestion/:id', (req, res)=>{
 })
 
 router.get('/issues/one/:id', (req, res)=>{
-  Issue.findById(req.params.id, (err, issue)=>{
+  Issue.findById(req.params.id)
+  .populate('suggestions', 'title')
+  .exec( (err, issue)=>{
     err ? res.status(499).send(err) : res.send(issue)
   })
 })

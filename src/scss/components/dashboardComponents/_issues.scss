@@ -24,12 +24,40 @@
   transform: scaleY(1);
   height: calc(20vh - 50px);
 }
-.shrink-down.ng-leave{
+
+.shrink-down.ng-leave {
   color: white !important;
 }
 
 .shrink-down.ng-leave.ng-leave-active {
   transform: scaleY(0);
+}
+
+.fade-out {
+  margin-top: 2rem;
+  transition: all .5s ease;
+  min-height: 150px;
+  opacity: 1;
+  border: 1px solid black;
+  position: relative;
+}
+
+.fade-out.ng-enter {
+  transition-delay: .5s;
+  opacity: 0;
+}
+
+.fade-out.ng-enter-active.ng-enter, .fade-out.ng-leave {
+  right: 0;
+  left: 0;
+  margin-right: auto;
+  margin-left: auto;
+  min-height: 150px;
+  opacity: 1;
+}
+
+.fade-out.ng-leave.ng-leave-active {
+  opacity: 0;
 }
 
 .sunken {
@@ -231,5 +259,13 @@
   }
   textarea{
     height: 80px;
+  }
+}
+[ui-view="pitches.dashboard.issues.details.suggestion"]{
+  min-height: 400px;
+  .suggestion {
+    width: 80%;
+    min-height: 400px;
+    border: 1px solid slategrey;
   }
 }
