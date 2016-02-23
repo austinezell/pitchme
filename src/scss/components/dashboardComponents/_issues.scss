@@ -46,7 +46,7 @@
     position: relative;
     text-align: left;
     padding: 25px;
-    max-height: 400px;
+    max-height: 240px;
     overflow-y: scroll;
   }
 }
@@ -154,22 +154,22 @@
   }
 }
 
-.scroller::-webkit-scrollbar {
+.suggestion::-webkit-scrollbar, .scroller::-webkit-scrollbar {
   width: 1rem;
   background-color: white;
 }
 
-.scroller::-webkit-scrollbar-track {
+.scroller::-webkit-scrollbar-track, .suggestion::-webkit-scrollbar-track {
   border: 1px solid black;
   border-right: 0;
 }
 
-.scroller::-webkit-scrollbar-thumb {
+.scroller::-webkit-scrollbar-thumb, .suggestion::-webkit-scrollbar-thumb {
   background-color: slategrey;
   border-radius: 5px;
 }
 
-.scroller::-webkit-scrollbar-button {
+.scroller::-webkit-scrollbar-button, .suggestion::-webkit-scrollbar-button {
   background-color: whitesmoke;
   border-left: 1px solid black;
   height: 10px;
@@ -183,11 +183,11 @@
   background-color: white;
   padding-top: 15px;
   padding-bottom: 15px;
-  width: 150px;
+  width: 200px;
   overflow: hidden;
   transition: all .5s ease;
   .fill-link{
-    width: 150px;
+    width: 200px;
     height: 60px;
     position: absolute;
     top: 0;
@@ -196,7 +196,7 @@
     transition: background-color .5s ease-in;
   }
   textarea, input {
-    width: 120px;
+    width: 180px;
   }
   a{
     color: rgb(73, 104, 133);

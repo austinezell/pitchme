@@ -2,6 +2,7 @@ const router = require('express').Router();
 const jwtAuth = require('../config/auth');
 const Issue = require('../models/issueSchema');
 const Suggestion = require('../models/suggestionSchema');
+const Pitch = require('../models/pitchSchema');
 
 router.post('/addSuggestion/:id', jwtAuth.middleware, (req, res)=>{
   const userId = jwtAuth.getUserId(req.headers.authorization);
@@ -13,7 +14,10 @@ router.post('/addSuggestion/:id', jwtAuth.middleware, (req, res)=>{
       if (err) return res.status(499).send(err);
       issue.suggestions.push(suggestion._id);
       issue.save((err)=>{
-        err ? res.status(499).send(err) : res.send({_id: suggestion._id, title: suggestion.title});
+        err ? res.status(499).send(err) : res.send({
+          _id: suggestion._id,
+          title: suggestion.title
+        });
       })
     })
   })
