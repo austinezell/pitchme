@@ -30,7 +30,7 @@
 }
 
 .shrink-down.ng-leave.ng-leave-active {
-  opacity: 0;
+  transform: scaleY(0);
 }
 
 .fade-out {
