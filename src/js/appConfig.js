@@ -51,18 +51,17 @@ app.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $ur
     templateUrl: 'html/users/profile.html',
     controller: 'profileCtrl'
   })
-
-  .state('me', {
+  .state('users.me', {
     url: '/me',
     abstract: true,
     template: '<ui-view/>'
   })
-  .state('me.profile', {
+  .state('users.me.profile', {
     url: '/profile',
     templateUrl: 'html/users/profile.html',
     controller: 'currentUserCtrl'
   })
-  .state('me.inbox', {
+  .state('users.me.inbox', {
     url: '/inbox/:num',
     templateUrl: 'html/users/inbox.html',
     controller: 'inboxCtrl'

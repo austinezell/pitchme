@@ -6,7 +6,9 @@ app.controller('viewPitchCtrl', ["$scope", 'Pitch', "$stateParams", "$rootScope"
   .success(data => {
     $scope.pitch = data
     $scope.noDevelopers = data.developers.length === 0 ? true : false
-    $scope.requested = $scope.pitch.requestedUsers.indexOf($rootScope.currentUser._id) === -1 ? false : true;
+    if ($rootScope.currentUser){
+      $scope.requested = $scope.pitch.requestedUsers.indexOf($rootScope.currentUser._id) === -1 ? false : true;
+    }
   })
 
 

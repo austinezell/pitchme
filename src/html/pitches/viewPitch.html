@@ -19,7 +19,7 @@
           </div>
         </div>
 
-        <div class="col-xs-6 col-sm-5 col-md-4">
+        <div class="col-xs-6 col-sm-5 col-md-4" ng-if="currentUser">
           <div>
             Post a comment
           </div>
@@ -52,13 +52,15 @@
         No one is working on this project.
       </p>
       <hr/>
-      <h4 ng-if="!requested">
-        Request to be put on the projejct!
-      </h4>
-      <h4 ng-if="requested">
-        You've already requested this project!
-      </h4>
-      <button class='btn pull-right' ng-disabled='requested' ng-click='request()'>Request</button>
+      <div ng-if="currentUser">
+        <h4 ng-if="!requested">
+          Request to be put on the projejct!
+        </h4>
+        <h4 ng-if="requested">
+          You've already requested this project!
+        </h4>
+        <button class='btn pull-right' ng-disabled='requested' ng-click='request()'>Request</button>
+      </div>
 
       <hr>
     </div>
