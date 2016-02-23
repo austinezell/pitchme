@@ -12,26 +12,7 @@ app.service('Pitch', ["$state", "$http", function($state, $http){
         text: "Pitch Successfully Created",
         timer: 800
       })
-    })
-  }
-
-  this.addIssue= (issue, pitchId) =>{
-    return $http.post(`/pitches/addIssue/${pitchId}`, issue)
-    .success((data)=>{
-      swal({
-        title: "Issue Reported",
-        type: "success",
-        text: "Your issue has been reported",
-        timer: 1000
-      })
-    })
-    .error((err)=>{
-      swal({
-        title: "Error",
-        type: "error",
-        text: "Something went wrong! Make sure all fields are filled out, or try again later!",
-        timer: 3000
-      })
+    }, err =>{
 
     })
   }
@@ -56,11 +37,4 @@ app.service('Pitch', ["$state", "$http", function($state, $http){
     return $http.get(`/pitches/details/${pitchId}`)
   }
 
-  this.getIssue = (issueId) =>{
-    return $http.get(`/pitches/issues/one/${issueId}`)
-  }
-
-  this.addSuggestion = (suggestion, issueId) =>{
-    return $http.post(`/pitches/addSuggestion/${issueId}`, suggestion);
-  }
 }])

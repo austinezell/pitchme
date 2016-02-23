@@ -16,8 +16,10 @@ import './controllers/pitches/viewPitchCtrl.js';
 import './controllers/pitches/dashboard/dashboardCtrl.js';
 import './controllers/pitches/dashboard/issues/singleIssueCtrl.js';
 import './controllers/pitches/dashboard/issues/issuesCtrl.js';
+import './controllers/pitches/dashboard/issues/suggestionCtrl.js';
 
 import './services/Pitch.js';
 import './services/User.js';
 import './services/Auth.js';
 import './services/Message.js';
+import './services/Issue.js';

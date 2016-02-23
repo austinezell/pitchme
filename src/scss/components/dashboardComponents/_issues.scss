@@ -30,12 +30,12 @@
 }
 
 .shrink-down.ng-leave.ng-leave-active {
-  transform: scaleY(0);
+  opacity: 0;
 }
 
 .fade-out {
   margin-top: 2rem;
-  transition: all .5s ease;
+  transition: all .2s ease;
   min-height: 150px;
   opacity: 1;
   border: 1px solid black;
@@ -48,6 +48,8 @@
 }
 
 .fade-out.ng-enter-active.ng-enter, .fade-out.ng-leave {
+  position: absolute;
+  width: 90%;
   right: 0;
   left: 0;
   margin-right: auto;

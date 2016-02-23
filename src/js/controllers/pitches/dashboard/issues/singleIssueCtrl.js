@@ -1,15 +1,17 @@
 import app from "../../../../app.js";
 
 
-app.controller("singleIssueCtrl", ["$scope", "$stateParams", "Pitch", function($scope, $stateParams, Pitch){
+app.controller("singleIssueCtrl", ["$scope", "$stateParams", "Issue", function($scope, $stateParams, Issue){
   $scope.currentLocation.name = "issues";
   $scope.currentLocation.issueId = $stateParams.issueId;
   $scope.$apply;
 
-  Pitch.getIssue($stateParams.issueId)
+  Issue.getIssue($stateParams.issueId)
   .then(response=>{
-    // $scope.issue = response.data;
     $scope.$parent.issue = response.data;
+    $scope.$parent.issue.datePosted = new Date(response.data.datePosted);
     $scope.$apply;
+  }, (err)=> {
+    console.log(err)
   })
 }])

@@ -1,8 +1,9 @@
 import app from "../../../../app.js";
 
 
-app.controller("issuesCtrl", ["$scope", "$state", "Pitch", function($scope, $state, Pitch){
-  $scope.currentLocation.name = 'issues'
+app.controller("issuesCtrl", ["$scope", "Issue", function($scope, Issue){
+  $scope.currentLocation.name = 'issues';
+  $scope.currentLocation.issueId = null;
   $scope.$apply;
   $scope.newIssue = {};
   $scope.newSuggestion = {};
@@ -23,7 +24,7 @@ app.controller("issuesCtrl", ["$scope", "$state", "Pitch", function($scope, $sta
   });
 
   $scope.addIssue = (issue) => {
-    Pitch.addIssue(issue, $scope.pitch._id)
+    Issue.addIssue(issue, $scope.pitch._id)
     .then((response)=>{
       $scope.newIssue ={}
       $scope.openIssues.unshift(response.data.issue);
@@ -34,7 +35,7 @@ app.controller("issuesCtrl", ["$scope", "$state", "Pitch", function($scope, $sta
   }
 
   $scope.addSuggestion = (suggestion) =>{
-    Pitch.addSuggestion(suggestion, $scope.issue._id)
+    Issue.addSuggestion(suggestion, $scope.issue._id)
     .then(response =>{
       $scope.newSuggestion = {};
     })

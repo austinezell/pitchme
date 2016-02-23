@@ -117,10 +117,7 @@ app.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $ur
     views: {
       "suggestion@pitches.dashboard.issues": {
         templateUrl: "html/pitches/dashboard/issues/suggestion.html",
-        controller: ["$scope", "$state", function($scope, $state){
-          $scope.currentLocation.name = "issues";
-          $scope.currentLocation.sugId = $state.params.sugId;
-        }]
+        controller: "suggestionCtrl"
       }
     }
   })
