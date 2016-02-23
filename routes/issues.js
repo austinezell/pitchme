@@ -4,9 +4,8 @@ const Issue = require('../models/issueSchema');
 const Suggestion = require('../models/suggestionSchema');
 const Pitch = require('../models/pitchSchema');
 
-router.post('/addSuggestion/:id', jwtAuth.middleware, (req, res)=>{
-  const userId = jwtAuth.getUserId(req.headers.authorization);
-  req.body.suggestor = userId;
+router.post('/addSuggestion/:id', jwtAuth, (req, res)=>{
+  req.body.suggestor = req.payload._id
 
   Issue.findById( req.params.id, (err, issue)=>{
     if (err) return res.status(499).send(err);
@@ -32,9 +31,8 @@ router.get('/one/:id', (req, res)=>{
   })
 })
 
-router.post('/addIssue/:id', jwtAuth.middleware, (req, res) =>{
-  const userId = jwtAuth.getUserId(req.headers.authorization);
-  req.body.reporter = userId;
+router.post('/addIssue/:id', jwtAuth, (req, res) =>{
+  req.body.reporter = req.payload._id
 
   Issue.create(req.body, (err, issue)=>{
     if (err) return res.status(499).send(err);

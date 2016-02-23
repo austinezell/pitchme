@@ -16,9 +16,8 @@ router.get('/', (req, res) => {
 });
 
 
-router.post('/create', jwtAuth.middleware, (req, res) => {
-  const userId = jwtAuth.getUserId(req.headers.authorization);
-  req.body.pitcher = userId;
+router.post('/create', jwtAuth, (req, res) => {
+  req.body.pitcher =  req.payload._id;
 
   if(/\W/.test(req.body.tags)){
     req.body.tags = req.body.tags.split(/\s+/);
@@ -47,11 +46,10 @@ router.post('/create', jwtAuth.middleware, (req, res) => {
 });
 
 
-router.post('/addComment/', jwtAuth.middleware, (req,res)=>{
-  const userId = jwtAuth.getUserId(req.headers.authorization);
+router.post('/addComment/', jwtAuth, (req,res)=>{
 
   const commentObject = {
-    commenter: userId,
+    commenter:  req.payload._id,
     parentPitch: req.body.pitchId,
     body: req.body.comment
   };
@@ -72,10 +70,9 @@ router.post('/addComment/', jwtAuth.middleware, (req,res)=>{
   })
 })
 
-router.post('/request', jwtAuth.middleware, (req, res) =>{
-  const userId = jwtAuth.getUserId(req.headers.authorization);
+router.post('/request', jwtAuth, (req, res) =>{
 
-  User.findById(userId, (err, sender)=>{
+  User.findById(req.payload._id, (err, sender)=>{
     if (err) return res.status(499).send(err);
     Pitch.findById(req.body.pitchId, (err, pitch)=>{
       if (err) return res.status(499).send(err);

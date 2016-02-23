@@ -43,7 +43,7 @@ router.post('/login', function(req, res, next){
   });
 });
 
-router.put('/update', jwtAuth.middleware, (req, res)=> {
+router.put('/update', jwtAuth, (req, res)=> {
   const userId = jwtAuth.getUserId(req.headers.authorization);
 
   User.findByIdAndUpdate(userId, req.body, {new: true}, (err, user)=>{
@@ -51,7 +51,7 @@ router.put('/update', jwtAuth.middleware, (req, res)=> {
   });
 });
 
-router.get('/me', jwtAuth.middleware, (req, res) => {
+router.get('/me', jwtAuth, (req, res) => {
   const userId = jwtAuth.getUserId(req.headers.authorization);
 
   User.findById(userId).populate("messagesReceived pitches").exec( (err, user)=>{
@@ -62,7 +62,7 @@ router.get('/me', jwtAuth.middleware, (req, res) => {
   })
 });
 
-router.get('/me/archive', jwtAuth.middleware, (req, res) => {
+router.get('/me/archive', jwtAuth, (req, res) => {
   const userId = jwtAuth.getUserId(req.headers.authorization);
 
   User.findById(userId).populate("messagesReceived").exec( (err, user)=>{
@@ -78,11 +78,10 @@ router.get('/one/:username', (req, res)=> {
   })
 })
 
-router.post('/sendMessage', jwtAuth.middleware, (req, res) => {
-  const userId = jwtAuth.getUserId(req.headers.authorization);
-
+router.post('/sendMessage', jwtAuth, (req, res) => {
   let messageObject = req.body.message;
-  messageObject.sender = userId;
+  
+  messageObject.sender =  req.payload._id;
   User.findById(messageObject.recipient, (err, recipient)=>{
     if (err) return res.status(499).send(err);
     Message.create(messageObject, (err, message)=>{
