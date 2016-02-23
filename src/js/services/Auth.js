@@ -36,7 +36,6 @@ app.service('Auth', ['$http', '$window', "localStorageKey", '$rootScope', '$stat
     .then( res => {
       this.saveToken(res.data.jwt);
       $rootScope.loggedIn = this.isLoggedIn();
-      $state.go('users.me.proflie');
     })
     .catch(err => {
       console.log(err);
@@ -48,7 +47,6 @@ app.service('Auth', ['$http', '$window', "localStorageKey", '$rootScope', '$stat
     .then(res => {
       this.saveToken(res.data.jwt);
       $rootScope.loggedIn = this.isLoggedIn();
-      $state.go('users.me.proflie');
     }).catch(err => {
       console.log(err);
     })

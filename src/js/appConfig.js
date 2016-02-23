@@ -54,7 +54,12 @@ app.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $ur
   .state('users.me', {
     url: '/me',
     abstract: true,
-    template: '<ui-view/>'
+    template: '<ui-view/>',
+    controller: ['$rootScope', '$state', function($rootScope, $state){
+      if (!$rootScope.currentUser) {
+        $state.go('home.intro');
+      }
+    }]
   })
   .state('users.me.profile', {
     url: '/profile',

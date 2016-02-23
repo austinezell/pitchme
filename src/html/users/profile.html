@@ -28,7 +28,7 @@
 
         <a href ng-if="!currentUser" ui-sref="users.login">Login to Message {{profileUser.username}}</a>
 
-        <a href ng-if="me" ui-sref="me.inbox">
+        <a href ng-if="me" ui-sref="users.me.inbox">
           <span class="glyphicon glyphicon-envelope"></span>
           <span>View Your Messages</span>
         </a>
