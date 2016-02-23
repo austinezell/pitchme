@@ -2,7 +2,6 @@ import app from "../../../../app.js";
 
 
 app.controller("singleIssueCtrl", ["$scope", "$stateParams", "Issue", function($scope, $stateParams, Issue){
-  $scope.currentLocation.name = "issues";
   $scope.currentLocation.issueId = $stateParams.issueId;
   $scope.$apply;
 

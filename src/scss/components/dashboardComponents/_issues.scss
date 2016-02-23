@@ -35,11 +35,20 @@
 
 .fade-out {
   margin-top: 2rem;
-  transition: all .2s ease;
+  transition: all .5s ease;
   min-height: 150px;
   opacity: 1;
-  border: 1px solid black;
   position: relative;
+  .suggestion{
+    border: 1px solid black;
+    min-height: 150px;
+    height: 150px;
+    position: relative;
+    text-align: left;
+    padding: 25px;
+    max-height: 400px;
+    overflow-y: scroll;
+  }
 }
 
 .fade-out.ng-enter {

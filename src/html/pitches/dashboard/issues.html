@@ -15,7 +15,7 @@
   <div class="title">Suggestions</div>
   <div class="suggestions-scroller scroller">
     <ul>
-      <li ng-repeat="repeatSuggestion in issue.suggestions" ng-class="{'active': issue._id === currentLocation.sugId}"><a ui-sref="pitches.dashboard.issues.details.suggestion({sugId: repeatSuggestion._id})">{{repeatSuggestion.title}}</a></li>
+      <li ng-repeat="repeatSuggestion in issue.suggestions" ng-class="{'active': repeatSuggestion._id === currentLocation.sugId}"><a ui-sref="pitches.dashboard.issues.details.suggestion({sugId: repeatSuggestion._id})">{{repeatSuggestion.title}}</a></li>
     </ul>
   </div>
 </div>

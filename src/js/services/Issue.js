@@ -27,6 +27,10 @@ app.service('Issue', ["$state", "$http", function($state, $http){
     })
   }
 
+  this.getSuggestion = (sugId) => {
+    return $http.get(`/issues/suggestion/one/${sugId}`);
+  }
+
   this.addSuggestion = (suggestion, issueId) =>{
     return $http.post(`/issues/addSuggestion/${issueId}`, suggestion);
   }

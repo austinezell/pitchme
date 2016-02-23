@@ -10,13 +10,9 @@ const SuggestionSchema = new Mongoose.Schema({
 });
 
 SuggestionSchema.pre("save", function(next){
-  this.body = this.body.replace(/<\w+>.*/g, function(code){
-    if (/<code>.+<\/code>?/.test(code)) {
-      code= code.substring(6, code.length-7);
-    }
-    code = `<code>${code.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</code>`
-    return code
-  }).replace(/\n|↵/g, "<br>");
+  this.body = this.body.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/`.+`/g, function(code){
+    return `<code>${code.substring(1, code.length-2)}</code>`
+  }).replace(/\n/g, "<br>");
   next();
 })
 

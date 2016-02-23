@@ -3,14 +3,17 @@ const jwtAuth = require('../config/auth');
 const Issue = require('../models/issueSchema');
 const Suggestion = require('../models/suggestionSchema');
 
-router.post('/addSuggestion/:id', (req, res)=>{
+router.post('/addSuggestion/:id', jwtAuth.middleware, (req, res)=>{
+  const userId = jwtAuth.getUserId(req.headers.authorization);
+  req.body.suggestor = userId;
+
   Issue.findById( req.params.id, (err, issue)=>{
     if (err) return res.status(499).send(err);
     Suggestion.create(req.body, (err, suggestion)=>{
       if (err) return res.status(499).send(err);
       issue.suggestions.push(suggestion._id);
       issue.save((err)=>{
-        err ? res.status(499).send(err) : res.send(suggestion);
+        err ? res.status(499).send(err) : res.send({_id: suggestion._id, title: suggestion.title});
       })
     })
   })
@@ -42,6 +45,14 @@ router.post('/addIssue/:id', jwtAuth.middleware, (req, res) =>{
         err ? res.status(499).send(err) : res.send({pitch, issue});
       })
     })
+  })
+})
+
+router.get('/suggestion/one/:id', (req, res)=>{
+  Suggestion.findById(req.params.id)
+  .populate('suggestor', 'username')
+  .exec( (err, suggestion)=>{
+    err ? res.status(499).send(err) : res.send(suggestion)
   })
 })
 

@@ -4,6 +4,7 @@ import app from "../../../../app.js";
 app.controller("issuesCtrl", ["$scope", "Issue", function($scope, Issue){
   $scope.currentLocation.name = 'issues';
   $scope.currentLocation.issueId = null;
+  $scope.currentLocation.sugId = null;
   $scope.$apply;
   $scope.newIssue = {};
   $scope.newSuggestion = {};
@@ -37,6 +38,7 @@ app.controller("issuesCtrl", ["$scope", "Issue", function($scope, Issue){
   $scope.addSuggestion = (suggestion) =>{
     Issue.addSuggestion(suggestion, $scope.issue._id)
     .then(response =>{
+      $scope.issue.suggestions.push(response.data);
       $scope.newSuggestion = {};
     })
   }
