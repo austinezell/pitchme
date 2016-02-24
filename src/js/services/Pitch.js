@@ -4,7 +4,7 @@ import app from '../app.js'
 
 app.service('Pitch', ["$state", "$http", function($state, $http){
   this.createPitch = (pitch) => {
-    $http.post('/pitches/create', pitch)
+    return $http.post('/pitches/create', pitch)
     .then( data =>{
       swal({
         title: "Pitch Created",

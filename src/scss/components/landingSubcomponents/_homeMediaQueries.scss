@@ -1,0 +1,43 @@
+@media (max-width: 1480px){
+  .about {
+    min-height: 400px;
+  }
+  .landing-pitch-title div {
+    font-size: 1.8rem;
+  }
+  .pitch-header h2 {
+    font-size: 2rem;
+  }
+  .links {
+    height: auto;
+    li.link {
+      max-width: 150px;
+      a{
+        font-size: 1.5rem;
+      }
+    }
+  }
+  .faq-header h2 {
+    font-size: 2rem;
+  }
+  .question, .answer {
+    font-size: 1.4rem;
+  }
+  .read-more {
+    span a {
+      font-size: 1rem;
+    }
+  }
+}
+
+@media (max-width: 520px) {
+  .links {
+    height: auto;
+    li.link {
+      max-width: 105px;
+      a{
+        font-size: 1rem;
+      }
+    }
+  }
+}

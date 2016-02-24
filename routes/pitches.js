@@ -31,12 +31,12 @@ router.post('/create', jwtAuth, (req, res) => {
     req.body.tags = tempArr;
   }
 
-  req.body.administrators = [userId];
-  req.body.developers = [userId];
+  req.body.administrators = [req.payload._id];
+  req.body.developers = [req.payload._id];
 
   Pitch.create(req.body, (err, pitch)=> {
     if (err) return res.status(499).send(err);
-    User.findById(userId, (err, user) => {
+    User.findById(req.payload._id, (err, user) => {
       user.pitches.push(pitch._id);
       user.save(err=>{
         err ? res.status(499).send(err) : res.send(pitch);

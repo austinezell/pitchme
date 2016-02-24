@@ -35,9 +35,10 @@
 }
 
 .home-title{
-  height: calc(100px + 5rem);
-  padding-top: 50px;
-  padding-bottom: 50px;
+  height: calc(60px + 3rem);
+  padding-top: 30px;
+  padding-bottom: 30px;
+  font-size: 3rem;
 }
 
 .margin{
@@ -74,4 +75,12 @@
   overflow: hidden;
   min-height: calc(100vh-100px);
   min-height: 700px;
+}
+
+
+@import "./landingSubcomponents/_homeMediaQueries";
+
+
+@media (max-width: 1080px){
+
 }
