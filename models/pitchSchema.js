@@ -24,13 +24,7 @@ PitchSchema.plugin(deepPopulate, {
   whitelist: [
     "pitcher",
     "comments",
-    "comments.commenter",
-    "issues",
-    "administrators",
-    "issues.reporter",
-    "issues.suggestions",
-    "issues.suggestions.suggestor",
-    "issues.suggestions.body"
+    "comments.commenter"
   ]
 })
 

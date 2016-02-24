@@ -51,10 +51,8 @@ router.put('/update', jwtAuth, (req, res)=> {
 });
 
 router.get('/me', jwtAuth, (req, res) => {
-
-  User.findById(req.payload._id).populate("messagesReceived pitches").exec( (err, user)=>{
+  User.findById(req.payload._id).populate("pitches").exec( (err, user)=>{
     if (err) return res.status(499).send(err)
-    user.messagesReceived = user.messagesReceived.filter(message => !message.isRead);
 
     res.send(user);
   })

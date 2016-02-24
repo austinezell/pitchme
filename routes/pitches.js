@@ -62,7 +62,7 @@ router.post('/addComment/', jwtAuth, (req,res)=>{
 
       pitch.save((err)=>{
         if (err) res.status(499).send(err);
-        pitch.deepPopulate('tester comments comments.commenter', (err)=>{
+        pitch.deepPopulate('pitcher comments comments.commenter', (err)=>{
           err ? res.status(499).send(err) : res.send(pitch);
         })
       })
