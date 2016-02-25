@@ -21,6 +21,7 @@ ul.nav.nav-tabs {
 
 .dashboard {
   width: 90%;
+  transition: width .1s;
   background-color: grey;
   min-height: calc(100vh - 100px);
   .nav-holder {

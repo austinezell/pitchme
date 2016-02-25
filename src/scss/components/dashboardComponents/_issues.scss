@@ -26,16 +26,16 @@
 }
 
 .shrink-down {
-  transition: all .5s ease;
+  transition: all .5s;
   min-height: 155px;
   transform: scaleY(1);
   height: 100%;
-  width: calc(100% - 20px);
 }
 
 .shrink-down-wrapper{
   width: 100%;
   height: 100%;
+  position: relative;
 }
 
 .shrink-down.ng-enter {
@@ -45,7 +45,6 @@
 
 .shrink-down.ng-enter-active.ng-enter, .shrink-down.ng-leave {
   position: absolute;
-  width: calc(100% - 20px);
   color: black;
   right: 0;
   left: 0;
@@ -68,6 +67,7 @@
   height: 150px;
   margin-top: 2rem;
   margin-bottom: 2rem;
+  position: relative;
 }
 
 .fade-out {
@@ -81,7 +81,7 @@
     height: 150px;
     position: relative;
     text-align: left;
-    padding: 25px;
+    padding: 1rem;
     overflow-y: scroll;
   }
 }
@@ -110,7 +110,7 @@
   min-height: 200px;
   background-color: grey;
   position: relative;
-  padding: 20px 10px 25px 10px;
+  padding: 20px 12px 25px;
   box-shadow: inset $shadow 20px 20px 10px;
 }
 
