@@ -20,6 +20,7 @@ ul.nav.nav-tabs {
 }
 
 .dashboard {
+  width: 90%;
   background-color: grey;
   min-height: calc(100vh - 100px);
   .nav-holder {
@@ -51,4 +52,5 @@ ul.nav.nav-tabs {
 }
 
 @import "./dashboardComponents/_overview",
-"./dashboardComponents/_issues";
+"./dashboardComponents/_issues",
+"./dashboardComponents/_dashboardMediaQueries";

@@ -1,0 +1,35 @@
+@media (max-width: 1400px){
+  .views {
+    .view-child {
+      margin-top: 1rem;
+      .sunken {
+        .sunken-child{
+          .title {
+            font-size: 1.4rem;
+            padding-top: 1rem;
+          }
+        }
+      }
+    }
+    >.title {
+      font-size: 2.5rem;
+    }
+  }
+  .scroller-container .title {
+    font-size: 2rem;
+  }
+}
+
+
+@media (max-width: 750px){
+  .sunken {
+    .sunken-child{
+      .title{
+        padding-top: calc(20px + 1rem) !important;
+      }
+      .date, .reporter, .relevancy {
+        display: none
+      }
+    }
+  }
+}
