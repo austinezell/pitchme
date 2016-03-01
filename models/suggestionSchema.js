@@ -4,7 +4,7 @@ const Mongoose = require("mongoose");
 
 const SuggestionSchema = new Mongoose.Schema({
   suggestor: {type: Mongoose.Schema.ObjectId, ref: "User"},
-  title: {type: String, required: true},
+  title: {type: String, default: "no title"},
   body: {type: String, required: true},
   datePosted: {type: Date, default: new Date}
 });

@@ -20,8 +20,8 @@ ul.nav.nav-tabs {
 }
 
 .dashboard {
-  width: 90%;
-  transition: width .1s;
+  width: 70%;
+  transition: all .4s;
   background-color: grey;
   min-height: calc(100vh - 100px);
   .nav-holder {
