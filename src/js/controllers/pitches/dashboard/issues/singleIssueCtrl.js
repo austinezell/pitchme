@@ -11,6 +11,6 @@ app.controller("singleIssueCtrl", ["$scope", "$stateParams", "Issue", function($
     $scope.$parent.issue.datePosted = new Date(response.data.datePosted);
     $scope.$apply;
   }, (err)=> {
-    console.log(err)
+
   })
 }])

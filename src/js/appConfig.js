@@ -16,7 +16,6 @@ app.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $ur
     templateUrl: '/html/general/home/intro.html',
     controller: ["$scope", "$state", function($scope, $state){
       $scope.homeLocation.name = $state.current.name.replace('home.', '');
-      $scope.$apply;
     }]
   })
   .state("home.faqs", {
@@ -24,7 +23,6 @@ app.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $ur
     templateUrl: '/html/general/home/faq.html',
     controller: ["$scope", "$state", function($scope, $state){
       $scope.homeLocation.name = $state.current.name.replace('home.', '');
-      $scope.$apply;
     }]
   })
   .state("home.pitches", {
@@ -32,7 +30,6 @@ app.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $ur
     templateUrl: '/html/general/home/pitches.html',
     controller: ["$scope", "$state", function($scope, $state){
       $scope.homeLocation.name = $state.current.name.replace('home.', '');
-      $scope.$apply;
     }]
   })
 
@@ -103,7 +100,6 @@ app.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $ur
     templateUrl: 'html/pitches/dashboard/overview.html',
     controller: ["$scope", "$state", function($scope, $state){
       $scope.currentLocation.name = $state.current.name.replace('pitches.dashboard.', '');
-      $scope.$apply;
     }]
   })
   .state('pitches.dashboard.issues',{
@@ -130,10 +126,29 @@ app.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $ur
     templateUrl: 'html/pitches/dashboard/admin.html',
     controller: ["$scope", "$state", function($scope, $state){
       $scope.currentLocation.name = "admin";
-      $scope.$apply;
     }]
   })
 }]);
+
+app.directive("codeInput", function(){
+  return function(scope, element, attrs){
+    element.bind("keydown", function(evt){
+      if (scope.newSuggestion.body === undefined) {
+        scope.newSuggestion.body = "";
+      }
+      if (evt.which === 192){
+        scope.newSuggestion.body += "`"
+        scope.$apply();
+      }
+      else if (evt.which === 9){
+        evt.preventDefault();
+        scope.newSuggestion.body += "  "
+        scope.$apply();
+
+      }
+    })
+  }
+})
 
 app.filter("sanitize", ['$sce', function($sce) {
   return function(htmlCode){

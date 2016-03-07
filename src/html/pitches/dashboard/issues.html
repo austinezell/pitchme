@@ -36,7 +36,7 @@
       <label for="title">Title</label><br/>
       <input placeholder="Suggestion Title" type="text" ng-model="newSuggestion.title">
       <label for="body">Body</label><br/>
-      <textarea ng-model="newSuggestion.body" placeholder="Suggestion Body"></textarea>
+      <textarea required ng-trim="false" ng-model="newSuggestion.body" placeholder="Suggestion Body" code-input></textarea>
       <button type="submit">Suggest</button>
     </form>
   </div>
@@ -48,7 +48,7 @@
   <div align="center" class="reveal">
     <form autocomplete="off" ng-submit="addIssue(newIssue)" id="addIssue">
       <label for="title">Title</label><br/>
-      <input required ng-model="newIssue.title" type="text" placeholder="Title" id="issueTitleInput"/><br>
+      <input ng-model="newIssue.title" type="text" placeholder="Title" id="issueTitleInput"/><br>
       <label for="description">Description</label><br>
       <textarea required ng-model="newIssue.description" name="description" placeholder="Description"></textarea><br>
       <button type="submit">Add Issue</button>
