@@ -137,25 +137,33 @@ app.directive("codeInput", function(){
       scope.newSuggestion.body = "";
     }
     element.bind("keydown", function(evt){
+      let el = element[0]
+      let start =el.selectionStart, end =el.selectionEnd;
       if (evt.which === 192){
-        let el = element[0]
-        let start =el.selectionStart, end =el.selectionEnd;
         if (start !== end){
           evt.preventDefault();
-          let tempStr = scope.newSuggestion.body
-          scope.newSuggestion.body = `${tempStr.substr(0, start)}\`${tempStr.substr(start, end)}\`${tempStr.substr(end)}`
+          let tempStr = scope.newSuggestion.body;
+          scope.newSuggestion.body = `${tempStr.substring(0, start)}\`${tempStr.substring(start, end)}\`${tempStr.substring(end)}`
           scope.$apply();
+          el.setSelectionRange(end+2, end+2);
+
           selection = true;
         }
       }
       else if (evt.which === 9){
         evt.preventDefault();
-        scope.newSuggestion.body += "  "
+        let tempStr = scope.newSuggestion.body
+        scope.newSuggestion.body = `${tempStr.substring(0, start)}  ${tempStr.substring(start)}`
         scope.$apply();
+        el.setSelectionRange(start+2, start+2);
       }
     })
     element.bind("keyup", function(evt){
-      if (evt.which === 192 && !selection){
+      if (selection){
+        evt.preventDefault();
+        return;
+      }
+      if (evt.which === 192){
         let el = element[0]
         scope.newSuggestion.body += "`";
         scope.$apply();

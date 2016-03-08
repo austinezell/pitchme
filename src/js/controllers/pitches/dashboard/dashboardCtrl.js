@@ -20,7 +20,6 @@ app.controller("dashboardCtrl", ["$scope", "Pitch", "User", "$state", "$statePar
     var tempArr = Array.prototype.reverse.call(pitch.issues);
     $scope.openIssues = tempArr.filter( (issue)=> !issue.isResolved);
     $scope.issues = $scope.openIssues.slice(0, 3);
-    $scope.$apply;
   }
 
 

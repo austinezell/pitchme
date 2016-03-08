@@ -5,9 +5,8 @@ app.controller("issuesCtrl", ["$scope", "Issue", function($scope, Issue){
   $scope.currentLocation.name = 'issues';
   $scope.currentLocation.issueId = null;
   $scope.currentLocation.sugId = null;
-  $scope.$apply;
   $scope.newIssue = {};
-  $scope.newSuggestion = {body: "", title: ""};
+  $scope.newSuggestion = {body: "", title: undefined};
   let $addItem;
 
   angular.element(document).ready(function() {
@@ -27,9 +26,8 @@ app.controller("issuesCtrl", ["$scope", "Issue", function($scope, Issue){
   $scope.addIssue = (issue) => {
     Issue.addIssue(issue, $scope.pitch._id)
     .then((response)=>{
-      $scope.newSuggestion = {body: "", title: ""};
+      $scope.newSuggestion = {body: "", title: undefined};
       $scope.openIssues.unshift(response.data.issue);
-      $scope.$apply;
     }, (err)=>{
       console.log(err)
     })

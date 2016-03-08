@@ -6,6 +6,7 @@ app.controller('suggestionCtrl', ["$scope", "$state", "Issue", function($scope, 
 
   Issue.getSuggestion($state.params.sugId)
   .then(response =>{
+
     $scope.suggestion = response.data;
     $scope.suggestion.datePosted = new Date(response.data.datePosted)
   }, (err)=>{
