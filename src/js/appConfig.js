@@ -132,19 +132,35 @@ app.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $ur
 
 app.directive("codeInput", function(){
   return function(scope, element, attrs){
+    let selection = false;
+    if (scope.newSuggestion.body === undefined) {
+      scope.newSuggestion.body = "";
+    }
     element.bind("keydown", function(evt){
-      if (scope.newSuggestion.body === undefined) {
-        scope.newSuggestion.body = "";
-      }
       if (evt.which === 192){
-        scope.newSuggestion.body += "`"
-        scope.$apply();
+        let el = element[0]
+        let start =el.selectionStart, end =el.selectionEnd;
+        if (start !== end){
+          evt.preventDefault();
+          let tempStr = scope.newSuggestion.body
+          scope.newSuggestion.body = `${tempStr.substr(0, start)}\`${tempStr.substr(start, end)}\`${tempStr.substr(end)}`
+          scope.$apply();
+          selection = true;
+        }
       }
       else if (evt.which === 9){
         evt.preventDefault();
         scope.newSuggestion.body += "  "
         scope.$apply();
-
+      }
+    })
+    element.bind("keyup", function(evt){
+      if (evt.which === 192 && !selection){
+        let el = element[0]
+        scope.newSuggestion.body += "`";
+        scope.$apply();
+        let range = el.selectionStart;
+        el.setSelectionRange(range-1, range-1);
       }
     })
   }
