@@ -2,16 +2,16 @@ $linkBlue: rgb(116, 251, 255);
 $shadow: rgb(69, 69, 69);
 $darkShadow: rgb(45, 45, 45);
 
-html {
+html, body {
   min-height: 100%;
   min-width: 350px;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body{
   background-color: white;
   margin-top: 50px;
-  min-height: calc(100vh - 1000px);
-  min-width: 350px;
 }
 
 

@@ -2,7 +2,7 @@ var gulp = require('gulp');
 var gutil = require('gulp-util');
 var concat = require('gulp-concat');
 var sass = require('gulp-sass');
-var minifyCss = require('gulp-minify-css');
+var clean = require('gulp-clean-css');
 var rename = require('gulp-rename');
 var webpack = require('webpack');
 var prefixer = require('gulp-autoprefixer');
@@ -41,7 +41,7 @@ gulp.task('sass', function(done) {
     browsers: ['last 2 versions'],
     cascade: false
   }))
-  .pipe(minifyCss())
+  .pipe(clean())
   .pipe(gulp.dest(dirs.out.css))
   .on('end', done);
 });
